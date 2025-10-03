@@ -1,0 +1,102 @@
+% ===============================
+% CRISP-DM — Business Understanding
+% Author: <Davide Viola>
+% ===============================
+\documentclass[a4paper,9pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[italian]{babel}
+\usepackage{tabularx}
+
+
+\title{AI-driven Learning for Education and Cooperation (Alec) - 1° Fase \\
+\large Business Understanding utilizzando il protocollo CRISP-DM per progetti Machine Learning.}
+\author{Davide Viola}
+
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\newpage 
+	\section{Business Understanding}
+	
+	% --- Contesto --- 
+	\subsection{Contesto} Il progetto, intitolato \textit{AI-driven Learning for Education and Cooperation} (Alec), nasce per dare concretezza allo studio e all'analisi eseguiti sui LLM in ambito educativo svolto da me. A corredo del progetto sarà disponibile anche il paper relativo allo studio consultabile su GitHub.
+	L'obiettivo di Alec è quello di proporsi come tutor virtuale a supporto della metodologia di peer learning tra studenti, offrendo un aiuto personalizzato e guidato dai documenti didattici revisionati e forniti dai docenti. Così facendo si offre un duplice beneficio: ridurre il carico di lavoro dei docenti e garantire agli studenti uno strumento in grado di offrire risposte di supporto, sempre coerenti con il materiale del corso, in modo  continuo e stimolante.
+	
+	% --- Obiettivi di business ---
+	\subsection{Obiettivi di business}
+	L'intento principale del progetto Alec è quello di sperimentare l'uso di tecnologie LLM per migliorare lo studio collaborativo tra studenti. In particolare, il progetto mira a:
+	
+	\begin{itemize} 
+		\item Ridurre la diffusione di errori concettuali durante le sessioni di peer learning, grazie a un sistema che interviene solo in caso di affermazioni scorrette o su esplicita richiesta di aiuto.
+		\item Fornire agli studenti un supporto personalizzato e \emph{scaffolded}, coerente con il materiale didattico e non invasivo, in modo da stimolare l'autonomia e la capacità di ragionamento critico.
+		\item Offrire ai docenti uno strumento che semplifichi il monitoraggio delle attività collaborative, riducendo il carico di lavoro e restituendo report chiari e semplici su partecipazione, punti di forza e aree di miglioramento degli studenti.
+		\item Creare le basi per un modello scalabile e adattabile ad altri corsi o contesti educativi, mantenendo sempre il controllo dei contenuti da parte dei docenti.
+	\end{itemize}
+	
+	% --- Requisiti principali ---
+	\subsection{Requisiti}
+	\subsubsection{Requisiti funzionali}
+	I requisiti funzionali descrivono le azioni concrete che il sistema deve essere in grado di compiere. In pratica, definiscono cosa il sistema deve fare per raggiungere gli obiettivi prefissati e supportare l'apprendimento collaborativo. 
+	\begin{itemize} 
+		\item \textbf{RF-1} Il sistema deve sfruttare principalmente i materiali didattici forniti dal docente come base di conoscenza, con citazioni alla fonte.
+		\item \textbf{RF-2} Il sistema deve rispondere quando la soglia di verità è inferiore all'80\% o su esplicita richiesta dell'utente.
+		\item \textbf{RF-3} Il sistema deve offrire spiegazioni graduali (scaffolded) adattate al livello di competenza dell'utente e al tema trattato.
+		\item \textbf{RF-4} Il sistema deve mantenere il contesto della conversazione multi-turno distinguendo chiaramente gli interventi dei diversi utenti.
+		\item \textbf{RF-5} Il sistema deve tracciare la partecipazione e la qualità degli interventi.
+		\item \textbf{RF-6} Il sistema deve generare, al termine della sessione, un report sintetico per docente e studenti con punti di forza, aree di miglioramento e suggerimenti di studio.
+		\item \textbf{RF-7} Il sistema deve permettere la gestione dei profili utente.
+
+	\end{itemize}
+	
+	\subsubsection{Requisiti non funzionali}
+	I requisiti non funzionali definiscono le qualità e i vincoli della soluzione web, mantenendo verifiche semplici per l’MVP.
+	\begin{itemize}
+		\item \textbf{RNF-1 (Accuratezza)} Raggiungere un'accuratezza delle correzioni \ensuremath{\geq} 85\% da test su set di valutazione interno.
+		\item \textbf{RNF-2 (Prestazioni back-end)} Mantenere un tempo medio di risposta del tutor \ensuremath{\leq} 3s su 50 interazioni tipiche di laboratorio.
+		\item \textbf{RNF-3 (Prestazioni front-end)} Assicurare un rendering della lista messaggi fluido (scroll senza scatti).
+		\item \textbf{RNF-4 (Compatibilità browser)} Supportare le versioni recenti di Chrome, Firefox ed Edge (ultime 2 release principali).
+		\item \textbf{RNF-5 (Trasparenza)} Includere, dove possibile, una citazione alla fonte interna per ogni correzione.
+		\item \textbf{RNF-6 (Manutenibilità)} Consentire ai docenti di aggiornare facilmente i materiali didattici e gestire le sessioni di tutoring senza conoscenze tecniche.
+	\end{itemize}
+
+	% --- Criteri di successo ---
+	\subsection{Criteri di successo}
+		
+	l progetto si considera completato con successo quando il prototipo rispetta i vincoli descritti nei requisiti non funzionali e ha implementato tutti i requisiti funzionali ad alta priorità, inoltre deve dimostrare, attraverso test di laboratorio, di poter operare in maniera stabile e comprensibile. 
+	In particolare, si richiede che le correzioni fornite siano sufficientemente accurate, che l’interazione avvenga con tempi di risposta adeguati e che l’interfaccia risulti usabile senza necessità di competenze tecniche avanzate.\\ 
+	Il successo non si misura soltanto sugli aspetti tecnici, ma anche sulla capacità del sistema di mostrarsi come uno strumento efficace per l’apprendimento collaborativo: deve infatti risultare uno strumento innovativo e stimolante attraverso le spiegazioni progressive e personalizzate. Infine i dati appresi durante la conversazione dovranno risultare un punto di partenza per migliorare i percorsi didattici per docenti e studenti.
+	
+	% --- Ambito del progetto ---
+	\subsection{Ambito del progetto}
+	Il progetto viene sviluppato da un singolo studente come parte di un tirocinio universitario. Il tempo a disposizione è limitato alla durata del tirocinio e le risorse utilizzabili consistono principalmente in un ambiente di sviluppo locale, librerie software open source e l’accesso a modelli LLM tramite API o strumenti equivalenti. \\
+	Nella fase iniziale produrremo un Minimum Viable Product con focus su un singolo corso di studio (Fondamenti di Intelligenza Artificiale) e l’attenzione sarà rivolta esclusivamente alla funzionalità di tutoring: rilevazione di affermazioni scorrette o richieste esplicite di aiuto, fornitura di spiegazioni graduali adattate al livello dello studente, tracciamento della partecipazione e generazione di un report finale. 
+	Funzionalità aggiuntive come la proposta di esercizi pratici, l’integrazione di link esterni sicuri e la realizzazione di una dashboard avanzata per i docenti saranno prese in considerazione in cicli successivi, una volta validate le basi del prototipo.
+	
+	\section{Data Understanding}
+	Lo scopo di questa fase è acquisire una chiara comprensione dei dati che costituiranno la base di conoscenza del progetto Alec. 
+	In particolare, si tratta dei materiali didattici forniti dai docenti in formato PDF, che verranno analizzati per verificarne la struttura, la qualità e l’idoneità all’utilizzo all’interno del sistema.\\
+	Il processo seguito si articola in quattro passaggi principali:
+	\begin{enumerate}
+		\item \textbf{Raccolta}: identificazione e acquisizione dei file PDF pertinenti al corso.
+		\item \textbf{Descrizione}: analisi dei formati e delle principali caratteristiche (numero di documenti, pagine, tipologia di contenuti).
+		\item \textbf{Esplorazione}: valutazione della varietà e complessità dei materiali, con attenzione a testi narrativi, elenchi, formule e tabelle.
+		\item \textbf{Verifica della qualità}: individuazione di criticità come incoerenze terminologiche, mancanza di completezza o contenuti difficilmente leggibili.
+	\end{enumerate}
+	L’obiettivo finale è produrre un inventario dei materiali disponibili, evidenziandone le caratteristiche principali e i potenziali problemi da affrontare nelle fasi successive di preparazione e modellazione.
+	
+	\subsection{Raccolta dei dati}
+	La raccolta dei dati è avvenuta attraverso la selezione dei materiali didattici ufficiali messi a disposizione dai docenti del corso. 
+	Tali materiali, costituiti principalmente da file in formato PDF (dispense, slide e articoli), sono stati acquisiti tramite una cartella condivisa predisposta dal laboratorio di intelligenza artificiale presente sulla piattaforma e-learning dell'università, nel corso di studio dell'anno 2024 predisposto per le matricole "Resto 1" del dipartimento di informatica.\\
+	Per garantire coerenza e affidabilità, sono stati inclusi unicamente i documenti revisionati e approvati dai docenti, escludendo eventuali appunti personali o risorse di terze parti non validate. I file sono stati organizzati in sottocartelle per modulo e argomento, con una convenzione di nomenclatura uniforme (\texttt{Corso/Modulo/Titolo.pdf}) ed è possibile ispezionarli nella cartella pdf\_corsi, al fine di agevolarne la consultazione e la successiva fase di preparazione. Ad esempio è possibile trovare il file pdf riguardante gli algoritmi di ricerca locale non informata nel percorso:\\ \texttt{FIA/Algoritmi\_ricerca/algoritmi\_di\_ricerca\_non\_informata.pdf}\\  
+	In totale sono stati raccolti \textbf{26} documenti che rappresentano la base di conoscenza iniziale del progetto Alec.
+	
+
+
+	
+\end{document}
