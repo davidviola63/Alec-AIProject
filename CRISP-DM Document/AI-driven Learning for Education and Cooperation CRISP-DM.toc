@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {1.5}Ambito del progetto}{4}{}%
 \contentsline {section}{\numberline {2}Data Understanding}{4}{}%
 \contentsline {subsection}{\numberline {2.1}Raccolta dei dati}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Descrizione dei dati}{5}{}%
