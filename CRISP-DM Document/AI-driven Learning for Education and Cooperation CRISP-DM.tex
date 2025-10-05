@@ -94,7 +94,7 @@
 	\subsection{Raccolta dei dati}
 	La raccolta dei dati è avvenuta attraverso la selezione dei materiali didattici ufficiali messi a disposizione dai docenti del corso. 
 	Tali materiali, costituiti principalmente da file in formato PDF (dispense, slide e articoli), sono stati acquisiti tramite una cartella condivisa predisposta dal laboratorio di intelligenza artificiale presente sulla piattaforma e-learning dell'università, nel corso di studio dell'anno 2024 predisposto per le matricole "Resto 1" del dipartimento di informatica.\\
-	Per garantire coerenza e affidabilità, sono stati inclusi unicamente i documenti revisionati e approvati dai docenti, escludendo eventuali appunti personali o risorse di terze parti non validate. I file sono stati organizzati in sottocartelle per modulo e argomento, con una convenzione di nomenclatura uniforme (\texttt{Corso/Modulo/Titolo.pdf}) ed è possibile ispezionarli nella cartella pdf\_corsi, al fine di agevolarne la consultazione e la successiva fase di preparazione. Ad esempio è possibile trovare il file pdf riguardante gli algoritmi di ricerca locale non informata nel percorso:\\ \texttt{FIA/Algoritmi\_ricerca/algoritmi\_di\_ricerca\_non\_informata.pdf}
+	Per garantire coerenza e affidabilità, sono stati inclusi unicamente i documenti revisionati e approvati dai docenti, escludendo eventuali appunti personali o risorse di terze parti non validate. I file sono stati organizzati in sottocartelle per modulo e argomento, con una convenzione di nomenclatura uniforme (\texttt{Corso/Modulo/Titolo.pdf}) ed è possibile ispezionarli nella cartella pdf\_corsi, al fine di agevolarne la consultazione e la successiva fase di preparazione. Ad esempio è possibile trovare il file PDF riguardante gli algoritmi di ricerca locale non informata nel percorso:\\ \texttt{FIA/Algoritmi\_ricerca/algoritmi\_di\_ricerca\_non\_informata.pdf}
 	
 \subsection{Descrizione dei dati}
 La seguente tabella sintetizza le caratteristiche principali dei materiali raccolti. 
@@ -125,6 +125,54 @@ Viene presentata come scheda descrittiva, utile a fornire una panoramica general
 	\caption{Scheda di descrizione dei dati raccolti}
 \end{table}
 
+\subsection{Esplorazione dei dati}
+L’esplorazione dei dati ha lo scopo di analizzare il contenuto dei materiali raccolti per comprendere meglio la varietà, la complessità e le caratteristiche rilevanti.\\ 
+Dall’analisi preliminare emergono i seguenti aspetti:
+\begin{itemize}
+	\item \textbf{Tematiche trattate}:i documenti coprono i contenuti fondamentali del corso di \textit{Fondamenti di Intelligenza Artificiale}. 
+	In particolare sono presenti:
+	\begin{itemize}
+		\item Algoritmi di ricerca (strategie informate, non informate e locale). 
+		\item Algoritmi con avversari (minimax e varianti).
+		\item Tecniche di machine learning, tra cui clustering, classificazione e regressione, con accenni ai foundation models e large language models.
+		\item Documenti dedicati alle fasi del modello CRISP-DM e all’addestramento dei modelli di apprendimento automatico.
+		\item Documenti riassuntivi per la preparazione all'esame con esercizi, appunti e note offerte dal docente.
+	\end{itemize}
+	\item \textbf{Tipologia dei contenuti}: le slide e le dispense includono testo descrittivo ed elenchi puntati, frequenti immagini esplicative accompagnate da didascalie, schemi concettuali, oltre a scarse formule matematiche ed esempi di applicazione. Si può riscontrare anche la presenza di pseudocodice nelle slide sugli algoritmi di ricerca.
+	\item \textbf{Livello del linguaggio}:il linguaggio adottato è formale e preciso, ma al tempo stesso scorrevole e non eccessivamente rigoroso. Questo lo rende accessibile e comprensibile anche a studenti che affrontano per la prima volta gli argomenti trattati.
+	\item \textbf{Eterogeneità dei documenti}: l’eterogeneità risulta complessivamente molto sottile. I materiali si adattano bene alla tematica trattata ed evitano ripetizioni eccessive, mantenendo uno stile uniforme tra i diversi PDF. L’unica eccezione è rappresentata dai documenti forniti per esercitarsi, che presentano uno stile leggermente diverso. La lunghezza media dei documenti è di circa 45 pagine, valore che li rende gestibili e coerenti per lo studio.
+\end{itemize}
+
+\subsection{Verifica della qualità dei dati}
+La verifica della qualità dei dati si occupa di valutare l’affidabilità e l’idoneità dei materiali raccolti.
+Dall’analisi preliminare emergono le seguenti considerazioni:
+
+\begin{itemize}
+	\item \textbf{Leggibilità}: i PDF sono in gran parte testuali e quindi direttamente processabili. Non sono state individuate scansioni di bassa qualità che possano compromettere l’estrazione dei contenuti.
+	\item \textbf{Uniformità}: lo stile dei documenti è omogeneo e facilita la coerenza complessiva del dataset. L’unica eccezione è rappresentata dal materiale per esercitazioni, che presenta uno stile leggermente diverso.
+	\item \textbf{Completezza}: i contenuti raccolti risultano coerenti con il programma del corso, coprendo sia gli argomenti di base (algoritmi di ricerca e con avversari) sia quelli avanzati (machine learning, LLM, fasi CRISP-DM).
+	\item \textbf{Ridondanza}: non sono emerse ripetizioni eccessive o ridondanze tra i documenti, favorendo una gestione snella del corpus.
+	\item \textbf{Potenziali criticità}: la presenza di formule matematiche, schemi e alcune tabelle potrebbe richiedere attenzione nella fase di preparazione, in quanto non sempre sono rappresentate in formato testuale.
+	\item \textbf{Dimensioni}: la lunghezza media dei documenti, pari a circa 45 pagine, si dimostra gestibile e adeguata per le successive fasi di segmentazione e indicizzazione.
+\end{itemize}
+
+\section{Data Preparation}
+La fase di \textit{Data Preparation} ha lo scopo di trasformare i materiali raccolti nella fase precedente in un dataset strutturato, pulito e pronto per essere utilizzato dal sistema.\\ 
+Mentre la fase di \textit{Data Understanding} si è concentrata sull’analisi e sulla valutazione preliminare dei dati disponibili, in questa fase vengono eseguite tutte le operazioni necessarie per rendere i contenuti effettivamente utilizzabili.
+In particolare, l’attività di preparazione comprende la selezione dei documenti rilevanti, la pulizia e la normalizzazione dei file PDF, la loro segmentazione in unità più piccole e gestibili, e l’arricchimento con metadati utili per la successiva fase di modellazione. 
+L’obiettivo finale è disporre di un corpus coerente e ben organizzato, in grado di supportare l’interazione tra studenti e tutor virtuale e di garantire risposte basate esclusivamente sui materiali didattici forniti dai docenti.
+
+\subsection{Selezione dei dati}
+A partire dall’insieme di documenti raccolti nella fase di \textit{Data Understanding}, è stato effettuato un processo di selezione mirato a definire il corpus utilizzabile.
+Tale selezione non ha comportato l’acquisizione di nuovi materiali, ma piuttosto una distinzione e organizzazione dei documenti già raccolti. 
+
+In particolare:
+\begin{itemize}
+	\item Sono stati confermati i materiali didattici ufficiali forniti dai docenti come base di conoscenza principale.
+	\item È stata effettuata una separazione tra documenti teorici (dispense, slide, articoli) e materiali di esercitazione, mantenendo entrambi ma distinguendoli per tipologia d’uso.
+	\item Sono stati esclusi eventuali duplicati e documenti non pertinenti alla tematica del corso.
+	\item I file sono stati rinominati e organizzati in sottocartelle per modulo e argomento, al fine di garantire uniformità e semplicità di gestione nelle fasi successive.
+\end{itemize}
 
 
 	

@@ -11,3 +11,7 @@
 \contentsline {section}{\numberline {2}Data Understanding}{4}{}%
 \contentsline {subsection}{\numberline {2.1}Raccolta dei dati}{4}{}%
 \contentsline {subsection}{\numberline {2.2}Descrizione dei dati}{5}{}%
+\contentsline {subsection}{\numberline {2.3}Esplorazione dei dati}{5}{}%
+\contentsline {subsection}{\numberline {2.4}Verifica della qualità dei dati}{6}{}%
+\contentsline {section}{\numberline {3}Data Preparation}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Selezione dei dati}{7}{}%
