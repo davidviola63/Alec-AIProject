@@ -1,0 +1,1605 @@
+[
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c01",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c01",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "h(n). Funzione che indica il costo stimato del cammino più conveniente dallo stato del nodo n ad uno stato obiettivo. Mentre gli algoritmi di ricerca non informata hanno l’obiettivo di trovare soluzioni senza avere a disposizione alcuna informazione aggiuntiva, gli algoritmi di ricerca informata sfruttano conoscenze specifiche del problema, così da essere più efficienti. L’approccio generale viene chiamato ricerca best‑first: è un’istanza della ricerca in cui il nodo da espandere è scelto con una funzione di valutazione f(n). L’implementazione della best‑first è identica alla ricerca a costo uniforme, tranne che la coda a priorità è ordinata per f(n) invece che per g(n). Molti algoritmi best‑first includono come componente di f(n) una funzione euristica h(n). Le funzioni euristiche sono il modo più comune, e spesso migliore, per inserire conoscenza aggiuntiva in un algoritmo di ricerca."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c02",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c02",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Molti algoritmi best‑first includono come componente di f(n) una funzione euristica h(n). Le funzioni euristiche sono il modo più comune, e spesso migliore, per inserire conoscenza aggiuntiva in un algoritmo di ricerca. La best‑first usa una stima per decidere quale nodo esplorare per primo. Si parte dallo stato iniziale con costo di cammino 0; la frontiera è una coda a priorità ordinata sul costo stimato dall’euristica. Si esplora prima il nodo che sembra più promettente, mantenendo un insieme di esplorati per evitare cicli. Ciclo: se la frontiera è vuota → fallimento; estrai il nodo con costo stimato minimo; se è l’obiettivo → soluzione; altrimenti genera i figli: se non visti li aggiungi in frontiera, se già presenti con stima peggiore li sostituisci. In sintesi, la Best‑First segue la strada che sembra più vicina alla meta, come in un labirinto scegliendo sempre il corridoio che punta verso l’uscita. Questo è alla base di A*, che combina costo reale e stima; la greedy usa solo la stima."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c03",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c03",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "In sintesi, la Best‑First segue la strada che sembra più vicina alla meta, come in un labirinto scegliendo sempre il corridoio che punta verso l’uscita. Questo è alla base di A*, che combina costo reale e stima; la greedy usa solo la stima. Gli algoritmi greedy sono molto usati per problemi di ottimizzazione. L’algoritmo espande sempre il nodo più vicino all’obiettivo: la valutazione è f(n)=h(n) con h≥0. Esempio classico: navigazione da Arad a Bucarest. Un’euristica naturale è la distanza in linea d’aria verso Bucarest, hDLA. Per sfruttarla bisogna conoscere a priori tali distanze; inoltre serve una correlazione ragionevole tra distanza in linea d’aria e distanza su strada, altrimenti la guida dell’euristica è fuorviante."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c04",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c04",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Per sfruttarla bisogna conoscere a priori tali distanze; inoltre serve una correlazione ragionevole tra distanza in linea d’aria e distanza su strada. Oltre a non essere ottimo, il greedy non è neppure completo in generale. Ad esempio, nel tragitto da Iași a Făgăraș può perdersi. Complessità temporale nel caso pessimo O(b^m), dove m è la profondità massima; una buona euristica può ridurre drasticamente l’esplorazione. Complessità spaziale ancora O(b^m), perché mantiene tutti i nodi in memoria."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c05",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c05",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Complessità spaziale ancora O(b^m), perché mantiene tutti i nodi in memoria. La forma più diffusa di best‑first è A*. Combina g(n), il costo per raggiungere n, con h(n), il costo stimato da n all’obiettivo: f(n)=g(n)+h(n), con h(n)≥0 e h(goal)=0. f(n) rappresenta il costo stimato della soluzione più conveniente che passa per n. Se cerchiamo la soluzione meno costosa, proviamo per primo il nodo con f più basso. Operativamente, è come la ricerca a costo uniforme, ma la coda è ordinata per f anziché per g. Casi speciali: se h(n)=0 otteniamo la ricerca uniforme; se g(n)=0 otteniamo la Best‑First Greedy."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c06",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c06",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Operativamente, è come la ricerca a costo uniforme, ma la coda è ordinata per f anziché per g. Casi speciali: se h(n)=0 otteniamo la ricerca uniforme; se g(n)=0 otteniamo la Best‑First Greedy. L’ottimalità di A* dipende da due condizioni sull’euristica: ammissibilità (non sovrastima mai il costo all’obiettivo) e consistenza. La consistenza richiede che per ogni transizione (n,a,n’) valga h(n) ≤ c(n,a,n’) + h(n’), cioè una disuguaglianza triangolare. Queste condizioni garantiscono che A* non “salti” la soluzione ottima."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c07",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c07",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Queste condizioni garantiscono che A* non “salti” la soluzione ottima. Sulla completezza: A* è completo se esiste un numero finito di nodi con costo ≤ C* (costo della soluzione ottima), i costi d’azione sono ≥ ε > 0 e il branching factor b è finito. Sulla complessità temporale: A* è ottimamente efficiente; a parità di euristica, nessun algoritmo espande meno nodi senza perdere ottimalità. In pratica, la complessità dipende dalla qualità di h. Complessità spaziale: A* tiene in memoria tutti i nodi generati, quindi O(b^m). Per migliorare la memoria si usano varianti come Beam Search, IDA*, RBFS e SMA*."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c08",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c08",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Per migliorare la memoria si usano varianti come Beam Search, IDA*, RBFS e SMA*. La Beam Search è una variante best‑first che, a ogni livello, genera i successori, li ordina per l’euristica e mantiene solo i primi k (ampiezza del raggio). Quei k nodi sono espansi al livello successivo. Aumentare k riduce la potatura ma aumenta i costi. L’algoritmo restituisce la prima soluzione trovata. La complessità spaziale è O(k·d). Non è completo né ottimale."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c09",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c09",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "La complessità spaziale è O(k·d). Non è completo né ottimale. L’IDA* applica l’approfondimento iterativo alla ricerca euristica: il limite non è la profondità ma il costo f=g+h. A ogni iterazione, il nuovo limite è il minimo f dei nodi che hanno superato il taglio precedente. Con euristiche ammissibili/consistenti, mantiene completezza e ottimalità. Il vantaggio principale è la memoria: conserva un solo cammino dalla radice alla foglia e i fratelli non espansi, ottenendo spazio O(b·d)."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c10",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c10",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Il vantaggio principale è la memoria: conserva un solo cammino dalla radice alla foglia e i fratelli non espansi. La ricerca Best‑First ricorsiva (RBFS) usa anch’essa solo spazio lineare. Tiene un limite f e, a ogni passo, esplora il successore con f più basso. Se il suo f supera il limite, ritorna con quel valore per aggiornare il limite; altrimenti continua ricorsivamente. Mantiene anche il “miglior percorso alternativo” per scegliere dove tornare quando il ramo corrente diventa troppo costoso. È concettualmente simile ad A* senza grande frontiera."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c11",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c11",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "È concettualmente simile ad A* senza grande frontiera. RBFS è ottimale se l’euristica è ammissibile. La sua complessità spaziale è O(b·d). La complessità temporale è più difficile da stimare: dipende dalla qualità di h e da quanto spesso cambia il cammino migliore; nel caso pessimo è esponenziale. Un problema di IDA* e RBFS è che usano troppa poca memoria: dimenticano quasi tutto e rischiano di riespandere più volte gli stessi stati."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c12",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c12",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Dimenticano quasi tutto e rischiano di riespandere più volte gli stessi stati. SMA* (Simplified Memory‑Bounded A*) usa meglio la memoria disponibile. Procede come A* finché c’è spazio; quando la memoria finisce, rimuove il nodo peggiore (f più alto) e memorizza nel padre il suo valore f per poter rigenerare il sottoalbero solo quando necessario. È completo se la profondità della soluzione è minore della capacità in nodi; è ottimale quando una soluzione ottima è raggiungibile entro la memoria. Tuttavia, per problemi difficili può oscillare tra molti cammini, facendo esplodere il tempo."
+  },
+  {
+    "id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c:c13",
+    "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+    "chunk_id": "c13",
+    "source": "algoritmi_di_ricerca_informata_opt.pdf",
+    "text": "Tuttavia, per problemi difficili può oscillare tra molti cammini, facendo esplodere il tempo. Lezioni sulle euristiche: molte sfide in IA sono di natura esponenziale, ma una buona euristica può cambiare la partita. Miglioramenti anche piccoli a h consentono di esplorare molto di più. Strategie: rilassare vincoli per ottenere versioni più semplici del problema; massimizzare tra più euristiche indipendenti h(n)=max(h1,…,hk); apprendere euristiche dai dati; combinare caratteristiche con h(n)=c1·h1(n)+…+ck·hk(n)."
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c01",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c01",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Algoritmi genetici (GA) – idea generale. Ispirati all’evoluzione darwiniana: gli individui con fitness maggiore hanno più chance di riprodursi; la variabilità si ottiene con crossover e mutazione. I GA sono meta‑euristiche “black‑box”: non richiedono dettagli interni del problema, lavorano su una funzione obiettivo/fitness e su rappresentazioni adatte del candidato. In ottimizzazione, vengono usati quando lo spazio è irregolare o con molti massimi locali. Insieme al filone evolutivo esistono altre meta‑euristiche ispirate alla natura, come ACO o PSO. Nella pratica, un GA evolve popolazioni di soluzioni fino a una condizione di arresto, privilegiando schemi con buona fitness e introducendo variazioni per esplorare. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c02",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c02",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "(continua) Non è un singolo algoritmo, ma una famiglia: occorre scegliere codifica degli individui, funzione di fitness, operatori di selezione/crossover/mutazione, metaeuristica e parametri. Si evita di partire dall’implementazione: prima si comprime e modella il problema, poi si codifica. Esempi didattici: 5 interruttori binari e 8 regine; esempi reali includono orari, layout, scheduling e design. Il codice può essere organizzato con moduli riusabili (core) e esempi, ma l’implementazione varia per stile e contesto. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c03",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c03",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Modellazione prima del codice – principio guida. Prima di programmare, chiarire obiettivo e vincoli; solo dopo si sceglie se un GA è appropriato. Due nodi chiave: come codificare gli individui e come definire la fitness. La scelta della rappresentazione restringe implicitamente lo spazio delle soluzioni ammissibili: una buona codifica evita stati invalidi e semplifica gli operatori genetici. L’analisi iniziale comprende anche il formato dei risultati e il budget di ricerca disponibile. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c04",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c04",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "8 regine – codifica degli individui. Una scacchiera può essere rappresentata in modo compatto con un array di 8 interi: l’indice è la colonna, il valore la riga occupata. Così si eliminano a priori conflitti di colonna e si riduce lo spazio a soluzioni ammissibili. In un’implementazione tipica, una classe specifica incapsula questa rappresentazione e separa nettamente spazio valido e non valido. La popolazione può essere di dimensione fissa, inizializzata casualmente con scacchiere ammissibili. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c05",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c05",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "8 regine – fitness. L’obiettivo è minimizzare i conflitti; una funzione adatta conta conflitti di riga e diagonale, ignorando le colonne perché rese impossibili dalla codifica. Si usa una funzione di minimo: meno conflitti significa fitness migliore (anche se il termine \"fitness\" spesso si intende da massimizzare, qui si può invertire il segno o usare un ordinamento coerente). Un individuo con pochi conflitti è già buono anche se non ottimo; l’evoluzione può ridurli ulteriormente. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c06",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c06",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Metaeuristica e flusso GA. Una metaeuristica coordina: acquisire parametri, creare la prima popolazione, valutarla, avviare il ciclo evolutivo, decidere quando fermarsi e restituire i risultati. Gli operatori vanno scelti con criterio: ad esempio selezione tramite roulette o torneo, crossover a un punto o due punti, mutazione bit‑flip/swap/resetting secondo la rappresentazione. La scelta riflette esperienza, letteratura e tentativi controllati (trial‑and‑error). (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c07",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c07",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Runner e output. Un runner imposta parametri (probabilità di mutazione, dimensione popolazione, budget), istanzia fitness, operatori e metaeuristica, esegue il ciclo e raccoglie l’output in formato adatto a umani o macchine. Un esempio di esecuzione mostra un migliore con fitness pari a 2 (due conflitti): non è ottimo ma vicino. Questa pipeline consente rapide iterazioni sui parametri per valutare impatto su qualità e tempi. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c08",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c08",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Uso di framework. Si possono adottare framework come JMetal per supportare codifiche, design, auto‑configurazione, sperimentazione e parallelizzazione. I framework includono algoritmi multi‑obiettivo popolari (ad es. NSGA‑II/III) basati su ordinamenti non dominati (non‑dominating sorting), utili per anticipare l’identificazione del fronte di Pareto e filtrare individui promettenti prima della selezione. Alternative in ambiente Python includono librerie dedicate ai GA. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c09",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c09",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Esercizio orario di Dipartimento – codifica. Il problema: creare un calendario delle lezioni rispettando necessità di corsi, aule e capienze. Una possibile codifica: una matrice 5×M dove le righe rappresentano i giorni e le colonne le aule; ogni cella contiene l’ID del corso assegnato allo slot. La popolazione è un insieme di matrici di quella dimensione, inizializzate in modo casuale ma ammissibile. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c10",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c10",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Esercizio orario – fitness e selezione operatori. La fitness può combinare più criteri: corsi assegnati, capienza rispettata, numero di aule utilizzate, ore per giorno, ecc. In un’impostazione multi‑obiettivo si definisce una funzione di preferenza o si usa un ordinamento Pareto; in alternativa si aggregano con pesi. La selezione può essere qualsiasi schema standard; il crossover deve preservare ammissibilità (tagli per righe o per colonne), garantendo coerenza delle informazioni di aule/giorni. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c11",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c11",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "8 regine con GA – sintesi operativa. Occorre definire codifica (array di righe), funzione di fitness (conflitti), e operatori. La mutazione deve mantenere soluzioni valide (spostare una regina, scambiare colonne, ecc.). Il problema può essere formulato come multi‑obiettivo, ma spesso si preferisce una fitness scalare pesata. Una base di conoscenza accurata sui vincoli consente all’algoritmo di essere efficace; senza requisiti chiari, il GA produce risultati deboli. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c12",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c12",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Problema Hello World – esercizio di codifica. Esempio giocattolo di generazione di stringhe: si definiscono individui come stringhe di caratteri, fitness basata sulla distanza dal target, e operatori che agiscono sui caratteri. Serve solo a illustrare codifica/fitness/operatori, ma l’idea si estende a generazione di testi più complessi. Il set di caratteri e i vincoli determinano l’ammissibilità degli individui. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c13",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c13",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Problema dello zaino per il volo – scenario. Si vuole evitare una tassa sui bagagli oltre 10 kg massimizzando il numero di elementi nello zaino, con vincolo di includere un laptop di 2 kg e preferenza per il beauty case. Possibili codifiche: binaria (presenza/assenza) o array di interi (quantità), a seconda che alcuni oggetti siano ripetibili (es. libri). La codifica influenza i vincoli e gli operatori. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c14",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c14",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Zaino – vincoli e inizializzazione. Se si usa un array con una voce per il laptop, l’inizializzazione deve forzare la presenza del laptop per rispettare il vincolo. L’inizializzazione pseudo‑casuale va ristretta a range plausibili (evitare quantità assurde). Con codifica binaria, basta garantire che la cella laptop sia sempre 1. La mutazione deve evitare di infrangere vincoli fissi come l’obbligo del laptop. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c15",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c15",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Zaino – fitness e operatori. Obiettivi: massimizzare il numero di oggetti e minimizzare il peso (sotto soglia). Si può adottare una funzione di preferenza che favorisca soluzioni contenenti il beauty case oppure modellare un multi‑obiettivo con ordinamento Pareto o punteggio pesato. La selezione può essere standard; il crossover è libero se l’ammissibilità è garantita dall’inizializzazione; la mutazione deve escludere la posizione del laptop per non violare il vincolo. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c16",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c16",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Operatori genetici – scelte tipiche. Selezione: roulette, rank, truncation o torneo a k. Crossover: a un punto, due punti, k‑punti, uniforme; su rappresentazioni numeriche, anche variant i aritmetiche/pesate. Mutazione: bit‑flip, resetting, swap, scramble, inversion. Il compromesso tra esplorazione e sfruttamento regola probabilità e pressione di selezione; scelte inappropriate causano convergenza prematura o stagnazione. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c17",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c17",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Parametri e buone pratiche. Dimensione della popolazione e mating pool influenzano diversità e costo. Probabilità di crossover alta aumenta ricombinazione ma può rallentare la stabilizzazione; mutazione troppo alta destruttura, troppo bassa blocca. L’ottimizzazione dei parametri va condotta sperimentalmente, variando una cosa alla volta e misurando gli effetti rispetto a metriche chiare e a un budget definito. (continua)"
+  },
+  {
+    "id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3:c18",
+    "doc_id": "7e9b9f6b-4c1e-4b7a-9f22-1a3b5db1c9a3",
+    "chunk_id": "c18",
+    "source": "algoritmi_ricerca_locale_3_opt.pdf",
+    "text": "Multi‑obiettivo e Pareto. Nei problemi con più criteri, si cerca il fronte di Pareto (soluzioni non dominate); algoritmi come NSGA‑II/III usano non‑dominating sorting per guidare la selezione. In alternativa si impiega preference sorting o una funzione aggregata con pesi normalizzati. Strategie complementari includono archivi per conservare soluzioni mai raggiunte prima e selezione dinamica dei target per concentrare risorse dove si osserva progresso. (fine)"
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c01",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c01",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Ricerca locale: motivazione. Gli algoritmi di ricerca tradizionali tengono traccia di cammini dallo stato iniziale all’obiettivo e memorizzano frontiere alternative; in molti problemi reali il cammino è irrilevante, conta solo la configurazione finale (es. N‑regine, layout fabbriche, orari, portafogli, reti). In questi contesti conviene ignorare i cammini e lavorare solo sullo stato corrente, applicando miglioramenti locali. Gli algoritmi di ricerca locale usano pochissima memoria e spesso complessità quasi costante, trovando soluzioni ragionevoli anche se sub‑ottimali."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c02",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c02",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Obiettivo e neighborhood. La ricerca locale non usa un test obiettivo classico: guida le mosse tramite una funzione obiettivo f(s) che misura la qualità dello stato. La funzione è definita rispetto a mosse locali che determinano la struttura dei vicini: un’applicazione F che assegna a ogni soluzione s l’insieme N(s) ⊆ S delle soluzioni ottenibili in un passo. L’esplorazione procede muovendosi tra vicini che migliorano f, mantenendo in memoria solo lo stato corrente e, talvolta, pochi ausili."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c03",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c03",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Paesaggio dello spazio degli stati. Possiamo visualizzare gli stati come punti su un paesaggio collinare dove l’asse verticale è f(s): esistono massimi globali (miglior valore assoluto), massimi locali (cime minori), altipiani piatti (plateau) e spalle (shoulder) dove la salita si interrompe temporaneamente. Gli algoritmi locali rischiano di bloccarsi in massimi locali o su plateau se non introducono meccanismi di esplorazione. Questa intuizione guida la progettazione di mosse e di strategie anti‑blocco."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c04",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c04",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Ottimalità locale e globale. Un massimo locale è uno stato s tale che ∀s′∈N(s), f(s) ≥ f(s′); un ottimo globale s* soddisfa ∀s, f(s*) ≥ f(s). Un neighborhood più ampio aumenta le probabilità che un massimo locale coincida con il globale, ma amplia anche il costo per passo. Un algoritmo locale è completo se trova sempre un obiettivo quando esiste; è ottimo se trova sempre un globale. In pratica, molte strategie cercano buoni compromessi tra esplorazione e sfruttamento."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c05",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c05",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Hill‑Climbing (HC). Idea: partire da uno stato, scegliere tra i vicini quello di valore più alto e ripetere finché nessun vicino migliora. Pseudocodice essenziale: inizializza al nodo dello stato iniziale; in loop seleziona il successore con valore maggiore; se nessun miglioramento, termina restituendo lo stato corrente. È un greedy locale che non guarda il futuro: semplice e veloce, ma può bloccarsi in massimi locali, plateau o spalle. È come scalare al buio seguendo sempre il gradiente più ripido."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c06",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c06",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "HC – esempio 8 regine. Stato completo: 8 regine, una per colonna; i successori si ottengono spostando una regina nella sua colonna (8×7=56 vicini). Funzione da minimizzare: numero di coppie in conflitto; zero implica soluzione. In pratica HC è rapido a migliorare stati cattivi ma può fermarsi prima dell’ottimo. Dati indicativi: l’algoritmo base risolve ~14% dei casi, con poche mosse medie; lo spazio degli stati è enorme (~8^8). Quando più vicini hanno stesso valore, si può scegliere a caso tra di essi."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c07",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c07",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Limiti e varianti di HC. Problemi tipici: massimi locali, plateau e ridge (creste con brusche variazioni) che intrappolano la ricerca. Un rimedio è consentire mosse laterali per un numero massimo prefissato: aumenta il tasso di successo, ma può far crescere i passi medi. Varianti: HC stocastico (sceglie a caso tra mosse migliorative), HC prima scelta (genera successori casuali finché trova un miglioramento), HC con riavvio casuale (riparte da stati random; se ripete indefinitamente, è completo in senso probabilistico)."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c08",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c08",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Simulated Annealing (SA) – intuizione. Combinare salita del gradiente con esplorazione casuale controllata da una temperatura T che decresce: accettare sempre miglioramenti (ΔE>0) e talvolta anche peggioramenti con probabilità e^{ΔE/T}. All’inizio T è alta e consente salti anche in discesa per uscire da massimi locali; col tempo T cala e il comportamento converge a HC. Con raffreddamento sufficientemente lento, la probabilità di raggiungere l’ottimo globale tende a 1 (risultato teorico)."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c09",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c09",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "SA – schema operativo. Stato corrente s; per t=1..∞ calcola T= schedule[t]; scegli un vicino s′ a caso; ΔE = f(s′)−f(s). Se ΔE>0 accetta s′; altrimenti accetta con probabilità e^{ΔE/T}. Quando T→0 l’algoritmo si “congela” e restituisce lo stato attuale. La scelta della funzione di raffreddamento è cruciale: troppo rapida → rischio di blocco locale; troppo lenta → tempi eccessivi. SA fornisce un compromesso efficace tra esplorazione e sfruttamento."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c10",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c10",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Local Beam Search – idea base. Invece di mantenere un solo stato, si tengono k stati in parallelo. A ogni passo si generano i successori di tutti e k e si selezionano i k migliori complessivi; se uno è obiettivo si termina. Diverso dai riavvii indipendenti perché l’informazione guida collettivamente i thread verso regioni promettenti; per contro può perdere diversità e collassare su una regione ristretta dello spazio degli stati."
+  },
+  {
+    "id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9:c11",
+    "doc_id": "a7b4d6f1-1b3f-4f0b-8a2f-6a92c6d2e3a9",
+    "chunk_id": "c11",
+    "source": "algoritmi_ricerca_locale_opt.pdf",
+    "text": "Local Beam stocastica e cenno agli algoritmi genetici. Variante stocastica: selezionare i k successori per la prossima generazione con probabilità proporzionale alla qualità (fitness), mantenendo diversità. L’analogia con selezione naturale porta ai Genetic Algorithms: gli stati sono individui, i successori combinano due genitori (crossover) più mutazioni; le popolazioni evolvono verso soluzioni di qualità crescente, aumentando la probabilità di trovare ottimi globali."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c01",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c01",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Teoria dell’evoluzione di Darwin e principi chiave usati come ispirazione per gli algoritmi genetici (GA): sopravvivenza dei più adatti e variabilità ereditabile. In GA, individui con fitness più alta hanno più probabilità di essere selezionati; la variabilità è introdotta da crossover e mutazione per generare nuove soluzioni e trasferire tratti utili."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c02",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c02",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Dagli algoritmi evolutivi all’ottimizzazione: i GA fanno parte delle meta‑euristiche nature‑inspired. L’obiettivo è ottimizzare una funzione su un dominio, cercando soluzioni buone senza conoscere a fondo la struttura interna del problema. Esistono anche altri approcci nature‑inspired come swarm intelligence (ACO, PSO)."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c03",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c03",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Definizione di Algoritmi Genetici: meta‑procedura per costruire algoritmi di ricerca. Non è un algoritmo unico ma una famiglia. Proprietà: non problem‑specific, flessibili e tipicamente non garantiscono l’ottimo. Evolvono una popolazione di candidati applicando selezione, crossover e mutazione fino a una condizione di arresto."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c04",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c04",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Aspetti caratterizzanti: (1) codifica degli individui come stringhe a lunghezza finita; (2) approccio population‑based; (3) cecità rispetto a dettagli low‑level del problema (usa solo la funzione obiettivo/fitness); (4) elementi casuali che guidano la ricerca ma non equivalgono a una random search."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c05",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c05",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Esempio black‑box: una scatola nera con 5 interruttori on/off produce un payoff f(s). Non conosciamo f(s) ma vogliamo massimizzarla. Serve definire una codifica: con 5 switch scegliamo una stringa binaria a 5 bit. Un semplice hill‑climbing potrebbe fermarsi a ottimi locali; un GA è più adatto quando la funzione è sconosciuta o irregolare."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c06",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c06",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Inizializzazione di una popolazione: ad esempio 4 individui binari campionati pseudo‑casualmente. Ogni individuo viene valutato con una funzione di fitness coerente con l’obiettivo (spesso la stessa f(s)). Il migliore corrente non è necessariamente quello globale, quindi si evolve una nuova generazione applicando gli operatori genetici."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c07",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c07",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Operatori genetici: selezione (copia alcuni individui nella generazione successiva con probabilità proporzionale alla fitness), crossover (ricombina coppie di genitori per produrre figli), mutazione (varia casualmente geni per reintrodurre diversità ed esplorare regioni non coperte). Questi passi si applicano in sequenza a ogni iterazione."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c08",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c08",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Selezione tipo Roulette Wheel: assegna probabilità proporzionali alla fitness relativa, simile al “più adatto sopravvive”. Esempio numerico: individui con fitness maggiore hanno spiccate chance di essere scelti per il mating pool. Attenzione al rischio di sovra‑rappresentare il migliore e indurre convergenza prematura."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c09",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c09",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Crossover single‑point: scegli un punto di taglio casuale e scambia le code dei due genitori per generare due figli. Alcune coppie possono produrre figli identici ai genitori se il punto di taglio è alle estremità; altre producono combinazioni nuove. La successiva mutazione introduce ulteriori variazioni."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c10",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c10",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Mutazione single‑point: su rappresentazioni binarie equivale al bit‑flip su un gene scelto a caso. In rappresentazioni non binarie si usano varianti equivalenti (resetting o perturbazioni). La mutazione serve a mantenere diversità e ridurre il rischio di rimanere intrappolati in ottimi locali o plateau."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c11",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c11",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Valutazione della nuova generazione: si ricalcola la fitness e si verifica il progresso rispetto alla precedente. Se emergono individui più forti, la ricerca procede; altrimenti si può comunque continuare entro il budget. Iterando, si osservano individui via via migliori fino a soddisfare una condizione di stop (tempo, iterazioni, assenza di miglioramenti)."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c12",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c12",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Pseudocodice GA semplice: inizializza popolazione P; ripeti valutazione, selezione, crossover, mutazione; aggiorna P; finché non scatta la stopping condition; restituisci il migliore. In molti contesti un GA può sempre restituire una soluzione, anche se non ottima; il “fallimento” dipende dalla definizione del problema."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c13",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c13",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Termini chiave: convergenza (tendenza a migliorare iterativamente fino all’ottimo), convergenza prematura (popolazione troppo simile troppo presto), diversità (capacità di esplorare lo spazio ed evitare stagnazione). Un buon GA bilancia exploration ed exploitation."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c14",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c14",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Funzione di fitness: associa un valore a ogni soluzione e guida la selezione. Progettarla è difficile come definire una buona euristica nella ricerca informata. Può essere composta da più fattori combinati, purché rispecchi adeguatamente l’adeguatezza della soluzione all’obiettivo (ancora mono‑obiettivo in questo punto)."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c15",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c15",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Parametri: size della popolazione e del mating pool influenzano prestazioni e diversità. Popolazioni grandi esplorano di più ma costano di più; mating pool troppo piccolo riduce la diversità. L’inizializzazione può essere casuale o guidata da euristiche problem‑specific per partire da stati ammissibili e ridurre il costo."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c16",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c16",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Parametri: probabilità di crossover e mutazione. Crossover alto aumenta diversità ma può ritardare la convergenza; crossover basso rischia stagnazione. Mutazione bassa preserva strutture utili ma può favorire ottimi locali; mutazione alta aumenta esplorazione ma può impedire convergenza."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c17",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c17",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Rappresentazioni e selezione: oltre a stringhe binarie, si usano interi, reali o alberi (ad es. Genetic Programming). Selezione: Roulette Wheel, Rank (probabilità inversa al rango), Truncation (tiene i migliori M), Tournament k‑way (vince il migliore tra k casuali, con o senza pressione di selezione). Trade‑off tra efficienza e rischio di prematura convergenza."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c18",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c18",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Varianti di crossover: single‑point, two‑point, k‑point, uniform (scelta per‑gene), arithmetic/weighted (per rappresentazioni numeriche). Più punti e uniform aumentano la ricombinazione e la diversità; arithmetic produce figli mediati (anche gemelli) e va bilanciata con mutazione."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c19",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c19",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Varianti di mutazione: bit‑flip, random resetting, swap, scramble, inversion. È fondamentale preservare l’ammissibilità rispetto ai vincoli del problema. Mutazioni locali mantengono stabilità; mutazioni globali aumentano la diversità ma possono destabilizzare la convergenza."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c20",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c20",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Stopping conditions: tempo massimo, budget di costo, massimo numero di generazioni, assenza di miglioramenti per Y generazioni, oppure condizioni ibride o specifiche del problema. Spesso si parla di search budget per indicare le risorse disponibili."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c21",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c21",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Ottimizzazione dei parametri: va fatta sperimentalmente e in modo controllato, variando un parametro alla volta per attribuire correttamente gli effetti osservati. Documentare il razionale e misurare prestazioni rispetto al problema è parte integrante del processo."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c22",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c22",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Campi di applicazione: telecomunicazioni (antenne), aerodinamica (design), elettronica (Evolvable Hardware), bioinformatica (DNA), machine learning (feature selection, iperparametri, AutoML), neuroevoluzione (reti neurali), TSP e ottimizzazione combinatoria, genetic programming, ingegneria del software (remodularization, test generation, transplantation)."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c23",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c23",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Pro e contro: pro—fitness flessibile, continuo e discreto, multi‑obiettivo, esplorazione rapida, parallelizzabile, buona spiegabilità; contro—decision problems meno naturali (serve riformulazione), valutazioni di fitness numerose e costose, rischio di convergenza prematura e assenza di garanzia di ottimo."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c24",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c24",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Tecniche di miglioramento: elitismo (copiare il migliore nella generazione successiva) assicura che la qualità non peggiori; uso di euristiche problem‑specific per accelerare, aumentare diversità e ridurre convergenza prematura."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c25",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c25",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Problemi multi‑obiettivo: più funzioni di fitness definiscono un vettore. Non esiste un ordinamento totale; si usa il concetto di ottimo di Pareto (nessuna componente peggiore e almeno una migliore). Il fronte di Pareto raccoglie le soluzioni non dominate."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c26",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c26",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Preference sorting: per ordinare il fronte di Pareto si introduce una funzione di preferenza dipendente dal contesto (es. dare più peso al costo energetico in periodi di energia cara). Si possono definire molteplici criteri di preferenza a supporto delle scelte."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c27",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c27",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Archive strategy: mantenere un archivio di individui che soddisfano obiettivi mai raggiunti prima, per non “perdere” risultati utili durante l’evoluzione. Utile nei multi‑obiettivo e in combinazione con tecniche di selezione dinamica dei target."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c28",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c28",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Dynamic Target Selection: quando molte fitness sono interdipendenti, si restringe ad ogni iterazione il set di obiettivi valutati in base ai progressi precedenti, concentrando risorse dove servono. Si integra bene con l’archivio per evitare regressioni."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c29",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c29",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Varianti dei GA: Generational GA (classico) vs Steady‑State GA (nessuna generazione completa; due figli per iterazione rimpiazzano i genitori). Steady‑State riduce il costo per iterazione ed è utile in multi‑obiettivo o quando si parte da buone soluzioni iniziali."
+  },
+  {
+    "id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21:c30",
+    "doc_id": "b2c3f5b8-3b9a-4b3a-9c9b-4c3f7a6d8e21",
+    "chunk_id": "c30",
+    "source": "algoritmi_ricerca_locale_GA_opt.pdf",
+    "text": "Memetic Algorithms (MA): integrano ricerca locale dentro un GA per potenziare l’exploitation e ridurre la convergenza prematura. Altre estensioni: Adaptive GA (parametri che cambiano a runtime) e Interactive GA (intervento umano periodico per guidare l’evoluzione)."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c01",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c01",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Algoritmi di ricerca non informata: contesto. Una soluzione è una sequenza di azioni; gli algoritmi esplorano lo spazio degli stati costruendo un albero di ricerca con stato iniziale alla radice, rami come azioni e nodi come stati raggiungibili. Si verifica prima se l’obiettivo è già soddisfatto, altrimenti si espande lo stato corrente generando successori e mettendo da parte le alternative da riprendere se necessario. Questo è il comportamento generale delle strategie non informate."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c02",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c02",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Note sul grafo e frontiera. Stati possono ripetersi, dando cammini ciclici che possono causare non terminazione. Poiché i costi di passo sono non negativi e i cammini sono additivi, un cammino con ciclo non è mai migliore della sua versione senza ciclo. I nodi foglia, in un dato istante, formano la frontiera: l’insieme dei nodi espandibili successivi. La gestione della frontiera determina la strategia di ricerca."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c03",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c03",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Schema di ricerca ad albero con strategia: inizializza la frontiera con lo stato iniziale; finché non è vuota, scegli un nodo foglia secondo la strategia; se contiene uno stato obiettivo, restituisci la soluzione; altrimenti espandilo aggiungendo i figli in frontiera. Variante a grafo: si aggiunge un insieme esplorato (lista chiusa) per evitare cammini ridondanti e ripetizioni di stati già visitati."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c04",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c04",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Cammini ridondanti e costi computazionali. In problemi con azioni reversibili, i cammini ridondanti sono inevitabili e moltiplicano i nodi dell’albero rispetto agli stati distinti. Esempio su griglia: con branching 4, a profondità d l’albero contiene 4^d foglie ma il numero di stati distinti a distanza d è circa 2·d^2; per d grandi (es. 20) i nodi esplodono (≈10^12) a fronte di meno di mille stati, rendendo il problema intrattabile se non si evita la ridondanza."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c05",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c05",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca su grafo (con insieme esplorato). Algoritmo: inizializza frontiera con stato iniziale e insieme esplorato vuoto; ripeti: se frontiera vuota → fallimento; seleziona un nodo in base alla strategia; se nodo è obiettivo → soluzione; aggiungi lo stato all’insieme esplorato; espandi e inserisci i nuovi nodi soltanto se lo stato non è in frontiera né negli esplorati. La frontiera separa regione esplorata e inesplorata dello spazio degli stati."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c06",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c06",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Strutture dati per i nodi: ogni nodo contiene stato, padre, azione applicata e costo di cammino g(n). Generazione dei figli: dato un nodo padre e un’azione, si ottiene il nuovo stato tramite il modello di transizione e si aggiorna g con il costo di passo. La frontiera è tipicamente una coda: FIFO per ampiezza, LIFO (stack) per profondità, coda con priorità per costo uniforme."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c07",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c07",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Valutazione di una strategia: completezza (trova soluzione se esiste?), ottimalità (trova la soluzione ottima?), complessità temporale (quanto tempo, in funzione di b, d, m), complessità spaziale (quanta memoria). A differenza di algoritmi classici su grafi espliciti (misure in |V|, |E|), qui spesso il grafo è implicito e si ragiona con branching factor b, profondità della soluzione d e profondità massima m."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c08",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c08",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca in ampiezza (BFS): espande tutti i nodi di profondità d prima di quelli a d+1. Implementazione: frontiera come coda FIFO; i nodi più vecchi (vicini alla radice) sono estratti per primi, i nuovi vanno in fondo. Proprietà: è sistematica e completa; trova sempre una soluzione se esiste. Trova il cammino con il minor numero di passi, ma non necessariamente il costo minimo se i costi di passo variano."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c09",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c09",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "BFS – pseudocodice ed esecuzione: inizializza nodo radice con g=0; se è obiettivo → soluzione; altrimenti inseriscilo in una FIFO. Ciclo: se frontiera vuota → fallimento; POP estrae il primo; aggiungi lo stato ad esplorati; per ciascuna azione genera figlio: se non visto e non in frontiera, controlla obiettivo e altrimenti inserisci in coda. Intuizione: visita i livelli in ordine, come un pendolo orizzontale sull’albero di ricerca."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c10",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c10",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "BFS – performance: in un albero con branching b, i nodi al livello i sono b^i; nel caso pessimo si esplorano tutti i livelli fino a d. Tempo: O(b^d). Spazio: memorizza tutti i nodi generati → O(b^d), dominato dalla frontiera. È spesso impraticabile per d elevati; una tabella tipica mostra crescita esplosiva di nodi, tempo e memoria già per d∈{6,8,10}."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c11",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c11",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca a costo uniforme (UCS): variante che usa una coda a priorità ordinata per g(n) (costo accumulato). Differenze chiave rispetto a BFS: il test obiettivo si esegue quando un nodo è estratto (non alla generazione); se si scopre un cammino più economico verso uno stato in frontiera, si sostituisce il nodo precedente. È analoga a Dijkstra su grafi impliciti: espande sempre il cammino di costo minore finora conosciuto."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c12",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c12",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "UCS – esempio e proprietà: nell’itinerario stradale, possono esistere cammini che raggiungono l’obiettivo presto ma con costo maggiore; UCS continua finché non ha verificato che non esistano cammini più economici allo stesso livello di costo. Completezza: sì (se costi di passo ≥ ε>0). Ottimalità: sì. Complessità: in funzione del costo ottimo C* e del minimo costo di passo ε, tempo e spazio O(b^{1+⌊C*/ε⌋})."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c13",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c13",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca in profondità (DFS): espande sempre il nodo più profondo nella frontiera corrente, usando una LIFO/stack. Scende lungo un ramo fino a foglia o dead-end, poi fa backtracking. Non è completa in spazi con profondità infinita o con cicli; non è ottima perché può trovare una soluzione molto profonda e costosa. Tempo esponenziale; vantaggio: memoria O(b·m) (lineare nella profondità massima esplorata)."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c14",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c14",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca a profondità limitata (DLS): come DFS ma con limite l sulla profondità. Espande un nodo solo se la lunghezza del cammino è < l; può terminare con fallimento o con un valore speciale taglio (cutoff) che indica che la soluzione potrebbe trovarsi oltre il limite. Completezza non garantita se la soluzione è a profondità > l; non è ottima; tempo O(b^l), spazio O(b·l)."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c15",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c15",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "DLS – pseudocodice (intuito): RPL(nodo, problema, limite) → se obiettivo → soluzione; se limite=0 → taglio; altrimenti per ogni azione genera figlio e richiama RPL(figlio, limite-1); propaga soluzione se trovata, altrimenti aggrega l’informazione di taglio e conclude con taglio o fallimento. Utile come componente per approfondimento iterativo."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c16",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c16",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Approfondimento iterativo (IDS): esegue DLS per limiti l=0,1,2, … finché trova una soluzione. Combina completezza e (in presenza di costi uniformi) la garanzia di trovare un cammino di lunghezza minima come BFS, mantenendo però spazio lineare come DFS. Tempo nel caso pessimo O(b^d); lo sforzo ripetuto sui livelli più superficiali è trascurabile rispetto al totale."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c17",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c17",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Ricerca bidirezionale: lancia due ricerche in parallelo, una in avanti dallo stato iniziale e una all’indietro dall’obiettivo. Se le frontiere si incontrano, si ricostruisce il cammino completo. Vantaggi teorici: riduce la complessità da O(b^d) a ~O(b^{d/2}) per tempo e spazio. Ostacoli pratici: definire i predecessori (ricerca all’indietro) e formalizzare l’insieme degli obiettivi può essere difficile in domini generali (es. N-regine)."
+  },
+  {
+    "id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1:c18",
+    "doc_id": "2c7a1e8f-0c9c-4c8a-9f57-6d5312d9b4a1",
+    "chunk_id": "c18",
+    "source": "algoritmi_di_ricerca_non_informata_opt.pdf",
+    "text": "Sintesi: le strategie non informate differiscono per l’ordine di espansione della frontiera e dunque per trade-off tra completezza, ottimalità, tempo e spazio. BFS è completa ma esigente in memoria; UCS è completa e ottima sui costi ma può essere costosa; DFS è parca di memoria ma incompleta e non ottima; DLS mitiga non terminazione ma può tagliare soluzioni; IDS offre un buon compromesso; la ricerca bidirezionale è potente ma non sempre implementabile."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c01",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c01",
+    "source": "classificazione_opt.pdf",
+    "text": "Classificazione: compito di predire il valore di una variabile categorica (target, classe) usando un training set con etichette note. È un caso di apprendimento supervisionato. Un modello di classificazione usa un algoritmo di apprendimento (classificatore) per assegnare etichette a nuove istanze. Esistono molte famiglie di classificatori (probabilistici, basati su entropia, ecc.) e metodi ensemble come Majority Voting che combinano più modelli di base."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c02",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c02",
+    "source": "classificazione_opt.pdf",
+    "text": "Scelta del classificatore: non esiste un \"migliore in assoluto\"; la selezione dipende dal problema, dai dati e da ipotesi strutturali. In questo materiale analizziamo in particolare Naive Bayes (probabilistico) e Decision Tree (basato su entropia), evidenziando come selezionare un classificatore adeguato e come validarlo correttamente per misurare le prestazioni."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c03",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c03",
+    "source": "classificazione_opt.pdf",
+    "text": "Naive Bayes – idea: calcolare P(classe | caratteristiche) tramite il teorema di Bayes. L’assunzione \"naive\" è l’indipendenza condizionale delle caratteristiche dato la classe: le feature sono trattate come indipendenti, semplificando i calcoli. Nonostante l’assunzione forte, NB è spesso efficace e veloce su testi e problemi ad alta dimensionalità con feature debolmente correlate."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c04",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c04",
+    "source": "classificazione_opt.pdf",
+    "text": "Teorema di Bayes: P(A|B) = P(B|A) · P(A) / P(B). P(A) e P(B) sono probabilità marginali; P(B|A) è la probabilità di osservare B dato A; P(A|B) è la probabilità a posteriori di A dato B. In classificazione, A rappresenta una classe e B il vettore delle caratteristiche osservate per l’istanza da classificare."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c05",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c05",
+    "source": "classificazione_opt.pdf",
+    "text": "Esempio con due dadi: Evento B = \"ottenere un solo 2\" → P(B)=11/36; Evento A = \"somma 7\" → P(A)=6/36; P(B|A)=2/6. Applicando Bayes: P(A|B) = (2/6 · 6/36) / (11/36) = 2/11 ≈ 18,18%. L’esempio illustra come si aggiornano le probabilità condizionate a partire da frequenze di casi favorevoli su spazi di esiti equiprobabili."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c06",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c06",
+    "source": "classificazione_opt.pdf",
+    "text": "Naive Bayes – procedura generale: (1) stima delle probabilità di classe dal training set (frequenze relative); (2) stima delle probabilità condizionate delle feature dato la classe (tabulazione o modelli parametrici); (3) decisione: predire la classe con probabilità a posteriori maggiore. In pratica si lavora spesso in log-spazio per stabilità numerica e si usano tecniche di smoothing (es. Laplace)."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c07",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c07",
+    "source": "classificazione_opt.pdf",
+    "text": "Esempio \"Giocare a tennis\": dataset con caratteristiche meteo (soleggiato/nuvoloso/piovoso), temperatura, umidità e target {SÌ/NO}. Si calcolano le probabilità di classe P(SÌ)=9/14, P(NO)=5/14 e le condizionate P(Meteo=v | classe) da tabelle di frequenza. Applicando Bayes per un meteo specifico si confrontano P(SÌ | evidenza) e P(NO | evidenza) per decidere."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c08",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c08",
+    "source": "classificazione_opt.pdf",
+    "text": "Esempio numerico \"Soleggiato\": P(SÌ | Soleggiato) = P(Soleggiato | SÌ) · P(SÌ) / P(Soleggiato) ≈ (2/9 · 9/14) / (5/14) = 0,4; P(NO | Soleggiato) ≈ (3/5 · 5/14) / (5/14) = 0,6. Estendendo l’evidenza a temperatura/umidità si ottiene la decisione finale: se il prodotto delle condizionate lato NO supera quello lato SÌ, si predice NO."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c09",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c09",
+    "source": "classificazione_opt.pdf",
+    "text": "Decision Tree – idea: costruire un albero in cui nodi interni testano attributi e foglie corrispondono a classi. Ogni percorso radice→foglia è una regola interpretabile (es.: colore=giallo ∧ larghezza≤80 → mela). Gli alberi sono utilizzabili per classificazione e regressione; offrono spiegabilità tramite regole semplici derivanti dalla struttura dell’albero."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c10",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c10",
+    "source": "classificazione_opt.pdf",
+    "text": "Costruzione dell’albero (schema): (1) scegli come radice l’attributo che \"meglio\" separa le classi; (2) dividi il dataset in sottoinsiemi secondo i valori dell’attributo; (3) ripeti ricorsivamente finché i sottoinsiemi sono puri o si raggiungono criteri di arresto. L’obiettivo è massimizzare la purezza delle foglie minimizzando l’ambiguità residua."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c11",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c11",
+    "source": "classificazione_opt.pdf",
+    "text": "Entropia ed Information Gain: entropia H(D) = −∑_c p(c)·log2 p(c) misura l’incertezza del dataset D. Information Gain di un attributo A: Gain(D,A) = H(D) − ∑_{v∈values(A)} (|D_v|/|D|)·H(D_v). Si sceglie l’attributo con massimo gain (o, equivalentemente, minima entropia residua) per la split alla radice o nei nodi interni."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c12",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c12",
+    "source": "classificazione_opt.pdf",
+    "text": "Esempio \"Frutta\": dataset con classe {Mela, Banana, Arancia} e attributi {Colore, Altezza, Larghezza}. Calcolo di H(D) e dei contributi H(D_v) per i valori di Colore (Verde, Giallo, Arancione) porta a un gain elevato per Colore; quindi Colore è una buona radice. Successive split (es. su Larghezza) rendono i sottoinsiemi puri e definiscono le foglie (es. mela/banana)."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c13",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c13",
+    "source": "classificazione_opt.pdf",
+    "text": "Validazione del modello – principio: mai addestrare e valutare sullo stesso dataset; si introduce bias ottimistico e si sovrastimano le prestazioni. Si separa il dataset in training set (per apprendere) e test set (per valutare). Una ripartizione comune è 67/33, ma è solo una convenzione: meglio usare procedure robuste e ripetibili."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c14",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c14",
+    "source": "classificazione_opt.pdf",
+    "text": "k-fold cross validation: (1) shuffle dei dati; (2) divisione in k gruppi; (3) per ogni fold: addestrare su k−1 gruppi e valutare sull’altro; (4) mediare le metriche. Ogni istanza appare esattamente una volta nel test lungo i k giri; questo evita di mischiare training e test. Spesso si usa k=10, ma va adattato alla dimensione del dataset."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c15",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c15",
+    "source": "classificazione_opt.pdf",
+    "text": "Varianti di CV e leakage: ripetere la k-fold N volte per ridurre la varianza dovuta allo shuffle (N-times k-fold). Usare stratified k-fold quando le classi sono sbilanciate per mantenere proporzioni simili in ogni fold. Nei dati temporali la k-fold classica causa leakage: i dati futuri non devono finire nel training di previsioni sul passato; servono split che rispettano il tempo."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c16",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c16",
+    "source": "classificazione_opt.pdf",
+    "text": "Matrice di confusione: tabella con predetti vs reali (TP, FP, TN, FN). Metriche derivate: Precision = TP/(TP+FP); Recall = TP/(TP+FN); Specificity = TN/(TN+FP); Accuracy = (TP+TN)/(TP+TN+FP+FN); MCC combina tutte le celle in un coefficiente tra −1 e 1. Ogni metrica coglie aspetti diversi della qualità del classificatore."
+  },
+  {
+    "id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e:c17",
+    "doc_id": "f6a1c3d4-9b2e-4e7a-8c5d-1f2a3b4c5d6e",
+    "chunk_id": "c17",
+    "source": "classificazione_opt.pdf",
+    "text": "Attenzione all’accuracy: in dataset sbilanciati può essere fuorviante perché i TN dominano il conteggio. Un’accuracy elevatissima può coesistere con recall bassa sulla classe minoritaria (es. diagnosi di melanoma). Interpretare le metriche nel contesto del problema; spesso precision/recall, F1 o curve ROC/PR sono più informative dell’accuracy semplice."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c01",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c01",
+    "source": "clustering_opt.pdf",
+    "text": "Clustering: raggruppare oggetti in gruppi omogenei tra loro e eterogenei rispetto agli altri. È apprendimento non supervisionato: come nella classificazione si vuole organizzare i dati, ma senza etichette predefinite. Ogni cluster può essere interpretato come una classe di oggetti simili secondo certe caratteristiche."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c02",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c02",
+    "source": "clustering_opt.pdf",
+    "text": "La qualità di un clustering dipende dalla misura di similarità scelta e dall’algoritmo. Dal punto di vista esterno, un buon clustering dovrebbe rivelare pattern nascosti che legano elementi simili, ma non avendo etichette non possiamo calcolare accuracies esatte. Problema rilevante: scegliere il numero di cluster; essendo non supervisionato, k non è noto a priori."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c03",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c03",
+    "source": "clustering_opt.pdf",
+    "text": "Altre proprietà desiderabili: scalabilità, robustezza agli outlier, interpretabilità. La nozione di similarità è ambigua e dipende dal punto di vista e dal tipo di dati (strutturati, non strutturati). Con alta dimensionalità i dati diventano sparsi e i cluster più difficili da individuare, fenomeno legato alla maledizione della dimensionalità."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c04",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c04",
+    "source": "clustering_opt.pdf",
+    "text": "Misure di similarità: la distanza è la scelta più ovvia, ma non sempre è indicativa. Se è adeguata, imponiamo distanza intra‑cluster bassa e inter‑cluster alta e potremmo raggruppare con una soglia; la scelta della soglia influenza numero e forma dei cluster e non è triviale."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c05",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c05",
+    "source": "clustering_opt.pdf",
+    "text": "Distanze metriche: una metrica d su un insieme S soddisfa identità d(x,x)=0, positività d(x,y)>0 per x≠y, simmetria d(x,y)=d(y,x) e disuguaglianza triangolare d(x,z)≤d(x,y)+d(y,z). Semi‑metrica se valgono 1–3; pseudo‑metrica se valgono 1,3,4. Esempio classico: distanza euclidea."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c06",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c06",
+    "source": "clustering_opt.pdf",
+    "text": "Oltre all’euclidea: Manhattan (somma delle differenze assolute), Mahalanobis (standardizza rispetto a varianze e correlazioni), Jaccard per insiemi (|X∩Y|/|X∪Y|), Hamming (numero di sostituzioni), Levenshtein (min modifiche per trasformare una stringa nell’altra). La scelta dipende dal dominio; spesso si valutano più distanze a posteriori."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c07",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c07",
+    "source": "clustering_opt.pdf",
+    "text": "Esempio Jaccard su stringhe: tokenizzando due frasi in insiemi di parole, la similarità è l’intersezione divisa per l’unione. È utile per confrontare documenti brevi o set di caratteristiche sparsi, ed è estendibile a n‑grammi per catturare variazioni superficiali."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c08",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c08",
+    "source": "clustering_opt.pdf",
+    "text": "Criteri per ottimizzare i cluster: dato D={x1,…,xn} e una partizione in k insiemi disgiunti D1,…,Dk, con ni=|Di| e mi media di Di, il criterio più comune è la somma degli errori quadrati SSE=∑_{i=1..k} ∑_{x∈Di} ||x−mi||^2. Il centroide mi è la migliore rappresentazione media del cluster sotto errore quadratico."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c09",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c09",
+    "source": "clustering_opt.pdf",
+    "text": "Tassonomie di algoritmi: esclusivi (ogni pattern in un solo cluster) vs non esclusivi (appartenenza multipla); gerarchici vs partizionali; agglomerativi vs divisivi; seriali vs simultanei; graph‑theoretic (collegabilità) vs algebrici (criteri di errore)."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c10",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c10",
+    "source": "clustering_opt.pdf",
+    "text": "Due famiglie dominanti: (1) partizionamento iterativo a errore quadratico, e (2) clustering gerarchico agglomerativo. Le varianti differiscono per la misura di similarità e per il criterio di ottimizzazione. L’algoritmo più noto della famiglia (1) è k‑means."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c11",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c11",
+    "source": "clustering_opt.pdf",
+    "text": "k‑means – schema: Step1 scegli k centroidi iniziali (casuali/pseudocasuali); Step2 assegna ogni campione al centroide più vicino; Step3 ricalcola i centroidi come medie dei cluster; Step4 ripeti assegnazione e aggiornamento finché i centroidi non cambiano. È iterativo, partizionale e minimizza l’errore quadratico intra‑cluster."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c12",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c12",
+    "source": "clustering_opt.pdf",
+    "text": "k‑means – when it works: efficiente e valido con cluster compatti, ipersferici e ben separati. Limiti: richiede k a priori → rischio ottimi locali e scelta difficile senza guida; inizializzazione casuale può degradare il risultato. Possibili miglioramenti: inizializzazione informata e ricerca del k ottimale con metodi empirici o ricerca locale."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c13",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c13",
+    "source": "clustering_opt.pdf",
+    "text": "Scelta di k: k troppo piccolo fonde gruppi diversi; k troppo grande spezzetta e overfit del rumore. Effetti pratici: qualità, costo computazionale (più centroidi da aggiornare) e interpretabilità. Metodi per scegliere k: elbow (punto in cui il calo di SSE diventa marginale), silhouette (coesione e separazione), criteri statistici (AIC, BIC, gap)."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c14",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c14",
+    "source": "clustering_opt.pdf",
+    "text": "Pre‑/post‑processing per k‑means: normalizzazione delle feature e rimozione outlier riducono risultati sub‑ottimi. Post‑processing: eliminazione cluster troppo piccoli (outlier) o unione di cluster vicini. Per dati categorici si usa k‑medoids (medoidi al posto dei centroidi) con una funzione di similarità adatta."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c15",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c15",
+    "source": "clustering_opt.pdf",
+    "text": "Clustering gerarchico agglomerativo: costruisce raggruppamenti multi‑livello. Si parte da n cluster singoletto e si uniscono iterativamente i più simili fino a un unico cluster, producendo un dendrogramma. Le partizioni a diversi livelli corrispondono a tagli orizzontali del dendrogramma."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c16",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c16",
+    "source": "clustering_opt.pdf",
+    "text": "Misure di distanza tra cluster: single‑link d_min(Di,Dj)=min_{x∈Di,y∈Dj} ||x−y|| (nearest neighbor) e complete‑link d_max(Di,Dj)=max_{x∈Di,y∈Dj} ||x−y|| (farthest neighbor). La scelta influenza forma dei cluster: single‑link tende a catene, complete‑link a cluster compatti."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c17",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c17",
+    "source": "clustering_opt.pdf",
+    "text": "Density‑based: raggruppa per regioni dense nello spazio e scopre forme arbitrarie. DBSCAN usa due parametri: minPts (min numero di punti in un intorno denso) ed epsilon (raggio dell’intorno). Variando i parametri si controllano separazione e granularità; utile per forme non sferiche e per gestire outlier come rumore."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c18",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c18",
+    "source": "clustering_opt.pdf",
+    "text": "Valutazione del clustering: in assenza di etichette si usano metriche surrogate. Tre metodi comuni: elbow point per selezione di k, silhouette coefficient per coesione/separazione (valori in [−1,+1], più alto è meglio), e MoJo distance quando si dispone di un clustering di riferimento per confrontare soluzioni tramite mosse di move/join minime."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c19",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c19",
+    "source": "clustering_opt.pdf",
+    "text": "Silhouette – definizione: per un punto i nel cluster c, a(i) è la distanza media dagli altri punti del cluster; b(i) è la distanza media dal cluster più vicino; s(i)=(b(i)−a(i))/max{a(i),b(i)}. Il valore complessivo è la media su tutti i punti. Valori alti indicano cluster densi e ben separati."
+  },
+  {
+    "id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10:c20",
+    "doc_id": "9a3c5f72-4b1e-47c0-9d79-4a0a2e6e3c10",
+    "chunk_id": "c20",
+    "source": "clustering_opt.pdf",
+    "text": "MoJo distance – idea pratica: se per una release storica costruiamo manualmente un raggruppamento oracolare (ad es. cluster di user review), possiamo confrontare vari algoritmi di clustering misurando quante operazioni di move/join servono per raggiungere l’oracolo. La metrica aumenta la fiducia nell’uso operativo del clustering."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c01",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c01",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Agenti capaci di apprendere. Un agente che impara opera in ambienti inizialmente sconosciuti e diventa più competente col tempo. Architettura a 4 componenti: elemento di apprendimento (migliora il sistema), elemento esecutivo (seleziona azioni), elemento critico/valutatore (fornisce feedback sulle prestazioni correnti), generatore di problemi (propone esperienze nuove e informative per accelerare l’apprendimento)."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c02",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c02",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Cosa significa apprendere. Apprendimento = migliorare, con l’esperienza E, l’esecuzione di un task T secondo una misura di prestazione P. Esempio: filtro antispam e‑mail — T: riconoscere e‑mail indesiderate; P: percentuale di classificazioni corrette; E: archivio etichettato di messaggi spam/non‑spam."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c03",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c03",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Machine learning: idea generale. Il ML studia e costruisce algoritmi che apprendono dai dati per fare previsioni/decisioni data‑driven, andando oltre la programmazione esplicita. Crescita recente favorita da disponibilità di dati e potenza computazionale; qui si introducono i fondamenti (shallow ML), non approfondimenti su deep o quantum ML."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c04",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c04",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Tipi di apprendimento. Supervisionato: si apprendono relazioni da dati etichettati (la variabile dipendente è nota in training). Non supervisionato: si apprendono strutture da dati non etichettati (p.e. cluster); spesso applicato a problemi più complessi. Altre famiglie: semi‑supervisionato (alcune etichette mancanti) e rinforzo (ricompense per sequenze di azioni)."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c05",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c05",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Schema supervisionato vs non supervisionato. Supervisionato: dataset etichettato → addestramento del modello → previsione dell’etichetta per una nuova istanza. Non supervisionato: dataset senza etichette → scoperta di struttura intrinseca → assegnazione della nuova istanza al gruppo/struttura individuata."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c06",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c06",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Problemi per output desiderato. Regressione: target continuo (es. stimare stipendio). Classificazione: target discreto (es. e‑mail spam). Clustering: suddividere dati in gruppi omogenei (es. utenti con comportamenti simili). Altri compiti includono riduzione della dimensionalità (PCA/SVD) e mining di associazioni (Apriori/FP‑Growth)."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c07",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c07",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Panoramica algoritmi. Non supervisionato: SVD, PCA, k‑means; associazioni: Apriori, FP‑Growth; sequenze: HMM. Supervisionato regressione: lineare/polinomiale. Supervisionato classificazione: k‑NN, alberi di decisione/Random Forest, regressione logistica, Naive Bayes, SVM. La scelta dell’algoritmo dipende dal problema e dai dati."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c08",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c08",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Selezione del modello: approccio empirico. Si formulano ipotesi iniziali basate su teoria e tipo di problema, poi si confrontano più modelli con metriche di errore su dati di test/validazione. Esempio guida: regressione per stimare altezza in funzione di genere, peso ed età; si misura l’errore tra stima e valore reale."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c09",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c09",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Errore e notazione. Per ogni istanza i, x_i ∈ R^p sono le feature (qui p=3: genere, peso, età); y_i è il valore reale; un modello apprende f(·) tale che y_i ≈ f(x_i). Esiste un errore irriducibile ε_irr che rappresenta variabilità intrinseca del fenomeno. Quindi y_i = f(x_i) + ε_irr."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c10",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c10",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Bias e varianza. Oltre a ε_irr c’è un errore riducibile dovuto al modello: y_i = ŷ_i + ε_irr + ε, con ε = bias + varianza. Bias alto → underfitting (modello troppo semplice, sistematicamente errato); varianza alta → overfitting (modello troppo complesso, sensibile ai dati di training). Obiettivo: buon compromesso bias‑varianza per generalizzare."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c11",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c11",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Underfitting vs overfitting. Underfitting: il modello non cattura gli schemi dei dati, scarsa accuratezza anche su training. Overfitting: il modello “memorizza” il training e degrada su dati nuovi; usa soluzioni troppo complesse per problemi semplici. La diagnosi richiede valutazioni su set ampi e separati (validazione/test)."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c12",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c12",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Pratiche per mitigare errori. Selezione delle caratteristiche rilevanti (feature selection) per focalizzare l’apprendimento; convalida incrociata per valutazioni robuste; tuning dei parametri per adattare la complessità del modello; aumentare la quantità/qualità dei dati quando possibile per ridurre varianza e migliorare generalizzazione."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c13",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c13",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Esercizi di riconoscimento del compito. Caso 1: predire l’interesse all’acquisto di un prodotto → classificazione. Caso 2: riconoscere numeri scritti a mano → classificazione. Caso 3: trovare gruppi di utenti simili su e‑commerce → clustering. Caso 4: stimare il valore di un’azione dai 3 giorni precedenti → regressione."
+  },
+  {
+    "id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33:c14",
+    "doc_id": "84c7f2b6-5a3e-4f09-9c2e-6b7d2f8a1c33",
+    "chunk_id": "c14",
+    "source": "intro_apprendimento_opt.pdf",
+    "text": "Sintesi. Caratterizzare il compito (tipo di output e disponibilità etichette) guida la scelta iniziale degli algoritmi. La decisione finale è empirica: misurare l’errore, bilanciare bias‑varianza e adottare buone pratiche di validazione per ottenere modelli che generalizzano."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c01",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c01",
+    "source": "llm_opt.pdf",
+    "text": "Paralleli tra rivoluzione industriale e IA. Automazione: le macchine industriali sostituivano compiti manuali ripetitivi; i modelli di IA automatizzano compiti cognitivi ripetitivi (classificazione, analisi, generazione). Spostamento occupazionale: vecchi mestieri diminuiscono, ne nascono di nuovi (ingegneri IA, eticisti, supervisori). Produttività: forti aumenti con riduzione errori e costi. Disuguaglianze: concentrazione di potere in chi possiede dati, compute e modelli. Adozione rapida e shock sociale: la tecnologia supera le istituzioni; oggi l’IA corre più delle norme ed emergono resistenze. Competenze: servono alfabetizzazione digitale e reskilling; infrastrutture: reti dati, cloud, chip specializzati come fondamenta dell’ecosistema IA."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c02",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c02",
+    "source": "llm_opt.pdf",
+    "text": "Large Language Model (LLM): reti neurali addestrate su grandi quantità di testo per comprendere e generare linguaggio naturale. Esempi d’uso: traduzione, Q&A, riassunto, programmazione. Cambiamento culturale: come la rivoluzione industriale, i LLM stanno cambiando il modo di apprendere, comunicare e creare. Da dove nasce l’esigenza: molti modelli classici presuppongono che training e test provengano dalla stessa distribuzione; quando la distribuzione cambia, servirà riaddestrare da zero, con costi elevati o impraticabili."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c03",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c03",
+    "source": "llm_opt.pdf",
+    "text": "Esempi di domain shift. Un modello per vendite di ombrelli addestrato in una città piovosa degrada in una città secca. Un classificatore di sentiment addestrato su review di computer può degradare su review di smartphone. Per mantenere buone prestazioni servirebbero dati per ogni nuovo prodotto o dominio… oppure sfruttare il riuso: utilizzare modelli pre‑addestrati e adattarli a nuovi task o domini riducendo tempi, dati e costi."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c04",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c04",
+    "source": "llm_opt.pdf",
+    "text": "Transfer learning. Tecnica in cui un modello pre‑addestrato nel dominio Ds sul task Ts è riutilizzato/adattato per un nuovo task Tt nel dominio Dt. Condizione: Ds ≠ Dt oppure Ts ≠ Tt (basta una differenza). Sequential transfer learning: adattamento progressivo in più fasi, senza riaddestrare da zero. Step #1: pre‑training su grande corpus generico (es. Wikipedia, BookCorpus) per apprendere rappresentazioni linguistiche generali."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c05",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c05",
+    "source": "llm_opt.pdf",
+    "text": "Sequential transfer learning (continua). Step #2: ulteriori fasi con congelamento dei layer di base e fine‑tuning degli strati alti su dataset intermedi o target (es. IMDB per sentiment). Step #3: ulteriore fine‑tuning sul dominio specifico (es. review di smartphone) per introdurre terminologie di settore. L’idea è preservare conoscenze generali e specializzare progressivamente gli strati superiori."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c06",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c06",
+    "source": "llm_opt.pdf",
+    "text": "Transformer: architettura neurale basata su self‑attention che modella relazioni complesse lungo la sequenza indipendentemente dalla distanza posizionale. L’attenzione assegna pesi tra token in base al contesto globale, abilitando traduzione, completamento e generazione. Esempio: nella frase “The animal didn't cross the street because it was too tired”, l’attenzione correla ‘it’ con ‘animal’ grazie al contesto, disambiguando il riferimento."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c07",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c07",
+    "source": "llm_opt.pdf",
+    "text": "Encoder e decoder. Encoder: trasforma la sequenza in rappresentazioni dense che catturano significato e relazioni; è il \"modulo di comprensione\". Decoder: genera l’output parola per parola usando la rappresentazione e l’output già prodotto; è il \"modulo di generazione\". Modelli noti: BERT (solo encoder: comprensione, pre‑training con Masked LM e Next Sentence Prediction), T5 (encoder‑decoder: tutto come testo→testo), GPT (solo decoder: generazione autoregressiva)."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c08",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c08",
+    "source": "llm_opt.pdf",
+    "text": "Perché GPT per generazione aperta. BERT non genera testo autonomamente; T5 è orientato a compiti di conversione testo→testo con input strutturati. GPT, essendo solo decoder, è naturale per la continuazione creativa: genera la parola successiva condizionata all’output parziale e al contesto, semplificando il design rispetto a un encoder‑decoder completo."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c09",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c09",
+    "source": "llm_opt.pdf",
+    "text": "Foundation model. Gli LLM sono una classe di foundation model: pre‑addestrati su grandi dati non supervisionati e trasferibili via fine‑tuning o prompting. Esempi: per NLP GPT, LLaMA, PaLM; per visione DALL·E, GAN, VAE; multimodali CLIP, GPT‑4, ViLBERT. Compiti tipici LLM: language understanding (POS tagging, sentiment, language detection) e generation (Q&A, summarization, code generation)."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c10",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c10",
+    "source": "llm_opt.pdf",
+    "text": "Interazione e limiti pratici. Gli LLM sono esplosi via interfacce chat, ma presentano sfide: ambiguità dei prompt, sensibilità al contesto, conoscenza limitata/obsoleta, complessità nella formulazione. Servono strategie disciplinate di prompt engineering. Problemi tipici: errori frequenti (uno studio citato riporta ~52% risposte errate; gli sviluppatori ignorano l’errore nel 39% dei casi), flakiness (risposte variabili allo stesso prompt), allucinazioni e bias."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c11",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c11",
+    "source": "llm_opt.pdf",
+    "text": "Prompt engineering. Arte di progettare prompt chiari, specifici e contestuali per guidare il modello verso risposte pertinenti e sicure. Few‑shot learning: mostrare pochi esempi input→output per far riconoscere lo schema. Chain‑of‑Thought: incoraggiare il ragionamento passo‑passo per ridurre errori in compiti logici/matematici. Emotion prompting: iniettare uno stile cognitivo (\"con calma e precisione\") che induca risposte più diligenti."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c12",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c12",
+    "source": "llm_opt.pdf",
+    "text": "Secure prompting. Pratiche per ridurre attacchi e abusi: validare/filtrare input, separare istruzioni dal testo utente, limitare output sensibili, usare sandbox quando il modello interagisce con codice o fonti esterne. Obiettivo: prevenire prompt injection e richieste malevole (\"ignora le regole\"), mantenendo robuste le risposte."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c13",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c13",
+    "source": "llm_opt.pdf",
+    "text": "Architetture multi‑agente. Sistemi con più agenti (LLM/moduli) che cooperano o competono: ruoli distinti (planner, data‑checker, generatore), comunicazione con protocolli condivisi, strategie cooperative/competitive ispirate alla teoria dei giochi. Vantaggi: decomposizione del problema, specializzazione, robustezza; sfide: coordinamento, coerenza, controllo dei costi."
+  },
+  {
+    "id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d:c14",
+    "doc_id": "91c8e8e1-5b4c-4f2a-9d9b-b7a9d5f3a21d",
+    "chunk_id": "c14",
+    "source": "llm_opt.pdf",
+    "text": "Il futuro dello sviluppatore. I foundation model sono una \"rivoluzione industriale\" dell’informatica. Domanda aperta: l’IA eliminerà il lavoro del programmatore? Più realistico: cambierà gli strumenti e le competenze richieste, spostando il focus su orchestrazione, valutazione, integrazione, sicurezza e responsabilità. L’alfabetizzazione all’IA diventa parte della professionalità quotidiana."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c01",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c01",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Ingegneria del software come fondamento: senza processi, misurazione e monitoraggio della qualità non si ottengono sistemi affidabili. Studi riportano fallimenti diffusi e impatti enormi in termini economici e sociali quando i sistemi non sono adeguatamente ingegnerizzati. L’ingegneria del software abilita tutte le altre discipline: organizza lo sviluppo, riduce i rischi e rende ripetibili i risultati nel tempo."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c02",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c02",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "L’IA e il machine learning sono casi particolari di software: se non sono ingegnerizzati, i rischi si amplificano perché i modelli interagiscono con ambienti aperti e dati rumorosi. Esempio emblematico: incidente a un’auto a guida autonoma in cui la pipeline di percezione ha classificato erroneamente un pedone per diversi secondi; per di più, la frenata di emergenza era stata disabilitata per evitare comportamenti irregolari. La lezione è duplice: robustezza del modello e scelte ingegneristiche di sicurezza by‑design."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c03",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c03",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Bias nei sistemi di ML: casi documentati mostrano modelli di selezione del personale che riflettono e amplificano squilibri presenti nei dati storici. Se il dataset di addestramento è sbilanciato per genere o altri attributi sensibili, il classificatore penalizza sistematicamente alcuni gruppi. Il ritiro di modelli in produzione dimostra che la validazione etica e tecnica non è opzionale ma parte integrante dell’ingegneria del ML."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c04",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c04",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Morale operativa: i modelli sono progettati da persone e apprendono dai dati disponibili; se il design è povero o i dati sono inadatti, il sistema impara comportamenti indesiderati. Serve trattare l’intero progetto come un sistema socio‑tecnico, con responsabilità chiare, metriche e controlli. Data engineering e software engineering sono colonne portanti tanto quanto l’algoritmo in sé."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c05",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c05",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "CRISP‑DM come ciclo di vita: processo standard per progetti di data mining/ML, simile a un modello a cascata con feedback. Le fasi non sono rigidamente sequenziali: si può tornare indietro e iterare più volte secondo le evidenze raccolte. Obiettivo: guidare dall’idea al deployment con documenti e deliverable chiari a ogni passo."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c06",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c06",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 1 – Business Understanding: raccogliere requisiti, definire obiettivi di business e criteri di successo, stimare risorse e rischi, impostare analisi costi‑benefici. Vanno definiti anche gli obiettivi tecnici e selezionate tecnologie e tool. Deliverable: piano di progetto con responsabilità e milestone, che collega successo tecnico e valore di business."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c07",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c07",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 2 – Data Understanding: identificare, acquisire e analizzare i dataset rilevanti. Documentare formato, cardinalità e semantica dei campi; esplorare i dati per visualizzare distribuzioni e correlazioni; svolgere una prima analisi di data quality, annotando problemi come valori mancanti o inconsistenze. Deliverable: documento di analisi dei dati con fonti, metodi e issue noti."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c08",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c08",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 3 – Data Preparation: preparare i dati per l’uso modellistico. Comprende feature engineering (selezione/costruzione delle caratteristiche con potere predittivo), pulizia in base ai problemi rilevati e formattazione coerente con i tool scelti a monte. La preparazione può portare a espandere o ridurre le feature in base a evidenza empirica. Deliverable: dataset di input per la modellazione."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c09",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c09",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 4 – Modeling: scegliere l’impostazione del problema (classificazione, regressione…) e le tecniche più adatte; configurare iperparametri; addestrare e registrare i risultati. Spesso emergono feedback che richiedono nuove trasformazioni nella preparazione dati. Deliverable: modello addestrato e configurato sui dati disponibili, con tracciabilità delle decisioni."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c10",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c10",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 5 – Evaluation: validare che i risultati siano chiari, in linea con gli obiettivi di business e tecnici, e che l’intero processo sia consistente. Analizzare alternative metodologiche e il loro impatto, poi decidere se procedere o rivedere scelte precedenti. Deliverable: report di valutazione con metriche, limiti e raccomandazioni operative per i prossimi passi."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c11",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c11",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Fase 6 – Deployment: mettere in servizio il modello, definendo interazione utente, interfacce, monitoraggio e manutenzione continua. Il passaggio dall’ingegneria del ML a quella del software è esplicito: il sistema deve evolvere, perché ciò che non cambia diventa presto inutile, e la complessità tende a crescere nel tempo. Deliverable: report finale con piano di manutenzione e monitoraggio."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c12",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c12",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "CRISP‑DM: cascata o agile? Pur somigliando a un ciclo a cascata, CRISP‑DM è flessibile: consente iterazioni e ritorni di fase. Tuttavia, non esplicita ruoli e responsabilità delle persone nel team, un limite importante dato che i progetti sono socio‑tecnici. Serve integrare pratiche organizzative per chiarire chi fa cosa e quando."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c13",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c13",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "SCRUM in breve: lavoro organizzato in sprint con pianificazione, daily, review e retrospective. Sviluppo incrementale per migliorare interazione con stakeholder e ridurre rischi di misunderstanding. Ruoli chiave: product owner (priorità e backlog), scrum master (facilita e rimuove impedimenti), team di sviluppo cross‑funzionale (3–9 persone)."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c14",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c14",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Dal mix CRISP‑DM + SCRUM a TDSP: il Team Data Science Process formalizza ruoli e checkpoint di accettazione cliente a intervalli regolari. Integra esplicitamente aspetti socio‑tecnici e pratiche di ingegneria del software nel ciclo di vita data‑driven, mantenendo l’incrementalità tipica di Scrum e la struttura di CRISP‑DM."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c15",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c15",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "TDSP – ruoli: project manager (responsabile complessivo), project lead (team lead), data engineer (acquisizione e gestione dati), data scientist (analisi e modellazione), application developer (implementazione applicativa), solution architect (architetture e integrazioni). Terminologia e tool allineati al mondo agile facilitano coordinamento e accountability."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c16",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c16",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "TDSP – pro e contro: pro—rilasci incrementali che riducono rischi, riconoscimento esplicito della complementarità tra ML e software engineering, chiarezza dei ruoli. Contro—la rigidità degli sprint può scontrarsi con incertezze tecniche tipiche dei progetti ML, come assenza o bassa qualità dei dati; serve elasticità su tempi e deliverable."
+  },
+  {
+    "id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60:c17",
+    "doc_id": "d9f4a1b2-3c45-4e67-8a90-1b2c3d4e5f60",
+    "chunk_id": "c17",
+    "source": "machine_learning_engineering_opt.pdf",
+    "text": "Conclusione pratica: l’ingegneria del ML richiede rigorosa gestione del ciclo di vita, attenzione a sicurezza e bias, e una governance dei dati che accompagni l’algoritmo dall’ideazione al deployment. Processi come CRISP‑DM e TDSP forniscono mappe operative; l’efficacia dipende dall’adattamento al contesto e dalla disciplina nel misurare e migliorare continuamente."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c01",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c01",
+    "source": "regressione_opt.pdf",
+    "text": "Regressione: compito di predire il valore di una variabile numerica (variabile dipendente/di risposta) a partire da un training set con etichette note. È apprendimento supervisionato. Un regressore è un algoritmo che apprende una funzione f per stimare nuovi valori dalla relazione tra predittori e target. Famiglie diverse di regressori si distinguono per assunzioni sui dati e numero di predittori disponibili."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c02",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c02",
+    "source": "regressione_opt.pdf",
+    "text": "Esempio motivante: predire il salario in funzione degli anni di esperienza. Con un solo predittore si usa una regressione lineare singola. Obiettivo: trovare una funzione che si adatti bene ai dati di training e generalizzi su istanze nuove, evitando di sovrastimare/ sottostimare sistematicamente."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c03",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c03",
+    "source": "regressione_opt.pdf",
+    "text": "Modello lineare semplice: y~ = β0 + β1·x1 e y = y~ + ε, con ε residuo (differenza tra valore reale e valore predetto). β0 è l’intercetta (valore quando x=0), β1 l’inclinazione (variazione attesa di y per incremento unitario di x). La bontà dell’adattamento dipende da quanto piccoli sono i residui su test."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c04",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c04",
+    "source": "regressione_opt.pdf",
+    "text": "Metriche di errore per valutazione empirica: MAE = (1/n)∑|y~−y|; MSE = (1/n)∑(y~−y)^2; RMSE = sqrt((1/n)∑(y~−y)^2). Si confrontano modelli diversi sullo stesso test set; valori più bassi indicano migliore accuratezza predittiva. Le metriche traducono il fitting in numeri confrontabili."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c05",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c05",
+    "source": "regressione_opt.pdf",
+    "text": "Stima dei parametri: metodo dei minimi quadrati (Least Squares). Idea: scegliere β0,β1 che minimizzano la somma dei residui al quadrato. Procedura classica: calcolare somme ∑x, ∑y, ∑x^2, ∑xy; stimare pendenza β1 = (N·∑xy − ∑x·∑y) / (N·∑x^2 − (∑x)^2); poi intercetta β0 = (∑y − β1·∑x)/N; infine y~ = β0 + β1·x."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c06",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c06",
+    "source": "regressione_opt.pdf",
+    "text": "Assunzioni per uso corretto della regressione lineare: (1) linearità tra X e Y; (2) normalità dei residui; (3) omoschedasticità (varianza dei residui costante); (4) indipendenza degli errori (test di Durbin–Watson ≈ 2 indica indipendenza). Violazioni gravi minano l’affidabilità delle inferenze e delle previsioni."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c07",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c07",
+    "source": "regressione_opt.pdf",
+    "text": "Regressione lineare multipla: y~ = β0 + β1·x1 + … + βm·xm, con stessa logica dei minimi quadrati in forma matriciale. Ogni coefficiente misura l’effetto di una variabile tenendo ferme le altre. Valgono gli stessi vincoli di linearità e omoschedasticità. Problema tipico: multicollinearità tra predittori → rimuovere variabili ridondanti prima del fitting."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c08",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c08",
+    "source": "regressione_opt.pdf",
+    "text": "Alberi decisionali per regressione (regression trees): dividono lo spazio delle feature in regioni dove il target assume valori simili e assegnano a ciascuna regione un valore rappresentativo (spesso la media). Il modello decide la regione per una nuova istanza seguendo test sui nodi fino a una foglia."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c09",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c09",
+    "source": "regressione_opt.pdf",
+    "text": "Costruzione di un albero regressivo: (1) scegliere la variabile di split che massimizza la riduzione di varianza del target; (2) per variabili continue, scorrere punti di split candidati ordinati e valutare la riduzione di varianza; (3) dividere il dataset; (4) ripetere ricorsivamente finché si soddisfa un criterio di arresto (profondità massima, min campioni per foglia, purezza)."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c10",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c10",
+    "source": "regressione_opt.pdf",
+    "text": "Valore delle foglie: tipicamente la media dei target delle istanze che raggiungono la foglia; in presenza di outlier si può preferire la mediana. Una volta etichettate le foglie, la predizione è il valore assegnato alla foglia raggiunta. Gli alberi forniscono modelli interpretabili ma possono sovradattare senza potature/regolarizzazione."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c11",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c11",
+    "source": "regressione_opt.pdf",
+    "text": "Apprendimento per rinforzo – panoramica: l’agente apprende tramite ricompense (reward) durante l’interazione con l’ambiente. Ogni azione modifica lo stato e produce un feedback che guida l’aggiornamento. L’obiettivo è massimizzare una funzione obiettivo cumulativa, avvicinandosi a una politica (strategia) efficace."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c12",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c12",
+    "source": "regressione_opt.pdf",
+    "text": "Esempio intuitivo (giocare a tennis): una risposta del modello può essere penalizzata con reward negativo quando contraria alla realtà. Invece di cambiare etichette a mano, si definisce una politica che preferisce azioni con probabilità di reward atteso più alto. Strumenti classici: processi decisionali di Markov, metodi Monte Carlo, apprendimento per differenza temporale."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c13",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c13",
+    "source": "regressione_opt.pdf",
+    "text": "Deep learning – neurone artificiale: input x, pesi w, funzione di attivazione f(z) con z = x·w^T. Un singolo neurone non incorpora conoscenza del compito; reti multistrato (hidden layers) compongono funzioni per estrarre rappresentazioni via livelli specializzati. Utile quando non si dispone di regole esplicite per l’output (es. percezione per guida autonoma)."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c14",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c14",
+    "source": "regressione_opt.pdf",
+    "text": "Reti neurali profonde: concatenando layer si ottengono trasformazioni gerarchiche; ogni livello può specializzarsi in schemi diversi, rendendo il modello progressivamente più informato. Le reti profonde sono potenti ma richiedono dati, calcolo e accorgimenti di addestramento per evitare over/underfitting."
+  },
+  {
+    "id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76:c15",
+    "doc_id": "a3b7c9d2-5e41-4f2a-bf0a-7d2c9e1f4b76",
+    "chunk_id": "c15",
+    "source": "regressione_opt.pdf",
+    "text": "Quantum Machine Learning – cenno: il quantum computing sfrutta superposition ed entanglement. Obiettivo a lungo termine: quantum supremacy su compiti intractable classicamente. In ML, l’idea è accelerare fasi costose (es. training) con componenti quantistiche o analizzare dati quantistici. Ambito in stato preliminare; possibili ibridi classico–quantum e tecniche come quantum annealing per problemi di ricerca."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c01",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c01",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Minimax e il problema dell’esponente. L’albero di gioco cresce come b^d (branching b, profondità d). Non possiamo eliminarne l’esponente, ma possiamo dimezzarlo con la potatura alfa‑beta: calcola la stessa decisione del minimax standard evitando rami che non possono influenzare l’esito finale."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c02",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c02",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Idea chiave di alfa‑beta. Lungo ogni cammino manteniamo due bound: α (miglior valore garantito per MAX) e β (miglior valore garantito per MIN). Se in un nodo il valore corrente non può migliorare α o β, potiamo il ramo. Si risparmia esplorazione mantenendo l’esito di minimax."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c03",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c03",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Intuizione operativa. Se MAX ha già trovato un esito +1 su un ramo, quando valuta un secondo ramo e MIN può assicurare ≤0, allora il resto del ramo è inutile: MIN non lascerà a MAX di ottenere più di 0 e MAX non sceglierà peggio di +1. Quindi quel sottoalbero si può tagliare."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c04",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c04",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Pseudocodice (scheletro). RICERCA‑ALFA‑BETA invoca VALORE‑MAX(s, −∞, +∞). In MAX si inizializza v=−∞, si aggiorna v con i figli valutati da VALORE‑MIN, si pota se v ≥ β, si aggiorna α ← max(α, v). In MIN simmetrico: v=+∞, pota se v ≤ α, aggiorna β ← min(β, v)."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c05",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c05",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Complessità. Nel caso migliore, con buon ordinamento delle mosse, il numero di nodi scende da O(b^d) a circa O(b^{d/2}). Stesso risultato di minimax, ma con un albero esplorato molto più piccolo; in pratica consente profondità di ricerca circa doppie a parità di tempo."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c06",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c06",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Ordinamento delle mosse. L’efficacia della potatura dipende dall’ordine di visita: provare prima le mosse “promettenti” fa scattare i tagli prima. Strategie: best‑first, euristiche di cattura/minaccia negli scacchi, e ordinamento dinamico con approfondimento iterativo e heuristiche come le “mosse killer”."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c07",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c07",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Trasposizioni. Lo stesso stato può essere raggiunto via cammini diversi; conviene memorizzare le valutazioni in una tabella delle trasposizioni (hash) per riusarle e anche per migliorare l’ordinamento successivo. Quando la memoria è limitata si mantiene solo un sottoinsieme selezionato con politiche ad hoc."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c08",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c08",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Decisioni imperfette in tempo reale. Anche alfa‑beta rimane costoso se si cerca fino alle foglie. Claude Shannon propose di interrompere la ricerca prima e usare una funzione di valutazione EVAL sugli stati interni, con un cutoff test che decide quando fermarsi."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c09",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c09",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "H‑Minimax. Sostituiamo UTILITÀ con EVAL agli stati non terminali quando scatta il cutoff. Il problema diventa: se TEST‑TAGLIO(s,d) allora ritorna EVAL(s); altrimenti propaga come minimax. La qualità dipende da accuratezza e coerenza della funzione di valutazione rispetto agli esiti reali."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c10",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c10",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Funzioni di valutazione. Requisiti: (1) ordinare coerentemente gli stati terminali (vittorie > pareggi > sconfitte); (2) essere veloci da calcolare; (3) correlare bene con la probabilità reale di vittoria per stati non terminali. Tipicamente sono funzioni lineari pesate di caratteristiche dello stato."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c11",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c11",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Esempio scacchi. Caratteristiche: materiale (punteggi a pezzi), sicurezza del re, struttura pedonale, attività pezzi. EVAL(s) = Σ w_i f_i(s). In assenza di esperienza completa, si approssima il valore atteso della posizione usando stime su classi di equivalenza (configurazioni simili)."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c12",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c12",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Quiescenza. Il cutoff su posizioni “non quiescenti” (con tatticismi imminenti che cambiano bruscamente EVAL) genera errori. Si applica una ricerca di quiescenza: se la posizione non è quiescente, si espande ancora con mosse tattiche fino a raggiungere una posizione stabile e poi si valuta."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c13",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c13",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Ulteriori miglioramenti. Potatura in avanti: esplorare solo un sottoinsieme di mosse ritenute promettenti (beam search) o usare tagli probabilistici basati su esperienza. Database di apertura/finale: usare librerie precompute per evitare esplorazioni inutili in fasi note del gioco."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c14",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c14",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Dai giochi deterministici agli stocastici. Con eventi casuali (dadi, pesca carte) si introducono nodi “chance”. I valori propagati sono attesi: si sostituisce max/min con massimi/minimi del valore atteso pesato dalle probabilità dei risultati dell’evento aleatorio."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c15",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c15",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Esempio stocastico. Un nodo chance con due esiti con probabilità 0.9 e 0.1 genera valori attesi 0.9·v1+0.1·v2. MAX sceglie l’azione con valore atteso migliore alla radice, tenendo conto delle distribuzioni di probabilità dei risultati casuali lungo il ramo."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c16",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c16",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Giochi parzialmente osservabili. L’incertezza deriva da informazioni nascoste (es. carte dell’avversario). Approccio: enumerare (o campionare con Monte Carlo) le possibili distribuzioni nascoste secondo P(s) e scegliere la mossa con miglior risultato medio sugli scenari considerati."
+  },
+  {
+    "id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c:c17",
+    "doc_id": "c4f1a3b2-8c6d-4d1e-9a7b-2e6f9d3a7b1c",
+    "chunk_id": "c17",
+    "source": "ricerca_con_avversari_2_opt.pdf",
+    "text": "Monte Carlo per informazione nascosta. Quando il numero di distribuzioni è enorme, si campiona un insieme di mondi coerenti con le probabilità a priori; si valuta la mossa in ciascun mondo completamente osservabile e si media. Questo rende praticabile la scelta in tempo finito."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c01",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c01",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Nei problemi reali con avversari è cruciale modellare la situazione come gioco: stati, azioni, esiti e payoff. Qualsiasi decisione con alternative e conseguenze può essere mappata in forma di gioco, anche quotidiana, purché si specifichino gli agenti coinvolti, le informazioni disponibili e l’obiettivo di ciascuno. La qualità del modello determina la qualità dell’analisi successiva (minimax, alfa‑beta, ecc.)."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c02",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c02",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Esempio quotidiano: decidere se uscire dal lavoro per fare la spesa con vincoli temporali, affollamento, rischio di ammonizione, interazione con altri agenti (vigili, automobilisti, sindacati). Il contesto può essere stocastico: le azioni del giocatore producono conseguenze con probabilità diverse, modificando lo stato del traffico e i tempi. Un albero di gioco stocastico consente di confrontare aspettative di payoff."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c03",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c03",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Caso studio: selezione di un tennista per un torneo importante. Il CT può convocare o meno un atleta con rischio infortuni; l’atleta può decidere di giocare o rinunciare dopo la convocazione. I payoff sono espressi in “punti fiducia” per entrambi. La struttura del gioco consente di analizzare scelte e reazioni, identificando equilibri e conseguenze reputazionali per CT e atleta."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c04",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c04",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Parametri del caso: convocare implica un investimento iniziale di fiducia; una vittoria restituisce un guadagno netto per il CT e un riconoscimento di dovere all’atleta; la rinuncia pubblica può far crescere il rispetto verso l’atleta ma riduce la fiducia nel CT. Se non si convoca, il CT perde poco, ma l’atleta può reagire con conferenza stampa che sposta i payoff penalizzando il CT e premiando l’atleta."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c05",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c05",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Tabella dei payoff (valori indicativi dal testo): se CT convoca e atleta gioca → (3, 20); se CT convoca e atleta non gioca → (20, −9); se CT non convoca e atleta gioca → (0, 0); se CT non convoca e atleta non gioca → (15, −26). Interpretazione: la coppia di scelte influenza fortemente reputazione e fiducia pubblica dei due agenti. L’obiettivo di ciascuno è massimizzare il proprio punteggio."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c06",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c06",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Analisi: entrambi massimizzano i propri punti fiducia. L’equilibrio di Nash indicato nel testo emerge quando il CT convoca e l’atleta non gioca: nessuno dei due migliora cambiando unilateralmente, dato il comportamento dell’altro. Gli ottimi paretiani non compaiono nella matrice proposta: ogni miglioramento per uno peggiora l’altro. La decisione del CT dipende dai payoff assunti."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c07",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c07",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Avvertenza metodologica: l’esito dipende dai numeri specificati nel problem statement. La corretta ingegneria dei requisiti (stima dei payoff realistici) è fondamentale: piccole variazioni cambiano equilibrio e raccomandazioni. La teoria dei giochi è un linguaggio per modellare trade‑off, non un oracolo: la qualità dei dati guida la qualità della soluzione."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c08",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c08",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Altro caso: due dipendenti in ufficio con regole di premio/punizione sugli straordinari. Il primo che esce subisce una penalità, chi resta di più riceve un piccolo bonus; se entrambi fanno straordinario, entrambi ottengono un premio minimo. Se concordano sull’uscita simultanea, nessuno guadagna né perde. Il sistema incentiva a restare, creando una corsa agli straordinari."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c09",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c09",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Matrice esemplificativa (Anna, Biagio): (8 ore, 8 ore) → (0, 0); (8 ore, straordinario) → (−5, 1); (straordinario, 8 ore) → (1, −5); (straordinario, straordinario) → (1, 1). L’equilibrio di Nash si colloca su (straordinario, straordinario): nessuno riduce unilateralmente il proprio tempo perché subirebbe la penalità. Implicazione: il meccanismo spinge verso overworking (fenomeno noto come Karoshi)."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c10",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c10",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Esempio geopolitico multi‑round: deterrenza nucleare. Due potenze decidono se usare o no l’arma. Una matrice statica suggerisce che entrambi siano tentati di attaccare, ma è irrealistica: la dinamica reale è sequenziale e su più round. Modellare azioni e reazioni in serie produce un albero di gioco complesso in cui minimax (o varianti) permette di ragionare su strategie ottime nel caso peggiore."
+  },
+  {
+    "id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e:c11",
+    "doc_id": "d1a4c7e2-6f93-4a2b-9c8e-1b2f3a4c5d6e",
+    "chunk_id": "c11",
+    "source": "ricerca_con_avversari_3_opt.pdf",
+    "text": "Schema dinamico: ipotizzando un primo attacco, la risposta è probabile; si costruisce l’albero iterando decisioni e conseguenze con payoff che includono costi immediati e futuri. La modellazione corretta richiede nodi chance per incertezze e valutazioni sull’escalation. L’obiettivo è confrontare strategie contingenti piuttosto che singole mosse isolate."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c01",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c01",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Ambienti multi‑agente: in presenza di più agenti, ciascuno deve considerare le azioni altrui e i loro effetti per massimizzare il proprio benessere. Negli ambienti competitivi gli obiettivi sono in conflitto e nascono i problemi di ricerca con avversari, tipicamente modellati come giochi. La teoria dei giochi tratta ogni ambiente multi‑agente come un gioco, cooperativo o competitivo, quando l’influenza reciproca è significativa."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c02",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c02",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Classificazioni dei giochi: per condizioni di scelta si distingue tra informazione perfetta (stato completamente osservabile) e informazione imperfetta (solo parzialmente esplicita). Per effetti della scelta: giochi deterministici (stati determinati solo dalle azioni) e giochi stocastici (intervento di fattori esterni, es. lanci di dadi). Altre classificazioni considerano discreto/continuo, statico/dinamico, episodico, ecc."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c03",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c03",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Focus del corso: giochi a somma zero con informazione perfetta, due giocatori a turni alterni in un ambiente deterministico e osservabile. I valori di utilità alla fine della partita sono uguali e opposti. Esempio classico: scacchi; fattore di ramificazione medio ~35 e partite fino a ~50 mosse per giocatore producono alberi enormi (circa 35^100 nodi), rendendo impossibile l’esplorazione completa."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c04",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c04",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Definizione formale di gioco come problema di ricerca: stato iniziale s0; funzione GIOCATORE(s) che indica a chi tocca; AZIONI(s) che elenca le mosse legali; RISULTATO(s,a) come modello di transizione; TEST‑TERMINAZIONE(s) per riconoscere stati terminali; UTILITÀ(s,p) che assegna il payoff finale al giocatore p. s0, AZIONI e RISULTATO definiscono l’albero di gioco."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c05",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c05",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Esempio del tris: due giocatori MAX (X) e MIN (O) alternano le mosse dalla griglia vuota. Ogni foglia dell’albero è uno stato terminale con utilità +1 se vince MAX, −1 se vince MIN, 0 se pareggio. I valori si intendono sempre dal punto di vista di MAX. L’albero del tris è gestibile e didattico; quello degli scacchi è troppo grande, perciò servono euristiche e tecniche di potatura."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c06",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c06",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Decisioni ottime: nei giochi, MAX deve scegliere una strategia contingente che specifichi la mossa nello stato iniziale e le mosse per ogni possibile risposta di MIN, e così via. Una strategia è ottima se garantisce un risultato almeno pari a qualsiasi altra contro un avversario perfetto. Questo porta al concetto di decisione nel caso peggiore, tipico del minimax."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c07",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c07",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Dilemma del prigioniero: due sospetti, isolati, possono collaborare o no. Se uno collabora e l’altro no: (0,7); se entrambi collaborano: (6,6); se entrambi non collaborano: (1,1). La strategia dominante è collaborare, producendo l’equilibrio (collabora, collabora), che è equilibrio di Nash ma non Pareto‑ottimo rispetto a (1,1). Il gioco illustra tensione tra razionalità individuale e benessere collettivo."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c08",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c08",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Implicazioni più ampie: l’equilibrio di Nash può essere socialmente sub‑ottimo; gli ottimi paretiani sono gli esiti in cui non si può migliorare un giocatore senza peggiorare l’altro. Non sempre il perseguimento dell’interesse individuale massimizza il benessere collettivo. Esempi includono corsa agli armamenti, beni pubblici e politiche ambientali (comportamenti opportunistici)."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c09",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c09",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Valore minimax: MINIMAX(n) è l’utilità dello stato assumendo gioco perfetto fino alla fine. Per stati terminali coincide con UTILITÀ. Se è il turno di MAX, il valore è il massimo sui risultati delle azioni; se tocca a MIN, è il minimo. MAX sceglie l’azione con valore minimax massimo alla radice, garantendosi il miglior esito nel caso peggiore."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c10",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c10",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Pseudocodice minimax: DECISIONE‑MINIMAX(s) restituisce argmax_a VALORE‑MIN(RISULTATO(s,a)); VALORE‑MAX(s) restituisce UTILITÀ se terminale, altrimenti max sui VALORE‑MIN dei successori; VALORE‑MIN(s) simmetrico con min sui VALORE‑MAX. La procedura alterna MAX e MIN fino alle foglie e propaga i valori verso l’alto."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c11",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c11",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Intuizione operativa: MAX seleziona sempre la mossa che massimizza il punteggio presunto dato un MIN ottimo; MIN minimizza. Nel tris semplificato, MAX preferirà mosse che garantiscono almeno il pareggio rispetto a mosse che concedono sconfitta se MIN risponde al meglio."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c12",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c12",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Proprietà e complessità: minimax è completo se l’albero è finito; è ottimo contro un avversario ottimo. Complessità temporale O(b^m) e spaziale pari allo spazio di una DFS con memorizzazione del cammino e dei fratelli non espansi. A causa della crescita esponenziale, in giochi reali si usano euristiche e potature (non dettagliate qui)."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c13",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c13",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Estensione a più giocatori: quando i giocatori sono più di due e non a somma zero, non c’è un singolo valore da massimizzare/minimizzare. Una variante è Max^n, dove la funzione di utilità produce un vettore di punteggi, uno per giocatore, e ciascuno ottimizza la propria componente al proprio turno. Non garantisce le stesse proprietà dei giochi a due."
+  },
+  {
+    "id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa:c14",
+    "doc_id": "e3b0c442-9d1f-4a8b-8f2c-9b3cd2a1d7aa",
+    "chunk_id": "c14",
+    "source": "ricerca_con_avversari_opt.pdf",
+    "text": "Considerazioni di design per multi‑player: alleanze e dinamiche cooperative/competitive possono far parte della strategia ottima e andrebbero modellate nell’albero di gioco. La difficoltà principale è definire correttamente il problema, il contesto e le possibili interazioni fra giocatori, incluse alleanze variabili nel tempo."
+  }
+]

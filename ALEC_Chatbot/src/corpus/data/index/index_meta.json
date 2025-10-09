@@ -1,0 +1,8 @@
+{
+  "model_name": "intfloat/multilingual-e5-base",
+  "dim": 768,
+  "num_vectors": 229,
+  "normalize": true,
+  "similarity": "cosine_via_inner_product",
+  "corpus_file": "C:\\PycharmProjects\\ALEC_Chatbot\\src\\corpus\\data\\corpus.json"
+}

@@ -1,0 +1,16 @@
+Esegui il chunking di questo PDF. 
+- Ogni chunk deve contenere al massimo 300 token. 
+- Usa un overlap di circa 60 token tra i chunk consecutivi. 
+- Non considerare il titolo delle slide (può essere identico in tutte). 
+- Basati solo sul contenuto testuale. 
+- Produci un JSON con struttura minimale:
+  {
+    "doc_id": "...",
+    "source": "<nome file PDF>",
+    "chunks": [
+      { "id": "c01", "text": "..." },
+      { "id": "c02", "text": "..." },
+      ...
+    ]
+  }
+- I testi devono essere puliti e coerenti, pronti per l’indicizzazione in FAISS.

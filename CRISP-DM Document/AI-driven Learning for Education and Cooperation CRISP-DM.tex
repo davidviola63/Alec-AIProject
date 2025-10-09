@@ -59,17 +59,15 @@
 	I requisiti non funzionali definiscono le qualità e i vincoli della soluzione web, mantenendo verifiche semplici per l’MVP.
 	\begin{itemize}
 		\item \textbf{RNF-1 (Accuratezza)} Raggiungere un'accuratezza delle correzioni \ensuremath{\geq} 85\% da test su set di valutazione interno.
-		\item \textbf{RNF-2 (Prestazioni back-end)} Mantenere un tempo medio di risposta del tutor \ensuremath{\leq} 3s su 50 interazioni tipiche di laboratorio.
-		\item \textbf{RNF-3 (Prestazioni front-end)} Assicurare un rendering della lista messaggi fluido (scroll senza scatti).
-		\item \textbf{RNF-4 (Compatibilità browser)} Supportare le versioni recenti di Chrome, Firefox ed Edge (ultime 2 release principali).
-		\item \textbf{RNF-5 (Trasparenza)} Includere, dove possibile, una citazione alla fonte interna per ogni correzione.
-		\item \textbf{RNF-6 (Manutenibilità)} Consentire ai docenti di aggiornare facilmente i materiali didattici e gestire le sessioni di tutoring senza conoscenze tecniche.
+		\item \textbf{RNF-2 (Prestazioni back-end)} Mantenere un tempo medio di risposta del tutor \ensuremath{\leq} 25s su 50 interazioni tipiche di laboratorio.
+		\item \textbf{RNF-3 (Trasparenza)} Includere, dove possibile, una citazione alla fonte interna per ogni correzione.
+		\item \textbf{RNF-4 (Manutenibilità)} Consentire ai docenti di aggiornare facilmente i materiali didattici e gestire le sessioni di tutoring senza conoscenze tecniche.
 	\end{itemize}
 
 	% --- Criteri di successo ---
 	\subsection{Criteri di successo}
 		
-	l progetto si considera completato con successo quando il prototipo rispetta i vincoli descritti nei requisiti non funzionali e ha implementato tutti i requisiti funzionali ad alta priorità, inoltre deve dimostrare, attraverso test di laboratorio, di poter operare in maniera stabile e comprensibile. 
+	Il progetto si considera completato con successo quando il prototipo rispetta i vincoli descritti nei requisiti non funzionali e ha implementato tutti i requisiti funzionali, inoltre deve dimostrare, attraverso test di laboratorio, di poter operare in maniera stabile e comprensibile. 
 	In particolare, si richiede che le correzioni fornite siano sufficientemente accurate, che l’interazione avvenga con tempi di risposta adeguati e che l’interfaccia risulti usabile senza necessità di competenze tecniche avanzate.\\ 
 	Il successo non si misura soltanto sugli aspetti tecnici, ma anche sulla capacità del sistema di mostrarsi come uno strumento efficace per l’apprendimento collaborativo: deve infatti risultare uno strumento innovativo e stimolante attraverso le spiegazioni progressive e personalizzate. Infine i dati appresi durante la conversazione dovranno risultare un punto di partenza per migliorare i percorsi didattici per docenti e studenti.
 	
@@ -135,12 +133,11 @@ Dall’analisi preliminare emergono i seguenti aspetti:
 		\item Algoritmi di ricerca (strategie informate, non informate e locale). 
 		\item Algoritmi con avversari (minimax e varianti).
 		\item Tecniche di machine learning, tra cui clustering, classificazione e regressione, con accenni ai foundation models e large language models.
-		\item Documenti dedicati alle fasi del modello CRISP-DM e all’addestramento dei modelli di apprendimento automatico.
-		\item Documenti riassuntivi per la preparazione all'esame con esercizi, appunti e note offerte dal docente.
+		
 	\end{itemize}
 	\item \textbf{Tipologia dei contenuti}: le slide e le dispense includono testo descrittivo ed elenchi puntati, frequenti immagini esplicative accompagnate da didascalie, schemi concettuali, oltre a scarse formule matematiche ed esempi di applicazione. Si può riscontrare anche la presenza di pseudocodice nelle slide sugli algoritmi di ricerca.
 	\item \textbf{Livello del linguaggio}:il linguaggio adottato è formale e preciso, ma al tempo stesso scorrevole e non eccessivamente rigoroso. Questo lo rende accessibile e comprensibile anche a studenti che affrontano per la prima volta gli argomenti trattati.
-	\item \textbf{Eterogeneità dei documenti}: l’eterogeneità risulta complessivamente molto sottile. I materiali si adattano bene alla tematica trattata ed evitano ripetizioni eccessive, mantenendo uno stile uniforme tra i diversi PDF. L’unica eccezione è rappresentata dai documenti forniti per esercitarsi, che presentano uno stile leggermente diverso. La lunghezza media dei documenti è di circa 45 pagine, valore che li rende gestibili e coerenti per lo studio.
+	\item \textbf{Eterogeneità dei documenti}: l’eterogeneità risulta complessivamente molto sottile. I materiali si adattano bene alla tematica trattata ed evitano ripetizioni eccessive, mantenendo uno stile uniforme tra i diversi PDF. La lunghezza media dei documenti è di circa 45 pagine, valore che li rende gestibili e coerenti per lo studio.
 \end{itemize}
 
 \subsection{Verifica della qualità dei dati}
@@ -165,12 +162,16 @@ Il risultato finale è un corpus coerente e ben organizzato, in grado di support
 \subsection{Selezione dei dati}
 A partire dall’insieme di documenti individuati nella fase di \textit{Data Understanding}, è stata effettuata una selezione mirata a definire il corpus di riferimento.  
 Questa operazione non ha comportato l’acquisizione di nuovi materiali, ma piuttosto la riorganizzazione di quelli già disponibili.  
-
 In particolare:
 \begin{itemize}
 	\item Sono stati confermati i materiali ufficiali forniti dai docenti come base di conoscenza principale.
 	\item È stata distinta la documentazione teorica (dispense, slide, articoli) dai materiali di esercitazione, mantenendo entrambe le tipologie.
-	\item Sono stati esclusi duplicati e file non pertinenti.
+	\item Sono stati esclusi tutti i file non incentrati sulle slide didattiche come:
+	\begin{itemize}
+		\item documenti dedicati al CRISP-DM basati sulle pagine del libro "Machine Learning Engineering" di Burkov.
+		\item appunti del docente ed esercizi preparatori all'esame
+	\end{itemize}
+	Il motivo di tale esclusione è spinto dalla semplificazione del corpus RAG poichè il libro, scritto in lingua inglese, avrebbe potuto causare difficoltà nell'embedding dei chunk mediante query e difficoltà di multilingua e traduzione; gli appunti del docente, a loro volta, rappresentavano materiale non ufficiale del corso sebbene risultassero di alta qualità didattica.
 	\item I documenti sono stati rinominati e collocati in sottocartelle per modulo e argomento, garantendo uniformità e semplicità di gestione.
 \end{itemize}
 
@@ -185,7 +186,6 @@ La fase di pulizia è stata finalizzata a rendere i documenti coerenti, leggibil
 	\item Uniformazione della nomenclatura dei file e correzione di caratteri anomali, così da garantire un encoding coerente.
 	\item Rimozione di elementi ridondanti (indici ripetuti, numerazioni incoerenti) potenzialmente fonte di disturbo.
 \end{itemize}
-
 Al termine della pulizia si sono ottenuti documenti prevalentemente testuali, coerenti e pronti per la fase successiva.
 
 \subsection{Trasformazione dei dati e dataset finale}
@@ -193,11 +193,30 @@ Completata la pulizia, i materiali sono stati trasformati per renderli adatti al
 Il processo è stato condotto in più passaggi:
 
 \begin{itemize}
-	\item \textbf{Chunking}: i PDF sono stati suddivisi in blocchi di testo (\textit{chunk}) mediante l’ausilio di \textit{ChatGPT-5 Reasoning}, rispettando un limite di circa 300 token con una sovrapposizione di 60 token tra blocchi consecutivi, così da mantenere continuità semantica. In questa fase i testi sono stati anche normalizzati per migliorarne la leggibilità.
+	\item \textbf{Chunking}: i PDF sono stati suddivisi in blocchi di testo (\textit{chunk}) mediante l’ausilio di \textit{ChatGPT-5 Reasoning}, rispettando un limite di circa 300 token con una sovrapposizione di 60 token tra blocchi consecutivi, così da mantenere continuità semantica. In questa fase i testi sono stati anche normalizzati per migliorarne la leggibilità. Per rendere trasparente il procedimento, di seguito è riportata la query utilizzata:
+
+\begin{verbatim}
+	Esegui il chunking di questo PDF. 
+	- Ogni chunk deve contenere al massimo 300 token. 
+	- Usa un overlap di circa 60 token tra i chunk consecutivi. 
+	- Non considerare il titolo delle slide (può essere identico in tutte). 
+	- Basati solo sul contenuto testuale. 
+	- Produci un JSON con struttura minimale:
+	{
+		"doc_id": "...",
+		"source": "<nome file PDF>",
+		"chunks": [
+		{ "id": "c01", "text": "..." },
+		{ "id": "c02", "text": "..." },
+		...
+		]
+	}
+	- I testi devono essere puliti e coerenti, pronti per l’indicizzazione in FAISS.
+\end{verbatim}
+
 	\item \textbf{Costruzione del corpus}: i chunk prodotti sono stati salvati in formato JSON e successivamente aggregati in un unico file tramite lo script \texttt{build\_corpus}, ottenendo un corpus coerente e uniforme.
 	\item \textbf{Embedding e indicizzazione}: il corpus JSON è stato trasformato in vettori semantici (\textit{embedding}) attraverso un modello multilingua, quindi indicizzato con la libreria \texttt{FAISS} per consentire interrogazioni rapide ed efficienti.
 \end{itemize}
-
 Il risultato è un \textbf{dataset finale} costituito da chunk coerenti e arricchiti di metadati, organizzati in un database vettoriale FAISS.  
 Questo dataset non rappresenta più un insieme statico di documenti, ma una base di conoscenza strutturata ed esplorabile tramite embedding semantici, su cui il sistema potrà effettuare interrogazioni e generare risposte pertinenti.  
 Esso costituisce il riferimento ufficiale e validato su cui si fonda l’intero processo di supporto agli studenti.

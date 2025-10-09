@@ -1,0 +1,58 @@
+{
+  "doc_id": "5f2e3e2e-1c8b-4f66-9f32-5a8b5c1f9b1c",
+  "source": "algoritmi_di_ricerca_informata_opt.pdf",
+  "chunks": [
+    {
+      "id": "c01",
+      "text": "h(n). Funzione che indica il costo stimato del cammino più conveniente dallo stato del nodo n ad uno stato obiettivo. Mentre gli algoritmi di ricerca non informata hanno l’obiettivo di trovare soluzioni senza avere a disposizione alcuna informazione aggiuntiva, gli algoritmi di ricerca informata sfruttano conoscenze specifiche del problema, così da essere più efficienti. L’approccio generale viene chiamato ricerca best‑first: è un’istanza della ricerca in cui il nodo da espandere è scelto con una funzione di valutazione f(n). L’implementazione della best‑first è identica alla ricerca a costo uniforme, tranne che la coda a priorità è ordinata per f(n) invece che per g(n). Molti algoritmi best‑first includono come componente di f(n) una funzione euristica h(n). Le funzioni euristiche sono il modo più comune, e spesso migliore, per inserire conoscenza aggiuntiva in un algoritmo di ricerca."
+    },
+    {
+      "id": "c02",
+      "text": "Molti algoritmi best‑first includono come componente di f(n) una funzione euristica h(n). Le funzioni euristiche sono il modo più comune, e spesso migliore, per inserire conoscenza aggiuntiva in un algoritmo di ricerca. La best‑first usa una stima per decidere quale nodo esplorare per primo. Si parte dallo stato iniziale con costo di cammino 0; la frontiera è una coda a priorità ordinata sul costo stimato dall’euristica. Si esplora prima il nodo che sembra più promettente, mantenendo un insieme di esplorati per evitare cicli. Ciclo: se la frontiera è vuota → fallimento; estrai il nodo con costo stimato minimo; se è l’obiettivo → soluzione; altrimenti genera i figli: se non visti li aggiungi in frontiera, se già presenti con stima peggiore li sostituisci. In sintesi, la Best‑First segue la strada che sembra più vicina alla meta, come in un labirinto scegliendo sempre il corridoio che punta verso l’uscita. Questo è alla base di A*, che combina costo reale e stima; la greedy usa solo la stima."
+    },
+    {
+      "id": "c03",
+      "text": "In sintesi, la Best‑First segue la strada che sembra più vicina alla meta, come in un labirinto scegliendo sempre il corridoio che punta verso l’uscita. Questo è alla base di A*, che combina costo reale e stima; la greedy usa solo la stima. Gli algoritmi greedy sono molto usati per problemi di ottimizzazione. L’algoritmo espande sempre il nodo più vicino all’obiettivo: la valutazione è f(n)=h(n) con h≥0. Esempio classico: navigazione da Arad a Bucarest. Un’euristica naturale è la distanza in linea d’aria verso Bucarest, hDLA. Per sfruttarla bisogna conoscere a priori tali distanze; inoltre serve una correlazione ragionevole tra distanza in linea d’aria e distanza su strada, altrimenti la guida dell’euristica è fuorviante."
+    },
+    {
+      "id": "c04",
+      "text": "Per sfruttarla bisogna conoscere a priori tali distanze; inoltre serve una correlazione ragionevole tra distanza in linea d’aria e distanza su strada. Oltre a non essere ottimo, il greedy non è neppure completo in generale. Ad esempio, nel tragitto da Iași a Făgăraș può perdersi. Complessità temporale nel caso pessimo O(b^m), dove m è la profondità massima; una buona euristica può ridurre drasticamente l’esplorazione. Complessità spaziale ancora O(b^m), perché mantiene tutti i nodi in memoria."
+    },
+    {
+      "id": "c05",
+      "text": "Complessità spaziale ancora O(b^m), perché mantiene tutti i nodi in memoria. La forma più diffusa di best‑first è A*. Combina g(n), il costo per raggiungere n, con h(n), il costo stimato da n all’obiettivo: f(n)=g(n)+h(n), con h(n)≥0 e h(goal)=0. f(n) rappresenta il costo stimato della soluzione più conveniente che passa per n. Se cerchiamo la soluzione meno costosa, proviamo per primo il nodo con f più basso. Operativamente, è come la ricerca a costo uniforme, ma la coda è ordinata per f anziché per g. Casi speciali: se h(n)=0 otteniamo la ricerca uniforme; se g(n)=0 otteniamo la Best‑First Greedy."
+    },
+    {
+      "id": "c06",
+      "text": "Operativamente, è come la ricerca a costo uniforme, ma la coda è ordinata per f anziché per g. Casi speciali: se h(n)=0 otteniamo la ricerca uniforme; se g(n)=0 otteniamo la Best‑First Greedy. L’ottimalità di A* dipende da due condizioni sull’euristica: ammissibilità (non sovrastima mai il costo all’obiettivo) e consistenza. La consistenza richiede che per ogni transizione (n,a,n’) valga h(n) ≤ c(n,a,n’) + h(n’), cioè una disuguaglianza triangolare. Queste condizioni garantiscono che A* non “salti” la soluzione ottima."
+    },
+    {
+      "id": "c07",
+      "text": "Queste condizioni garantiscono che A* non “salti” la soluzione ottima. Sulla completezza: A* è completo se esiste un numero finito di nodi con costo ≤ C* (costo della soluzione ottima), i costi d’azione sono ≥ ε > 0 e il branching factor b è finito. Sulla complessità temporale: A* è ottimamente efficiente; a parità di euristica, nessun algoritmo espande meno nodi senza perdere ottimalità. In pratica, la complessità dipende dalla qualità di h. Complessità spaziale: A* tiene in memoria tutti i nodi generati, quindi O(b^m). Per migliorare la memoria si usano varianti come Beam Search, IDA*, RBFS e SMA*."
+    },
+    {
+      "id": "c08",
+      "text": "Per migliorare la memoria si usano varianti come Beam Search, IDA*, RBFS e SMA*. La Beam Search è una variante best‑first che, a ogni livello, genera i successori, li ordina per l’euristica e mantiene solo i primi k (ampiezza del raggio). Quei k nodi sono espansi al livello successivo. Aumentare k riduce la potatura ma aumenta i costi. L’algoritmo restituisce la prima soluzione trovata. La complessità spaziale è O(k·d). Non è completo né ottimale."
+    },
+    {
+      "id": "c09",
+      "text": "La complessità spaziale è O(k·d). Non è completo né ottimale. L’IDA* applica l’approfondimento iterativo alla ricerca euristica: il limite non è la profondità ma il costo f=g+h. A ogni iterazione, il nuovo limite è il minimo f dei nodi che hanno superato il taglio precedente. Con euristiche ammissibili/consistenti, mantiene completezza e ottimalità. Il vantaggio principale è la memoria: conserva un solo cammino dalla radice alla foglia e i fratelli non espansi, ottenendo spazio O(b·d)."
+    },
+    {
+      "id": "c10",
+      "text": "Il vantaggio principale è la memoria: conserva un solo cammino dalla radice alla foglia e i fratelli non espansi. La ricerca Best‑First ricorsiva (RBFS) usa anch’essa solo spazio lineare. Tiene un limite f e, a ogni passo, esplora il successore con f più basso. Se il suo f supera il limite, ritorna con quel valore per aggiornare il limite; altrimenti continua ricorsivamente. Mantiene anche il “miglior percorso alternativo” per scegliere dove tornare quando il ramo corrente diventa troppo costoso. È concettualmente simile ad A* senza grande frontiera."
+    },
+    {
+      "id": "c11",
+      "text": "È concettualmente simile ad A* senza grande frontiera. RBFS è ottimale se l’euristica è ammissibile. La sua complessità spaziale è O(b·d). La complessità temporale è più difficile da stimare: dipende dalla qualità di h e da quanto spesso cambia il cammino migliore; nel caso pessimo è esponenziale. Un problema di IDA* e RBFS è che usano troppa poca memoria: dimenticano quasi tutto e rischiano di riespandere più volte gli stessi stati."
+    },
+    {
+      "id": "c12",
+      "text": "Dimenticano quasi tutto e rischiano di riespandere più volte gli stessi stati. SMA* (Simplified Memory‑Bounded A*) usa meglio la memoria disponibile. Procede come A* finché c’è spazio; quando la memoria finisce, rimuove il nodo peggiore (f più alto) e memorizza nel padre il suo valore f per poter rigenerare il sottoalbero solo quando necessario. È completo se la profondità della soluzione è minore della capacità in nodi; è ottimale quando una soluzione ottima è raggiungibile entro la memoria. Tuttavia, per problemi difficili può oscillare tra molti cammini, facendo esplodere il tempo."
+    },
+    {
+      "id": "c13",
+      "text": "Tuttavia, per problemi difficili può oscillare tra molti cammini, facendo esplodere il tempo. Lezioni sulle euristiche: molte sfide in IA sono di natura esponenziale, ma una buona euristica può cambiare la partita. Miglioramenti anche piccoli a h consentono di esplorare molto di più. Strategie: rilassare vincoli per ottenere versioni più semplici del problema; massimizzare tra più euristiche indipendenti h(n)=max(h1,…,hk); apprendere euristiche dai dati; combinare caratteristiche con h(n)=c1·h1(n)+…+ck·hk(n)."
+    }
+  ]
+}
