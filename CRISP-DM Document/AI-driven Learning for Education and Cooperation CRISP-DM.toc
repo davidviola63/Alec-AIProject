@@ -16,5 +16,4 @@
 \contentsline {section}{\numberline {3}Data Preparation}{6}{}%
 \contentsline {subsection}{\numberline {3.1}Selezione dei dati}{7}{}%
 \contentsline {subsection}{\numberline {3.2}Pulizia dei dati}{7}{}%
-\contentsline {subsection}{\numberline {3.3}Trasformazione dei dati}{8}{}%
-\contentsline {subsection}{\numberline {3.4}Dataset finale}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Trasformazione dei dati e dataset finale}{8}{}%
