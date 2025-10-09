@@ -164,8 +164,7 @@ L’obiettivo finale è disporre di un corpus coerente e ben organizzato, in gra
 
 \subsection{Selezione dei dati}
 A partire dall’insieme di documenti raccolti nella fase di \textit{Data Understanding}, è stato effettuato un processo di selezione mirato a definire il corpus utilizzabile.
-Tale selezione non ha comportato l’acquisizione di nuovi materiali, ma piuttosto una distinzione e organizzazione dei documenti già raccolti. 
-
+Tale selezione non ha comportato l’acquisizione di nuovi materiali, ma piuttosto una distinzione e organizzazione dei documenti già raccolti.\\
 In particolare:
 \begin{itemize}
 	\item Sono stati confermati i materiali didattici ufficiali forniti dai docenti come base di conoscenza principale.
@@ -173,6 +172,44 @@ In particolare:
 	\item Sono stati esclusi eventuali duplicati e documenti non pertinenti alla tematica del corso.
 	\item I file sono stati rinominati e organizzati in sottocartelle per modulo e argomento, al fine di garantire uniformità e semplicità di gestione nelle fasi successive.
 \end{itemize}
+
+\subsection{Pulizia dei dati}
+La fase di pulizia dei dati ha avuto l’obiettivo di garantire che i documenti selezionati risultassero coerenti, leggibili e privi di elementi di disturbo. 
+Le operazioni principali hanno riguardato:
+
+\begin{itemize}
+	\item Eliminazione di pagine vuote, copertine ridondanti e versioni duplicate degli stessi file.
+	\item Accorpamento di slide ripetute con leggere differenze ed eliminazione di slide che non avrebbero apportato contributo alla spiegazione.
+	\item Verifica che tutti i PDF fossero in formato testuale leggibile, con assenza di sezioni scansionate come immagini non processabili. 
+	\item Selezione delle immagini dove quelle chiare e di supporto al contenuto testuale sono state mantenute, mentre sono state rimosse o trasformate in descrizioni testuali quelle potenzialmente malformate o di difficile interpretazione.
+	\item Uniformazione della nomenclatura dei file e correzione di caratteri anomali, per garantire un encoding coerente.
+	\item Rimozione di elementi non essenziali (indici ripetuti, numerazioni incoerenti) che potevano generare rumore nella fase di elaborazione.
+\end{itemize}
+Da questa fase abbiamo ottenuto documenti prevalentemente testuali, coerenti e privi di rumore, pronti per la successiva fase di trasformazione e segmentazione.
+
+\subsection{Trasformazione dei dati}
+Una volta completata la selezione e la pulizia dei materiali didattici, si è proceduto con la fase di trasformazione, necessaria per rendere i documenti effettivamente utilizzabili dal modello. 
+In particolare, i file PDF sono stati caricati su un bucket di \textit{Google Cloud Storage}, in modo da essere accessibili all’interno della piattaforma \textit{Vertex AI}. 
+Successivamente, attraverso l’uso del modulo \textit{RAG Engine} di Vertex AI, i documenti sono stati segmentati in unità di testo più piccole (chunk) e normalizzati, così da costituire un corpus interrogabile dal modello generativo Gemini.
+Le principali operazioni svolte sono state:
+
+\begin{itemize}
+	\item Conversione dei documenti PDF in testo, con gestione delle eventuali sezioni miste (testo e immagini).
+	\item Segmentazione del contenuto in blocchi di dimensione media pari a 512 token, con un margine di sovrapposizione pari a 80 token per preservare la coerenza tra le sezioni contigue.
+	\item Associazione di metadati a ciascun blocco, tra cui il nome del file e la struttura di cartelle di origine, in modo da poter risalire facilmente all’argomento o al modulo di appartenenza.
+
+\end{itemize}
+Il risultato finale di questa fase è un corpus RAG coerente, indicizzato e arricchito di metadati, pronto per essere interrogato dal modello Gemini nella successiva fase di modellazione.
+
+\subsection{Dataset finale}
+Dopo la segmentazione e l’importazione nel sistema, il corpus risulta composto da circa \textit{X} pagine 
+e \textit{Y} unità testuali (chunk), ciascuna arricchita di metadati relativi all’origine del contenuto.
+
+Il corpus così ottenuto rappresenta il dataset finale della fase di \textit{Data Preparation}. 
+Esso costituisce la base di conoscenza ufficiale e controllata su cui verranno effettuate le interrogazioni 
+nella fase di \textit{Modeling}. In questa fase successiva, il modello Gemini, opportunamente integrato 
+con il motore di recupero RAG, utilizzerà i chunk indicizzati per generare risposte pertinenti e motivate, 
+fornendo agli studenti un supporto diretto basato esclusivamente sui materiali approvati dai docenti.
 
 
 	
