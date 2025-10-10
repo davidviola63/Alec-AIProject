@@ -1,0 +1,10 @@
+.venv/
+venv/
+ALEC_Chatbot/.venv/
+
+.env
+.env*
+ALEC_Chatbot/.env
+
+__pycache__/
+*.pyc
