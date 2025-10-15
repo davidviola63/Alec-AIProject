@@ -1,10 +1,12 @@
 from __future__ import annotations
 from typing import List, Tuple
 from .config import HISTORY_MAX_TURNS
+from .rf3_scaffolding import ScaffoldingStore
 
 class Conversation:
     def __init__(self):
         self.turns: List[Tuple[str, str]] = []
+        self.scaffold = ScaffoldingStore()
 
     def add(self, user_msg: str, assistant_msg: str):
         self.turns.append((user_msg, assistant_msg))

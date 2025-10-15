@@ -30,6 +30,24 @@ def gemini_json(model, prompt: str) -> dict:
             return json.loads(t[start:end+1])
         raise
 
+def gemini_scaffold_json(model, prompt: str) -> dict:
+    if RATE: RATE.check(1200)
+    resp = model.generate_content(
+        prompt,
+        generation_config={"response_mime_type": "application/json"}
+    )
+    if RATE: RATE.commit(1200)
+    import json as _json
+    t = resp.text
+    try:
+        return _json.loads(t)
+    except Exception:
+        start, end = t.find("{"), t.rfind("}")
+        if start >= 0 and end > start:
+            return _json.loads(t[start:end+1])
+        raise
+
+
 def gemini_text(model, prompt: str) -> str:
     if RATE: RATE.check(2000)
     resp = model.generate_content(prompt)

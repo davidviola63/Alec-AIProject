@@ -18,9 +18,20 @@ ANSWER_INSTRUCTIONS = (
     "Compito: rispondi all'utente basandoti SOLO sul CONTEXTO. "
     "Modalità comportamentali:\n"
     "- reinforce: conferma ciò che è corretto, aggiungi 1 breve approfondimento utile.\n"
-    "- clarify : conferma le parti corrette e correggi lievemente l'imprecisione (max 2 punti).\n"
-    "- correct  : evidenzia chiaramente l'errore e fornisci una spiegazione sintetica con passaggi chiari.\n"
     "In ogni caso, chiudi con una sezione 'Fonti' con (source, chunk_id) usate."
+)
+
+SCAFFOLD_INSTRUCTIONS = (
+    "Compito: costruisci uno scaffolding di 3 livelli per guidare lo studente alla risposta corretta, "
+    "basandoti SOLO sul CONTEXTO e sulla BOZZA_CORREZIONE (se presente). "
+    "Stampa SOLO JSON con le chiavi:\n"
+    "{\n"
+    '  "level1": "risposta parziale che stimola riflessione (1-3 frasi)",\n'
+    '  "level2": "ulteriore indizio + piccolo esempio (2-4 frasi)",\n'
+    '  "level3": "risposta corretta sintetica + 1 domanda riflessiva (3-5 frasi)",\n'
+    '  "sources": ["<source (chunk_id)>", "..."]\n'
+    "}\n"
+    "Regole: nessun testo fuori dal JSON. Niente citazioni non presenti nel contesto."
 )
 
 def build_context_block(chunks: List[Dict]) -> str:
