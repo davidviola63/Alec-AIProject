@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.8)  9 OCT 2025 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.8)  16 OCT 2025 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -206,23 +206,23 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [3{C:/Program Files/
 MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-5.
+4.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [4]
-Overfull \hbox (50.0858pt too wide) in paragraph at lines 104--123
+Overfull \hbox (50.0858pt too wide) in paragraph at lines 103--122
  [][] 
  []
 
 [5] [6] [7]
-Overfull \hbox (57.99893pt too wide) in paragraph at lines 215--215
+Overfull \hbox (57.99893pt too wide) in paragraph at lines 214--214
  [] \T1/lmtt/m/n/10 - Non considerare il titolo delle slide (può essere identic
 o in tutte).[] 
  []
 
 
-Overfull \hbox (105.2488pt too wide) in paragraph at lines 215--215
+Overfull \hbox (105.2488pt too wide) in paragraph at lines 214--214
  [] \T1/lmtt/m/n/10 - I testi devono essere puliti e coerenti, pronti per l'ind
 icizzazione in FAISS.[] 
  []
@@ -248,7 +248,7 @@ rogram Files/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX/fo
 nts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/l
 msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 Output written on "AI-driven Learning for Education and Cooperation CRISP-DM.pd
-f" (8 pages, 231933 bytes).
+f" (8 pages, 231899 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
