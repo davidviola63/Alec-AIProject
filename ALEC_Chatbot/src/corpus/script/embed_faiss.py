@@ -2,11 +2,14 @@
 # Python 3.11
 
 from __future__ import annotations
-import argparse, json, os
+
+import argparse
+import json
 from pathlib import Path
 from typing import List, Dict
-import numpy as np
+
 import faiss
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 # Modello embedding consigliato per IT/multilingua (E5, ottimo per RAG)
