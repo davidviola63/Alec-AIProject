@@ -3,7 +3,7 @@ import json, math
 from typing import List, Dict
 import numpy as np
 from sentence_transformers import SentenceTransformer
-from .config import INDEX_PATH, MAP_PATH, EMBEDDING_MODEL_NAME, TOP_K, MAX_CONTEXT_TOKENS
+from src.chatbot.script.config import INDEX_PATH, MAP_PATH, EMBEDDING_MODEL_NAME, TOP_K, MAX_CONTEXT_TOKENS
 from .debug import DEBUG_CTX, dbg
 
 def est_tokens(text: str) -> int:

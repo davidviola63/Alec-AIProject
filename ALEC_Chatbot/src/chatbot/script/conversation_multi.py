@@ -2,8 +2,8 @@ from __future__ import annotations
 from typing import List, Dict, Optional
 import time
 from dataclasses import dataclass
-from .config import HISTORY_MAX_TURNS
-from .rf3_scaffolding import ScaffoldingStore
+from src.chatbot.script.config import HISTORY_MAX_TURNS
+from .scaffolding import ScaffoldingStore
 
 @dataclass
 class ChatTurn:

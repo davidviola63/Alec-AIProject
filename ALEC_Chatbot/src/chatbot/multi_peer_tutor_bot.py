@@ -1,8 +1,11 @@
 
 from __future__ import annotations
 import time, json
+import traceback
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse
 
 from src.chatbot.script.config import TOP_K, MAX_CONTEXT_TOKENS, RPM_LIMIT, TPM_LIMIT, RPD_LIMIT
 from src.chatbot.script.debug import DEBUG_JUDGE, DEBUG_MODE, dbg
@@ -10,8 +13,8 @@ from src.chatbot.script.rate_limiter import RateLimiter
 from src.chatbot.script.gemini_client import load_gemini, gemini_json, gemini_text, gemini_scaffold_json
 from src.chatbot.script.retrieval import load_index_and_mapping, load_e5, search_rag
 from src.chatbot.script.prompts import SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, SCAFFOLD_INSTRUCTIONS, build_context_block
-from src.chatbot.script.rf2_response_gate import decide_response
-from src.chatbot.script.rf3_scaffolding import ScaffoldBundle, pick_cited_spans
+from src.chatbot.script.response_gate import decide_response
+from src.chatbot.script.scaffolding import ScaffoldBundle, pick_cited_spans
 from src.chatbot.script.conversation_multi import ConversationMulti
 
 # Inizializzazione globale
@@ -108,66 +111,82 @@ def process_message(user_msg: str, index, mapping, emb_model, gen_model, conv: C
 ###############################################################################
 #  API SIMULATION (FastAPI)
 ###############################################################################
-app = FastAPI(title="PeerTutor RAG - Multiuser API")
+app = FastAPI()
+app.debug = True
 
-from fastapi.responses import HTMLResponse
-
+print("✅ App FastAPI inizializzata correttamente")
 @app.get("/", response_class=HTMLResponse)
 async def homepage():
-    return """
-    <!DOCTYPE html>
-    <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <title>ALEC- Peer Tutor Simulation</title>
-        <style>
-            body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; }
-            textarea { width: 100%; height: 80px; }
-            .log { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 1em; }
-            .alec { color: darkgreen; }
-            .marcello { color: blue; }
-            .davide { color: darkred; }
-        </style>
-    </head>
-    <body>
-        <h2>Simulazione PeerTutor (due studenti)</h2>
-        <div class="log" id="log"></div>
+    """Serve la homepage HTML dell'applicazione."""
+    try:
+        print("✅ Entrato nella route /homepage")
 
-        <select id="speaker">
-            <option value="Davide">Davide</option>
-            <option value="Marcello">Marcello</option>
-        </select>
-        <textarea id="msg" placeholder="Scrivi un messaggio..."></textarea><br/>
-        <button onclick="send()">Invia</button>
+        html_content = """<!DOCTYPE html>
+        <html lang="it">
+        <head>
+            <meta charset="UTF-8">
+            <title>ALEC - Peer Tutor Simulation</title>
+            <style>
+                body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; }
+                textarea { width: 100%; height: 80px; }
+                .log { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 1em; }
+                .alec { color: darkgreen; }
+                .marcello { color: blue; }
+                .davide { color: darkred; }
+            </style>
+        </head>
+        <body>
+            <h2>Simulazione PeerTutor (due studenti)</h2>
+            <div class="log" id="log"></div>
 
-        <script>
-        async function send() {
-            const speaker = document.getElementById('speaker').value;
-            const message = document.getElementById('msg').value;
-            const log = document.getElementById('log');
-            if (!message.trim()) return;
+            <select id="speaker">
+                <option value="Davide">Davide</option>
+                <option value="Marcello">Marcello</option>
+            </select>
+            <textarea id="msg" placeholder="Scrivi un messaggio..."></textarea><br/>
+            <button onclick="send()">Invia</button>
 
-            log.innerHTML += `<div class="${speaker.toLowerCase()}"><b>${speaker}:</b> ${message}</div>`;
-            document.getElementById('msg').value = '';
+            <script>
+            async function send() {
+                const speaker = document.getElementById('speaker').value;
+                const message = document.getElementById('msg').value;
+                const log = document.getElementById('log');
+                if (!message.trim()) return;
 
-            const resp = await fetch('/message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ speaker, message })
-            });
-            const data = await resp.json();
-            if (data.message) {
-                log.innerHTML += `<div class="alec"><b>ALEC → ${speaker}:</b> ${data.message}</div>`;
-            } else {
-                log.innerHTML += `<div><i>Errore:</i> ${JSON.stringify(data)}</div>`;
+                log.innerHTML += `<div class="${speaker.toLowerCase()}"><b>${speaker}:</b> ${message}</div>`;
+                document.getElementById('msg').value = '';
+
+                try {
+                    const resp = await fetch('/message', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ speaker, message })
+                    });
+                    const data = await resp.json();
+                    if (data.message) {
+                        log.innerHTML += `<div class="alec"><b>ALEC → ${speaker}:</b> ${data.message}</div>`;
+                    } else {
+                        log.innerHTML += `<div><i>Errore:</i> ${JSON.stringify(data)}</div>`;
+                    }
+                } catch (err) {
+                    log.innerHTML += `<div><i>Errore di rete:</i> ${err}</div>`;
+                }
+                log.scrollTop = log.scrollHeight;
             }
-            log.scrollTop = log.scrollHeight;
-        }
-        </script>
-    </body>
-    </html>
-    """
+            </script>
+        </body>
+        </html>"""
 
+        print("✅ Homepage HTML generata correttamente.")
+        return HTMLResponse(content=html_content)
+
+    except Exception as e:
+        print("❌ ERRORE in homepage():", e)
+        traceback.print_exc()
+        return HTMLResponse(f"<h1>Errore interno:</h1><pre>{e}</pre>", status_code=500)
+
+
+print("✅ Route / registrata")
 @app.post("/message")
 async def handle_message(request: Request):
     data = await request.json()

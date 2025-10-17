@@ -2,7 +2,7 @@
 # Python 3.11
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional
+from typing import List, Optional
 
 @dataclass
 class ScaffoldBundle:
