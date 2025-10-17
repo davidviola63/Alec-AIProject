@@ -6,3 +6,6 @@ DEBUG_SAVE  = False
 
 def dbg(msg: str):
     print(msg)
+
+def dbg1(tag: str, value):
+    print(f"DEBUG → {tag}: {repr(value)} (type={type(value)})")

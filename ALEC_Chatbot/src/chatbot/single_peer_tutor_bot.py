@@ -1,4 +1,4 @@
-# src/chatbot/peer_tutor_bot.py
+# src/chatbot/single_peer_tutor_bot.py
 from __future__ import annotations
 import time, json
 
@@ -8,7 +8,7 @@ from src.chatbot.script.rate_limiter import RateLimiter
 from src.chatbot.script.gemini_client import load_gemini, gemini_json, gemini_text
 from src.chatbot.script.retrieval import load_index_and_mapping, load_e5, search_rag
 from src.chatbot.script.prompts import SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, build_context_block
-from src.chatbot.script.conversation import Conversation
+from src.chatbot.script.single_conversation import Conversation
 from src.chatbot.script.rf2_response_gate import decide_response
 from src.chatbot.script.rf3_scaffolding import ScaffoldBundle, pick_cited_spans
 from src.chatbot.script.prompts import SCAFFOLD_INSTRUCTIONS

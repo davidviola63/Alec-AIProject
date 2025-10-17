@@ -17,7 +17,9 @@ class ScaffoldBundle:
 
 class ScaffoldingStore:
     """
-    Memorizza i livelli di aiuto correnti della conversazione.
+     Gestisce i livelli di aiuto correnti di *un singolo utente*.
+     Ogni speaker nella conversazione multiutente deve avere la propria istanza,
+     gestita dal ConversationMulti.
     - set_bundle(...) salva (sovrascrive) l'ultimo pacchetto
     - pop_next_hint() restituisce level2 poi level3 e li consuma
     - clear() pulisce tutto
@@ -50,16 +52,32 @@ class ScaffoldingStore:
             return ""
         return "\n".join(f"- {s}" for s in self._sources)
 
-def pick_cited_spans(citations: List[Dict], context: List[Dict], max_items: int = 3) -> List[str]:
-    """Riferimenti compatti (source, chunk_id) per agganciare gli indizi al contesto."""
+def pick_cited_spans(citations: list[dict], context: list[dict], max_items: int = 3) -> list[str]:
+    """
+    Riferimenti compatti (solo nomi delle fonti) per agganciare gli indizi al contesto.
+    I chunk_id restano usati solo per il matching interno, non per la visualizzazione.
+    """
     if not citations:
         return []
-    wanted = {(c.get("source"), c.get("chunk_id")) for c in citations if c.get("source") and c.get("chunk_id")}
+
+    # Mantieni la logica di matching basata su (source, chunk_id)
+    wanted = {
+        (c.get("source"), c.get("chunk_id"))
+        for c in citations
+        if c.get("source") and c.get("chunk_id")
+    }
+
+    seen_sources = set()
     out = []
+
     for ch in context:
         key = (ch.get("source"), ch.get("chunk_id"))
-        if key in wanted:
-            out.append(f"{ch['source']} ({ch['chunk_id']})")
+        src = ch.get("source")
+        if key in wanted and src not in seen_sources:
+            seen_sources.add(src)
+            out.append(src)
             if len(out) >= max_items:
                 break
+
     return out
+
