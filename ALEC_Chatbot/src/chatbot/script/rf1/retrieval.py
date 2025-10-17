@@ -1,10 +1,15 @@
 from __future__ import annotations
-import json, math
+
+import json
+import math
 from typing import List, Dict
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
-from src.chatbot.script.config import INDEX_PATH, MAP_PATH, EMBEDDING_MODEL_NAME, TOP_K, MAX_CONTEXT_TOKENS
-from .debug import DEBUG_CTX, dbg
+
+from src.chatbot.script.config.debug import DEBUG_CTX, dbg
+from src.chatbot.script.config.variables import INDEX_PATH, MAP_PATH, EMBEDDING_MODEL_NAME, TOP_K, MAX_CONTEXT_TOKENS
+
 
 def est_tokens(text: str) -> int:
     return max(1, math.ceil(len(text) / 4))  # ~4 char/token

@@ -1,28 +1,29 @@
 
 from __future__ import annotations
-import time, json
+
+import json
 import traceback
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.responses import HTMLResponse
+from fastapi.responses import JSONResponse
 
-from src.chatbot.script.config import TOP_K, MAX_CONTEXT_TOKENS, RPM_LIMIT, TPM_LIMIT, RPD_LIMIT
-from src.chatbot.script.debug import DEBUG_JUDGE, DEBUG_MODE, dbg
-from src.chatbot.script.rate_limiter import RateLimiter
-from src.chatbot.script.gemini_client import load_gemini, gemini_json, gemini_text, gemini_scaffold_json
-from src.chatbot.script.retrieval import load_index_and_mapping, load_e5, search_rag
-from src.chatbot.script.prompts import SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, SCAFFOLD_INSTRUCTIONS, build_context_block
-from src.chatbot.script.response_gate import decide_response
-from src.chatbot.script.scaffolding import ScaffoldBundle, pick_cited_spans
-from src.chatbot.script.conversation_multi import ConversationMulti
+from src.chatbot.script.config.debug import DEBUG_JUDGE, DEBUG_MODE, dbg
+from src.chatbot.script.config.prompts import SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, \
+    SCAFFOLD_INSTRUCTIONS, build_context_block, REPORT_INSTRUCTIONS
+from src.chatbot.script.config.rate_limiter import RateLimiter
+from src.chatbot.script.config.variables import TOP_K, MAX_CONTEXT_TOKENS, RPM_LIMIT, TPM_LIMIT, RPD_LIMIT
+from src.chatbot.script.rf1.gemini_client import load_gemini, gemini_json, gemini_text, gemini_scaffold_json
+from src.chatbot.script.rf1.retrieval import load_index_and_mapping, load_e5, search_rag
+from src.chatbot.script.rf2.response_gate import decide_response
+from src.chatbot.script.rf3.scaffolding import ScaffoldBundle, pick_cited_spans
+from src.chatbot.script.rf4.conversation_multi import ConversationMulti
+
 
 # Inizializzazione globale
 _gc_rate = RateLimiter(RPM_LIMIT, TPM_LIMIT, RPD_LIMIT)
 
 index, mapping = load_index_and_mapping()
-print("DEBUG → Tipo di index:", type(index))
-print("DEBUG → Modulo di provenienza:", getattr(index, "__module__", "??"))
 emb_model = load_e5()
 gen_model = load_gemini()
 conv = ConversationMulti()
@@ -61,7 +62,21 @@ def process_message(user_msg: str, index, mapping, emb_model, gen_model, conv: C
     mode = decision.mode
     if DEBUG_MODE:
         dbg(f"[MODE] {mode.upper()} | wrongness={decision.wrongness:.2f}")
+    # === RF-5: tracciamento partecipazione e qualità ===
+    # Recupera i nomi delle fonti dal retrieval RAG
+    used_sources = list({chunk['source'] for chunk in context if 'source' in chunk})
 
+    # Tracciamento completo RF-5
+    if hasattr(conv, "analytics"):
+        try:
+            conv.analytics.add_user_turn(
+                speaker=speaker,
+                text=user_msg,
+                judge=judge | {"citations": used_sources}  # unione: fonti del RAG
+            )
+        except Exception as e:
+            dbg(f"[RF5] errore tracking analytics: {e}")
+    # ====================================================
     base_answer = judge.get("corrected") or ""
 
     # 4a) reinforce → risposta diretta
@@ -78,7 +93,7 @@ def process_message(user_msg: str, index, mapping, emb_model, gen_model, conv: C
         text = gemini_text(gen_model, answer_prompt)
         if "Fonti" not in text:
             used = {(c['source']) for c in context}
-            fonti = "\n".join([f"- {s}" for s in used])
+            fonti = "\n".join([f"# {s}" for s in used])
             text += f"\n\nFonti:\n{fonti}"
         return text
 
@@ -108,18 +123,58 @@ def process_message(user_msg: str, index, mapping, emb_model, gen_model, conv: C
         text += "\n\nFonti:\n" + "\n".join(f"- {s}" for s in sources)
     return text
 
+def generate_final_report(conv, gen_model):
+    if not hasattr(conv, "analytics") or not conv.analytics.by_user:
+        return "<p>Nessun dato disponibile per generare il report.</p>"
+
+    payload = conv.analytics.by_user
+    rows = []
+    for user, stats in payload.items():
+        s = stats.summary()
+        rows.append(
+            f"<li><b>{user}</b>: turni={s['turns_total']}, pertinenti={s['pertinenti']}, "
+            f"qualità media={s['quality_mean']:.2f}, fonti principali={', '.join(s['top_sources']) or 'Nessuna'}</li>"
+        )
+    context_html = "<ul>" + "".join(rows) + "</ul>"
+
+    prompt = (
+        f"{REPORT_INSTRUCTIONS}\n\n"
+        f"DATI SESSIONE:\n{context_html}\n\n"
+        "Crea un report didattico sintetico e chiaro basato su questi dati."
+    )
+
+    report_body = gemini_text(gen_model, prompt)
+    return f"""
+    <!DOCTYPE html>
+    <html lang='it'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Report finale ALEC</title>
+        <style>
+            body {{ font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }}
+            h1 {{ color: darkgreen; }}
+            hr {{ margin: 1em 0; }}
+            p, li {{ line-height: 1.5em; }}
+            ul {{ margin-left: 1.2em; }}
+        </style>
+    </head>
+    <body>
+        <h1>📘 Report finale di sessione</h1>
+        <hr>
+        {report_body}
+    </body>
+    </html>
+    """
+
 ###############################################################################
 #  API SIMULATION (FastAPI)
 ###############################################################################
 app = FastAPI()
-app.debug = True
 
-print("✅ App FastAPI inizializzata correttamente")
 @app.get("/", response_class=HTMLResponse)
 async def homepage():
     """Serve la homepage HTML dell'applicazione."""
     try:
-        print("✅ Entrato nella route /homepage")
 
         html_content = """<!DOCTYPE html>
         <html lang="it">
@@ -177,7 +232,6 @@ async def homepage():
         </body>
         </html>"""
 
-        print("✅ Homepage HTML generata correttamente.")
         return HTMLResponse(content=html_content)
 
     except Exception as e:
@@ -185,8 +239,6 @@ async def homepage():
         traceback.print_exc()
         return HTMLResponse(f"<h1>Errore interno:</h1><pre>{e}</pre>", status_code=500)
 
-
-print("✅ Route / registrata")
 @app.post("/message")
 async def handle_message(request: Request):
     data = await request.json()
@@ -206,8 +258,33 @@ async def handle_message(request: Request):
         if srcs:
             nxt += f"\n\nFonti:\n{srcs}"
         conv.add_turn(speaker, msg)
+
+        if hasattr(conv, "analytics"):
+            conv.analytics.add_hint(speaker)
+
         conv.add_turn("Tutor", nxt)
         return {"speaker": "Tutor", "message": nxt}
+
+    #Comando /stats
+    if msg.lower() == "/stats":
+        if hasattr(conv, "analytics"):
+            html = conv.analytics.get_stats_html(speaker)
+            conv.add_turn(speaker, msg)
+            conv.add_turn("Tutor", html)
+            return {"speaker": "Tutor", "message": html}
+
+    if msg.lower() == "/exit":
+        try:
+            report_html = generate_final_report(conv, gen_model)
+            with open("last_report.html", "w", encoding="utf-8") as f:
+                f.write(report_html)
+
+            return {
+                "speaker": "Tutor",
+                "message": "Report finale generato. <a href='/report' target='_blank'>Apri report</a>",
+            }
+        except Exception as e:
+            return {"speaker": "Tutor", "message": f"Errore nella generazione del report: {e}"}
 
     # Generazione risposta
     try:
@@ -218,3 +295,16 @@ async def handle_message(request: Request):
         return {"speaker": "Tutor", "message": reply}
     except Exception as e:
         return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/report", response_class=HTMLResponse)
+async def show_report():
+    """Mostra l'ultimo report generato."""
+    try:
+        with open("last_report.html", "r", encoding="utf-8") as f:
+            html = f.read()
+        return HTMLResponse(content=html)
+    except FileNotFoundError:
+        return HTMLResponse("<p>Nessun report disponibile. Genera prima un report con il comando /exit.</p>")
+    except Exception as e:
+        traceback.print_exc()
+        return HTMLResponse(f"<h3>Errore nella visualizzazione del report:</h3><pre>{e}</pre>", status_code=500)

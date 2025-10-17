@@ -1,8 +1,9 @@
 from __future__ import annotations
+
 from pathlib import Path
 
 # === PATH ===
-PROJ_ROOT = Path(__file__).resolve().parents[3]  # .../ALEC_Chatbot
+PROJ_ROOT = Path(__file__).resolve().parents[4]  # .../ALEC_Chatbot
 DATA_DIR  = PROJ_ROOT / "src" / "corpus" / "data"
 INDEX_DIR = DATA_DIR / "index"
 CORPUS_JSON = DATA_DIR / "corpus.json"

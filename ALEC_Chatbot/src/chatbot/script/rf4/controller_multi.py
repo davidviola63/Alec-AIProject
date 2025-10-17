@@ -1,8 +1,11 @@
 from __future__ import annotations
+
 import time
-from src.chatbot.script import retrieval, gemini_client
-from src.chatbot.script.conversation_multi import ConversationMulti
+
 from src.chatbot.multi_peer_tutor_bot import process_message
+from src.chatbot.script.rf1 import gemini_client, retrieval
+from src.chatbot.script.rf4.conversation_multi import ConversationMulti
+
 
 def run_multisession():
     print("PeerTutor RAG · Sessione Peer Learning (due studenti)")

@@ -7,6 +7,7 @@ in base al livello di scorrettezza (wrongness ∈ [0,1]).
 """
 
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Optional, Literal
 

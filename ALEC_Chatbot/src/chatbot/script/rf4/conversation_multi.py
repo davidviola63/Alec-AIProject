@@ -1,9 +1,14 @@
 from __future__ import annotations
-from typing import List, Dict, Optional
+
 import time
 from dataclasses import dataclass
-from src.chatbot.script.config import HISTORY_MAX_TURNS
-from .scaffolding import ScaffoldingStore
+from typing import List, Dict, Optional
+
+from src.chatbot.script.config.variables import HISTORY_MAX_TURNS
+from src.chatbot.script.rf3.scaffolding import ScaffoldingStore
+from src.chatbot.script.rf5.analytics import Analytics
+
+
 
 @dataclass
 class ChatTurn:
@@ -19,6 +24,7 @@ class ConversationMulti:
     def __init__(self):
         self.turns: List[ChatTurn] = []
         self.scaffolds: Dict[str, ScaffoldingStore] = {}
+        self.analytics = Analytics(session_id=str(time.time()))
 
     def add_turn(self, speaker: str, message: str):
         """Aggiunge un turno alla cronologia, ignorando i comandi /hint."""

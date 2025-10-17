@@ -1,9 +1,13 @@
 from __future__ import annotations
-import os, json
-from dotenv import load_dotenv
+
+import json
+import os
+
 import google.generativeai as genai
-from src.chatbot.script.config import ENV_PATH, GEMINI_MODEL
-from .rate_limiter import RateLimiter
+from dotenv import load_dotenv
+
+from src.chatbot.script.config.rate_limiter import RateLimiter
+from src.chatbot.script.config.variables import ENV_PATH, GEMINI_MODEL
 
 # istanza globale (iniettata dal runner)
 RATE: RateLimiter | None = None
