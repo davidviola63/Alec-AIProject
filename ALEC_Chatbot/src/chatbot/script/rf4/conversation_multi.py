@@ -25,6 +25,7 @@ class ConversationMulti:
         self.turns: List[ChatTurn] = []
         self.scaffolds: Dict[str, ScaffoldingStore] = {}
         self.analytics = Analytics(session_id=str(time.time()))
+        self.session_closed = False
 
     def add_turn(self, speaker: str, message: str):
         """Aggiunge un turno alla cronologia, ignorando i comandi /hint."""
@@ -48,3 +49,11 @@ class ConversationMulti:
         if speaker not in self.scaffolds:
             self.scaffolds[speaker] = ScaffoldingStore()
         return self.scaffolds[speaker]
+
+    def close_session(self):
+        """Chiude definitivamente la sessione."""
+        self.session_closed = True
+
+    def is_closed(self) -> bool:
+        """Restituisce True se la sessione è chiusa."""
+        return self.session_closed

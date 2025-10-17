@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 # === PATH ===
@@ -11,6 +12,8 @@ INDEX_PATH  = INDEX_DIR / "faiss_index.bin"
 MAP_PATH    = INDEX_DIR / "mapping.jsonl"
 CFG_PATH    = INDEX_DIR / "index_meta.json"
 ENV_PATH    = PROJ_ROOT / ".env"
+
+REPORT_DIR = PROJ_ROOT / "src" / "report"
 
 # === MODELLI ===
 GEMINI_MODEL = "gemini-2.5-flash"

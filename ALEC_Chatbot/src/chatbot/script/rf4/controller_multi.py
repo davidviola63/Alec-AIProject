@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import time
 
-from src.chatbot.multi_peer_tutor_bot import process_message
+from src.chatbot.start_alec import process_message
 from src.chatbot.script.rf1 import gemini_client, retrieval
 from src.chatbot.script.rf4.conversation_multi import ConversationMulti
 

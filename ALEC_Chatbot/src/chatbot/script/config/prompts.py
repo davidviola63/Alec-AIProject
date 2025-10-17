@@ -7,7 +7,7 @@ SYSTEM_CORE = (
     "Ogni risposta deve iniziare con un paragrafo introduttivo (<p>). "
     "Non usare markdown o asterischi. "
     "Usa PRINCIPALMENTE il contesto fornito (chunk top-k) per correggere o rispondere. "
-    "Se una parte non è nel contesto, dillo esplicitamente. Cita le slide con (source) e (chunk_id) solo quando richiesto dalle istruzioni. "
+    "Se una parte non è nel contesto, dillo esplicitamente. "
     "Stile: chiaro e sintetico."
 )
 
