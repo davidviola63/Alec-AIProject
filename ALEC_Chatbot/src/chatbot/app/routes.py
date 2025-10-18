@@ -1,9 +1,11 @@
 # src/chatbot/app/routes.py
-import traceback, os
+import os
 from fastapi import Path
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
+
 
 from src.chatbot.script.config.variables import REPORT_DIR
 from src.chatbot.script.core.process_message import process_message
@@ -14,6 +16,13 @@ from src.chatbot.script.rf1.gemini_client import load_gemini
 
 # Crea app
 app = FastAPI()
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+print("📁 Static directory:", STATIC_DIR)
+
+os.makedirs(STATIC_DIR, exist_ok=True)
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 # Inizializzazione risorse
 index, mapping = load_index_and_mapping()
