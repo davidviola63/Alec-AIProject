@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.8)  16 OCT 2025 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.8)  20 OCT 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -190,67 +190,88 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 4.
-)
-\tf@toc=\write3
-\openout3 = `"AI-driven Learning for Education and Cooperation CRISP-DM.toc"'.
-
  [1
 
 {C:/Users/Davide/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program F
-iles/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-7.
- (C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [3{C:/Program Files/
-MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-4.
+iles/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}])
+\tf@toc=\write3
+\openout3 = `"AI-driven Learning for Education and Cooperation CRISP-DM.toc"'.
 
-(C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
+ [2]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
+0.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [3{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [4{C:/Program File
+s/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [5]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+10.
+ (C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [4]
-Overfull \hbox (50.0858pt too wide) in paragraph at lines 103--122
+)
+Overfull \hbox (50.0858pt too wide) in paragraph at lines 119--138
  [][] 
  []
 
-[5] [6] [7]
-Overfull \hbox (57.99893pt too wide) in paragraph at lines 214--214
+[6] [7] [8]
+Overfull \hbox (57.99893pt too wide) in paragraph at lines 230--230
  [] \T1/lmtt/m/n/10 - Non considerare il titolo delle slide (può essere identic
 o in tutte).[] 
  []
 
 
-Overfull \hbox (105.2488pt too wide) in paragraph at lines 214--214
+Overfull \hbox (105.2488pt too wide) in paragraph at lines 230--230
  [] \T1/lmtt/m/n/10 - I testi devono essere puliti e coerenti, pronti per l'ind
 icizzazione in FAISS.[] 
  []
 
-[8] (AI-driven Learning for Education and Cooperation CRISP-DM.aux)
+[9]
+Overfull \hbox (17.9715pt too wide) in paragraph at lines 232--233
+\T1/lmr/m/n/10 per-cor-so \T1/lmtt/m/n/10 Data_Extraction_&_Preparation/corpus_
+rag_json/chunked_pdf
+ []
+
+[10] [11]
+Overfull \hbox (74.02765pt too wide) in paragraph at lines 304--305
+[]\T1/lmr/m/n/10 Nei ca-si di chia-ri-men-to o cor-re-zio-ne vie-ne in-ve-ce ut
+i-liz-za-to il prompt \T1/lmtt/m/n/10 SCAFFOLD_INSTRUCTIONS\T1/lmr/m/n/10 ,
+ []
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 332.
+[12] [13] [14]
+Overfull \hbox (49.97153pt too wide) in paragraph at lines 409--410
+[]\T1/lmr/m/n/10 il li-mi-te mas-si-mo di to-ken per ogni con-te-sto in-via-to 
+al mo-del-lo (\T1/lmtt/m/n/10 MAX_CONTEXT_TOKENS\T1/lmr/m/n/10 ); 
+ []
+
+[15] [16] [17] [18] [19]
+(AI-driven Learning for Education and Cooperation CRISP-DM.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2535 strings out of 474486
- 43551 string characters out of 5753568
+ 2541 strings out of 474486
+ 43631 string characters out of 5753568
  1935542 words of memory out of 5000000
- 24808 multiletter control sequences out of 15000+600000
- 606584 words of font info for 66 fonts, out of 8000000 for 9000
+ 24812 multiletter control sequences out of 15000+600000
+ 607276 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,10n,52p,827b,246s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 49i,10n,52p,881b,344s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/M
 iKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
 lic/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/P
 rogram Files/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX/fo
 nts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/l
-msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Program
+ Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 Output written on "AI-driven Learning for Education and Cooperation CRISP-DM.pd
-f" (8 pages, 231899 bytes).
+f" (19 pages, 297191 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

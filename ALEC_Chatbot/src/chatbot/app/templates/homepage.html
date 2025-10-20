@@ -7,11 +7,21 @@
             <link rel="stylesheet" href="../static/style.css">
         </head>
         <body>
+
             <main>
+                    <div class="commands-box">
+                        <h2>Comandi disponibili</h2>
+                        <p>
+                            <code>/hint</code> → Mostra aiuto<br>
+                            <code>/stats</code> → Visualizza statistiche <br>
+                            <code>/exit</code> → Chiudi sessione e genera report
+                            <span class="warning">(attenzione: non reversibile)</span>
+                        </p>
+                    </div>
                 <div class="log" id="log"></div>
 
                 <div class="input-area">
-                    <select id="speaker">
+                    <select class="speaker" id="speaker" >
                         <option value="Davide">Davide</option>
                         <option value="Marcello">Marcello</option>
                     </select>
@@ -19,6 +29,7 @@
                     <button onclick="send()" id="sendBtn">Invia</button>
                 </div>
             </main>
+
 
             <footer>
                 <p>💬 Progetto universitario — Peer Learning con ALEC</p>
@@ -47,12 +58,18 @@
                         log.innerHTML += `<div><i>⏳ Generazione del report in corso...</i></div>`;
                     }
 
+                    const controller = new AbortController();
+                    const timeout = setTimeout(() => controller.abort(), 50000); // ⏱️ 50 secondi
+
                     try {
                         const resp = await fetch('/message', {
                             method: 'POST',
                             headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({speaker, message})
+                            body: JSON.stringify({speaker, message}),
+                            signal: controller.signal
                         });
+
+                        clearTimeout(timeout); // ✅ risposta arrivata, cancella timeout
                         const data = await resp.json();
 
                         // Mostra la risposta di ALEC

@@ -8,7 +8,7 @@ SYSTEM_CORE = (
     "Non usare markdown o asterischi. "
     "Usa PRINCIPALMENTE il contesto fornito (chunk top-k) per correggere o rispondere. "
     "Se una parte non è nel contesto, dillo esplicitamente. "
-    "Stile: chiaro e sintetico."
+    "Stile: chiaro e sintetico. Non salutare ad inizio del messaggio."
 )
 
 JUDGE_INSTRUCTIONS = (
@@ -20,7 +20,7 @@ JUDGE_INSTRUCTIONS = (
     '  "explanation": string,\n'
     '  "corrected": string,\n'
     '  "citations": [{"source": string, "chunk_id": string}] \n'
-    '  "relevance": "pertinente" | "non pertinente" '
+    '  "relevance": "pertinente" | "non_pertinente" '
     "}\n"
     "Non generare testo o HTML. "
     "Assicurati che il JSON sia sintatticamente valido e non racchiuso in blocchi di codice."
@@ -33,14 +33,14 @@ ANSWER_INSTRUCTIONS = (
     "Usa tag come <p>, <b>, <i>, <ul>, <li>, <code>, <hr>. "
     "Non includere <html>, <head> o <body>. "
     "Produrrai la risposta in modalità reinforce : conferma + un breve approfondimento.\n"
-    "Chiudi sempre con una sezione <p><b>📚 Fonti:</b><br>…</p> se non sono già presenti."
+    "Chiudi sempre con una sezione <p><b>Fonti:</b><br>…</p> se non sono già presenti."
 )
 
 SCAFFOLD_INSTRUCTIONS = (
     "Costruisci uno scaffolding didattico a 3 livelli in HTML semplice, "
     "usando il CONTENUTO, il CONTESTO e la BOZZA_CORREZIONE che sono generati da un modello di judge che deve essere omesso nella risposta. "
     "Ogni livello deve guidare lo studente progressivamente verso la comprensione in modo chiaro e didattico, "
-    "senza rivelare subito la risposta corretta. "
+    "senza rivelare subito la risposta corretta. Modella le risposte sulla base della 'Modalità'. "
     "Segui questa logica:\n"
     "- level1: fornisci un incoraggiamento o una riflessione iniziale, ponendo domande o suggerendo dove concentrare il ragionamento.\n"
     "- level2: aggiungi dettagli, indizi o un breve esempio che orienti meglio lo studente, ma senza dare ancora la soluzione completa.\n"
@@ -70,17 +70,4 @@ REPORT_INSTRUCTIONS = (
 )
 
 
-def build_context_block(chunks: list[dict]) -> str:
-    """Costruisce il blocco di contesto per il prompt (senza ID tecnici)."""
-    if not chunks:
-        return "(nessun contesto disponibile)"
-
-    lines = []
-    for i, ch in enumerate(chunks, 1):
-        source = ch.get("source", "Fonte sconosciuta")
-        text = ch.get("text", "").strip()
-        lines.append(f"[Fonte {i}: {source}]\n{text}")
-
-    # separatore leggibile per evitare confusione fra chunk
-    return "\n\n---\n\n".join(lines)
 

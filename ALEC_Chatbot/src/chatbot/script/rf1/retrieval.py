@@ -62,3 +62,17 @@ def search_rag(index, mapping, model, query: str, top_k: int = TOP_K, max_ctx_to
         for r in context:
             dbg(f"  - {r['source']}::{r['doc_id']}:{r['chunk_id']} (score={r.get('score'):.4f})")
     return context
+
+def build_context_block(chunks: list[dict]) -> str:
+    """Costruisce il blocco di contesto per il prompt (senza ID tecnici)."""
+    if not chunks:
+        return "(nessun contesto disponibile)"
+
+    lines = []
+    for i, ch in enumerate(chunks, 1):
+        source = ch.get("source", "Fonte sconosciuta")
+        text = ch.get("text", "").strip()
+        lines.append(f"[Fonte {i}: {source}]\n{text}")
+
+    # separatore leggibile per evitare confusione fra chunk
+    return "\n\n---\n\n".join(lines)
