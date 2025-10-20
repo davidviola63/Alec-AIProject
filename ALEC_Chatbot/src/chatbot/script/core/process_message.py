@@ -1,13 +1,13 @@
 import json
 
 from src.chatbot.script.config.debug import dbg, DEBUG_JUDGE, DEBUG_MODE
-from src.chatbot.script.rf1.retrieval import search_rag
+from src.chatbot.script.rf1.retrieval import search_rag, build_context_block
 from src.chatbot.script.config.prompts import (
-    SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, SCAFFOLD_INSTRUCTIONS, build_context_block
+    SYSTEM_CORE, JUDGE_INSTRUCTIONS, ANSWER_INSTRUCTIONS, SCAFFOLD_INSTRUCTIONS
 )
 from src.chatbot.script.rf2.response_gate import decide_response
 from src.chatbot.script.rf3.scaffolding import ScaffoldBundle, pick_cited_spans
-from src.chatbot.script.rf1.gemini_client import gemini_json, gemini_text, gemini_scaffold_json
+from src.chatbot.script.core.gemini_client import gemini_json, gemini_text, gemini_scaffold_json
 from src.chatbot.script.config.variables import TOP_K, MAX_CONTEXT_TOKENS
 from src.chatbot.script.rf4.conversation_multi import ConversationMulti
 

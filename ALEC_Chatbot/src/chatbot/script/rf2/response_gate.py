@@ -1,22 +1,10 @@
-# src/chatbot/script/rf2_response_gate.py
-# Python 3.11
-"""
-RF-2 Educational Policy
-Il chatbot risponde sempre, adattando il tono e la profondità della risposta
-in base al livello di scorrettezza (wrongness ∈ [0,1]).
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Optional, Literal
+from src.chatbot.script.config.variables import CLARIFY_MIN, CORRECT_MIN
 
 Mode = Literal["reinforce", "clarify", "correct"]
-
-# soglie pedagogiche
-CLARIFY_MIN = 0.15
-CORRECT_MIN = 0.40
-
 
 @dataclass(frozen=True)
 class ResponseDecision:

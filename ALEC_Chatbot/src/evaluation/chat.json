@@ -1,0 +1,128 @@
+[
+  {
+    "chat_id": 1,
+    "topic": "Algoritmi di ricerca - A* e proprietà di ottimalità",
+    "messages": [
+      {"speaker": "Davide", "text": "Come fa l'algoritmo A* a garantire l'ottimalità del percorso trovato?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["euristica ammissibile", "funzione f(n)=g(n)+h(n)", "espansione dei nodi"]},
+      {"speaker": "Davide", "text": "E cosa succede se l'euristica non è ammissibile?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["perdita di ottimalità", "euristica sovrastimata"]},
+      {"speaker": "Davide", "text": "/hint"},
+      {"speaker": "ALEC", "expected_behavior": "scaffolding", "key_concepts": ["esempio di h(n) > costo reale", "effetti sull'espansione dei nodi"]},
+      {"speaker": "Davide", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 2,
+    "topic": "Ricerca non informata - BFS e costi",
+    "messages": [
+      {"speaker": "Marcello", "text": "La Breadth-First Search è sempre ottimale?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["ottimalità solo con costi uniformi", "necessità di Uniform Cost Search"]},
+      {"speaker": "Marcello", "text": "Se i costi sono diversi ma tutti positivi, cosa cambia?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["UCS", "priorità sulla distanza cumulativa"]},
+      {"speaker": "Marcello", "text": "/stats"},
+      {"speaker": "ALEC", "expected_behavior": "system", "key_concepts": ["statistiche di sessione"]},
+      {"speaker": "Marcello", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 3,
+    "topic": "Ricerca euristica - Greedy Best-First vs A*",
+    "messages": [
+      {"speaker": "Davide", "text": "Quando il Greedy Best-First può sembrare più veloce di A*?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["euristica h(n)", "ottimalità", "trade-off tra rapidità e completezza"]},
+      {"speaker": "Davide", "text": "Puoi farmi un esempio in cui Greedy fallisce ma A* trova la soluzione migliore?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["trappola locale", "espansione incompleta", "A* bilancia costo e stima"]},
+      {"speaker": "Davide", "text": "/hint"},
+      {"speaker": "ALEC", "expected_behavior": "scaffolding", "key_concepts": ["esempio con labirinto o costi crescenti"]},
+      {"speaker": "Davide", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 4,
+    "topic": "Ricerca locale - Hill Climbing e Simulated Annealing",
+    "messages": [
+      {"speaker": "Marcello", "text": "Perché l’Hill Climbing può bloccarsi sui plateau?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["massimi locali", "assenza di miglioramenti"]},
+      {"speaker": "Marcello", "text": "Come posso ridurre questo rischio?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["random restart", "sideways moves", "simulated annealing"]},
+      {"speaker": "Marcello", "text": "In che modo la temperatura di Simulated Annealing influenza le scelte?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["probabilità di accettare peggioramenti", "funzione di raffreddamento"]},
+      {"speaker": "Marcello", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 5,
+    "topic": "Ricerca con avversari - Minimax e Alpha-Beta",
+    "messages": [
+      {"speaker": "Davide", "text": "Sto usando Minimax con profondità limitata: quali problemi posso incontrare?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["horizon effect", "funzione di valutazione", "taglio dell’albero"]},
+      {"speaker": "Davide", "text": "In che modo Alpha-Beta migliora le prestazioni?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["potatura dei rami inutili", "ordine delle mosse", "riduzione da b^d a b^{d/2} nel caso ottimo"]},
+      {"speaker": "Davide", "text": "/hint"},
+      {"speaker": "ALEC", "expected_behavior": "scaffolding", "key_concepts": ["esempio di taglio Alpha e Beta", "riordinamento delle mosse"]},
+      {"speaker": "Davide", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 6,
+    "topic": "Metriche di classificazione - Precision, Recall e F1-score",
+    "messages": [
+      {"speaker": "Marcello", "text": "Qual è la differenza tra precision, recall e F1-score?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["TP", "FP", "FN", "trade-off", "formula F1=2PR/(P+R)"]},
+      {"speaker": "Marcello", "text": "Quando è meglio massimizzare la recall rispetto alla precision?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["rischi falsi negativi", "applicazioni mediche o di sicurezza"]},
+      {"speaker": "Marcello", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 7,
+    "topic": "Clustering - scelta di k e scaling",
+    "messages": [
+      {"speaker": "Davide", "text": "Come scelgo il numero di cluster k nel K-means?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["elbow method", "silhouette score"]},
+      {"speaker": "Davide", "text": "Devo scalare i dati prima di usare K-means?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["sensibilità alla scala", "standardizzazione"]},
+      {"speaker": "Davide", "text": "/hint"},
+      {"speaker": "ALEC", "expected_behavior": "scaffolding", "key_concepts": ["feature su scale diverse portano a distorsioni"]},
+      {"speaker": "Davide", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 8,
+    "topic": "Regressione - Data leakage e valutazione",
+    "messages": [
+      {"speaker": "Marcello", "text": "Cos'è il data leakage in un modello di regressione?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["informazioni del test nel training", "feature derivate temporalmente errate"]},
+      {"speaker": "Marcello", "text": "Puoi darmi un esempio di data leakage pratico?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["uso di feature future", "variabili target derivate"]},
+      {"speaker": "Marcello", "text": "Come posso evitarlo?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["data split corretto", "validazione temporale", "controllo feature derivabili"]},
+      {"speaker": "Marcello", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 9,
+    "topic": "Qualità dei dati - outlier e missing values",
+    "messages": [
+      {"speaker": "Davide", "text": "Meglio eliminare o imputare gli outlier in un dataset?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["dipende dal dominio", "robust scaler", "analisi delle cause"]},
+      {"speaker": "Davide", "text": "E come gestisco i valori mancanti MNAR rispetto a MCAR?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["definizioni MCAR/MAR/MNAR", "imputazione multipla", "modelli robusti ai missing"]},
+      {"speaker": "Davide", "text": "/exit"}
+    ]
+  },
+  {
+    "chat_id": 10,
+    "topic": "LLM e affidabilità - allucinazioni e mitigazione",
+    "messages": [
+      {"speaker": "Marcello", "text": "Cosa significa che un LLM può 'allucinare'?"},
+      {"speaker": "ALEC", "expected_behavior": "clarify", "key_concepts": ["generazione di contenuti non supportati", "plausibilità linguistica"]},
+      {"speaker": "Marcello", "text": "Come possiamo ridurre questo problema in un contesto educativo?"},
+      {"speaker": "ALEC", "expected_behavior": "reinforce", "key_concepts": ["uso di RAG", "citazioni delle fonti", "prompt confinato"]},
+      {"speaker": "Marcello", "text": "/stats"},
+      {"speaker": "ALEC", "expected_behavior": "system", "key_concepts": ["metriche di partecipazione", "accuratezza media"]},
+      {"speaker": "Marcello", "text": "/exit"}
+    ]
+  }
+]

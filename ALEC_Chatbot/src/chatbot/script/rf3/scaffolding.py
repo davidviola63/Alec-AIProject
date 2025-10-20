@@ -1,5 +1,3 @@
-# src/chatbot/script/rf3_scaffolding.py
-# Python 3.11
 from __future__ import annotations
 
 from dataclasses import dataclass, field

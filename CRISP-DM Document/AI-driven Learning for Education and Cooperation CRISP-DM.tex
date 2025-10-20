@@ -31,28 +31,44 @@
 	
 	% --- Obiettivi di business ---
 	\subsection{Obiettivi di business}
-	L'intento principale del progetto Alec è quello di sperimentare l'uso di tecnologie LLM per migliorare lo studio collaborativo tra studenti. In particolare, il progetto mira a:
+	L'obiettivo principale del progetto \textbf{ALEC} è esplorare l'impiego dei modelli LLM in un contesto educativo collaborativo, al fine di migliorare la qualità e l’efficacia dello studio tra pari. 
+	Il sistema mira a integrare l’intelligenza artificiale come \emph{peer tutor} non invasivo, capace di stimolare il pensiero critico e supportare i processi cognitivi degli studenti attraverso un’interazione contestuale, naturale e guidata. 
+	
+	In particolare, il progetto persegue i seguenti obiettivi:
 	
 	\begin{itemize} 
-		\item Ridurre la diffusione di errori concettuali durante le sessioni di peer learning, grazie a un sistema che interviene solo in caso di affermazioni scorrette o su esplicita richiesta di aiuto.
-		\item Fornire agli studenti un supporto personalizzato e \emph{scaffolded}, coerente con il materiale didattico e non invasivo, in modo da stimolare l'autonomia e la capacità di ragionamento critico.
-		\item Offrire ai docenti uno strumento che semplifichi il monitoraggio delle attività collaborative, riducendo il carico di lavoro e restituendo report chiari e semplici su partecipazione, punti di forza e aree di miglioramento degli studenti.
-		\item Creare le basi per un modello scalabile e adattabile ad altri corsi o contesti educativi, mantenendo sempre il controllo dei contenuti da parte dei docenti.
+		\item \textbf{Ridurre la diffusione di errori concettuali} durante le sessioni di peer-learning, grazie a un sistema che valuta la correttezza dei contributi e interviene in modo mirato in caso di incongruenze o richieste esplicite di chiarimento.
+		
+		\item \textbf{Fornire un supporto didattico personalizzato e progressivo} attraverso un meccanismo di \emph{scaffolding} multilivello, che accompagna lo studente nella costruzione autonoma della conoscenza, partendo da suggerimenti generali fino ad arrivare alla spiegazione completa del concetto.
+		
+		 \item \textbf{Garantire coerenza con il materiale didattico ufficiale} mediante tecnologia RAG  (Retrieval-Augmented Generation) che recupera i contenuti rilevanti dai documenti caricati dal docente.
+			 
+		 \item \textbf{Offrire ai docenti e agli studenti strumenti di monitoraggio avanzati} tracciando la partecipazione, la pertinenza e la qualità degli interventi, ottenendo un report che permetta una visione generale su quanto c'è da migliorare nell'attività di studio.
+			
+		 \item \textbf{Sviluppare una piattaforma modulare e scalabile}, facilmente estendibile ad altri corsi o contesti formativi, mantenendo il controllo completo sui contenuti e sull’aderenza ai programmi didattici.
+		 
 	\end{itemize}
 	
 	% --- Requisiti principali ---
 	\subsection{Requisiti}
 	\subsubsection{Requisiti funzionali}
-	I requisiti funzionali descrivono le azioni concrete che il sistema deve essere in grado di compiere. In pratica, definiscono cosa il sistema deve fare per raggiungere gli obiettivi prefissati e supportare l'apprendimento collaborativo. 
-	\begin{itemize} 
-		\item \textbf{RF-1} Il sistema deve sfruttare principalmente i materiali didattici forniti dal docente come base di conoscenza, con citazioni alla fonte.
-		\item \textbf{RF-2} Il sistema deve rispondere quando la soglia di verità è inferiore all'80\% o su esplicita richiesta dell'utente.
-		\item \textbf{RF-3} Il sistema deve offrire spiegazioni graduali (scaffolded) adattate al livello di competenza dell'utente e al tema trattato.
-		\item \textbf{RF-4} Il sistema deve mantenere il contesto della conversazione multi-turno distinguendo chiaramente gli interventi dei diversi utenti.
-		\item \textbf{RF-5} Il sistema deve tracciare la partecipazione e la qualità degli interventi.
-		\item \textbf{RF-6} Il sistema deve generare, al termine della sessione, un report sintetico per docente e studenti con punti di forza, aree di miglioramento e suggerimenti di studio.
-
+	
+	I requisiti funzionali definiscono le capacità operative che il sistema deve possedere per soddisfare gli obiettivi di business. Essi descrivono il comportamento atteso del sistema in termini di interazione, coerenza didattica e tracciabilità delle attività educative.
+	
+	\begin{itemize}
+		\item \textbf{RF-1} Il sistema deve utilizzare i materiali didattici forniti dal docente come base di conoscenza principale, garantendo che le risposte siano coerenti con le fonti accademiche e includano un riferimento esplicito ai contenuti consultati.
+		
+  	    \item \textbf{RF-2} Il sistema deve adattare le proprie risposte in funzione della percentuale di errore rilevata nelle affermazioni dello studente, mantenendo un comportamento coerente, mirato a promuovere la riflessione e il ragionamento critico.
+			
+		\item \textbf{RF-3} Il sistema deve guidare lo studente attraverso un percorso di apprendimento progressivo basato su spiegazioni graduali (\emph{scaffolding}) articolate in livelli di supporto crescente.
+		
+		\item \textbf{RF-4} Il sistema deve gestire conversazioni multi-turno in modalità multi-utente, preservando il contesto del dialogo e distinguendo i diversi interlocutori.
+		
+		\item \textbf{RF-5} Il sistema deve monitorare la partecipazione degli utenti, tracciando la frequenza, la pertinenza e la qualità dei loro interventi, permettendo la visione di queste statistiche agli stessi.
+		
+		\item \textbf{RF-6} Al termine di ogni sessione, il sistema deve produrre un report sintetico destinato a docenti e studenti, contenente una valutazione complessiva della partecipazione, i punti di forza, le aree di miglioramento e suggerimenti mirati per lo studio individuale.
 	\end{itemize}
+
 	
 	\subsubsection{Requisiti non funzionali}
 	I requisiti non funzionali definiscono le qualità e i vincoli della soluzione web, mantenendo verifiche semplici per l’MVP.
@@ -91,7 +107,7 @@
 	\subsection{Raccolta dei dati}
 	La raccolta dei dati è avvenuta attraverso la selezione dei materiali didattici ufficiali messi a disposizione dai docenti del corso. 
 	Tali materiali, costituiti principalmente da file in formato PDF (dispense, slide e articoli), sono stati acquisiti tramite una cartella condivisa predisposta dal laboratorio di intelligenza artificiale presente sulla piattaforma e-learning dell'università, nel corso di studio dell'anno 2024 predisposto per le matricole "Resto 1" del dipartimento di informatica.\\
-	Per garantire coerenza e affidabilità, sono stati inclusi unicamente i documenti revisionati e approvati dai docenti, escludendo eventuali appunti personali o risorse di terze parti non validate. I file sono stati organizzati in sottocartelle per modulo e argomento, con una convenzione di nomenclatura uniforme (\texttt{Corso/Modulo/Titolo.pdf}) ed è possibile ispezionarli nella cartella pdf\_corsi, al fine di agevolarne la consultazione e la successiva fase di preparazione. Ad esempio è possibile trovare il file PDF riguardante gli algoritmi di ricerca locale non informata nel percorso:\\ \texttt{FIA/Algoritmi\_ricerca/algoritmi\_di\_ricerca\_non\_informata.pdf}
+	Per garantire coerenza e affidabilità, sono stati inclusi unicamente i documenti revisionati e approvati dai docenti, escludendo eventuali appunti personali o risorse di terze parti non validate. I file sono stati organizzati in sottocartelle per modulo e argomento, con una convenzione di nomenclatura uniforme (\texttt{Corso/Modulo/Titolo.pdf}) ed è possibile ispezionarli nella cartella pdf\_corsi, al fine di agevolarne la consultazione e la successiva fase di preparazione. Ad esempio è possibile trovare il file PDF riguardante gli algoritmi di ricerca locale non informata nel percorso:\\ \texttt{Data\_Extraction\_\&\_Preparation/pdf\_corsi/FIA/Algoritmi\_ricerca/\newline algoritmi\_di\_ricerca\_non\_informata.pdf}
 	
 \subsection{Descrizione dei dati}
 La seguente tabella sintetizza le caratteristiche principali dei materiali raccolti. 
@@ -171,7 +187,7 @@ In particolare:
 		\item appunti del docente ed esercizi preparatori all'esame
 	\end{itemize}
 	Il motivo di tale esclusione è spinto dalla semplificazione del corpus RAG poichè il libro, scritto in lingua inglese, avrebbe potuto causare difficoltà nell'embedding dei chunk mediante query e difficoltà di multilingua e traduzione; gli appunti del docente, a loro volta, rappresentavano materiale non ufficiale del corso sebbene risultassero di alta qualità didattica.
-	\item I documenti sono stati rinominati e collocati in sottocartelle per modulo e argomento, garantendo uniformità e semplicità di gestione.
+	\item I documenti sono stati rinominati e collocati in sottocartelle per modulo e argomento, garantendo uniformità e semplicità di gestione, alla fine della selezione il numero di documenti rimasto è diventato 15.
 \end{itemize}
 
 \subsection{Pulizia dei dati}
@@ -185,7 +201,7 @@ La fase di pulizia è stata finalizzata a rendere i documenti coerenti, leggibil
 	\item Uniformazione della nomenclatura dei file e correzione di caratteri anomali, così da garantire un encoding coerente.
 	\item Rimozione di elementi ridondanti (indici ripetuti, numerazioni incoerenti) potenzialmente fonte di disturbo.
 \end{itemize}
-Al termine della pulizia si sono ottenuti documenti prevalentemente testuali, coerenti e pronti per la fase successiva.
+L'intero processo è stato svolto a mano per ogni singolo documento. Al termine della pulizia si sono ottenuti documenti prevalentemente testuali, coerenti e pronti per la fase successiva. Sarà possibile ispezionare i pdf al percorso \texttt{Data\_Extraction\_\&\_Preparation/pdf\_DataPrep/FIA} 
 
 \subsection{Trasformazione dei dati e dataset finale}
 Completata la pulizia, i materiali sono stati trasformati per renderli adatti all’indicizzazione e al recupero tramite \textit{Retrieval-Augmented Generation} (RAG).  
@@ -213,11 +229,296 @@ Il processo è stato condotto in più passaggi:
 	- I testi devono essere puliti e coerenti, pronti per l’indicizzazione in FAISS.
 \end{verbatim}
 
-	\item \textbf{Costruzione del corpus}: i chunk prodotti sono stati salvati in formato JSON e successivamente aggregati in un unico file tramite lo script \texttt{build\_corpus}, ottenendo un corpus coerente e uniforme.
+	\item \textbf{Costruzione del corpus}: i chunk prodotti sono stati salvati in formato JSON per ogni documento e successivamente aggregati in un unico file tramite lo script \texttt{build\_corpus}, ottenendo un corpus coerente e uniforme. Al percorso \texttt{Data\_Extraction\_\&\_Preparation/corpus\_rag\_json/chunked\_pdf} è possibile visionare i singoli json. Il corpus integrale è disponibile qui: \texttt{ALEC\_Chatbot/src/corpus/data/corpus.json}
 	\item \textbf{Embedding e indicizzazione}: il corpus JSON è stato trasformato in vettori semantici (\textit{embedding}) attraverso un modello multilingua, quindi indicizzato con la libreria \texttt{FAISS} per consentire interrogazioni rapide ed efficienti.
 \end{itemize}
 Il risultato è un \textbf{dataset finale} costituito da chunk coerenti e arricchiti di metadati, organizzati in un database vettoriale FAISS.  
 Questo dataset non rappresenta più un insieme statico di documenti, ma una base di conoscenza strutturata ed esplorabile tramite embedding semantici, su cui il sistema potrà effettuare interrogazioni e generare risposte pertinenti.  
 Esso costituisce il riferimento ufficiale e validato su cui si fonda l’intero processo di supporto agli studenti.
 
+\section{Modeling}
+
+\subsection{Introduzione e scelta del modello}
+
+Per la fase di modellazione è stato scelto il modello \textbf{Gemini Flash 2.5}, fornito da Google, per la sua capacità di generare testi coerenti e strutturati in tempi di risposta molto rapidi. 
+La versione \textit{Flash} del modello offre un buon compromesso tra qualità, velocità e costo computazionale, risultando particolarmente adatta ad applicazioni di tutoring interattivo in tempo reale. Poiché il progetto è stato sviluppato all'interno di un contesto accademico, si è scelto di utilizzare la \textbf{versione gratuita (free tier)} dell'API Gemini. 
+Tale versione presenta vincoli di utilizzo in termini di:
+\begin{itemize}
+	\item \textbf{RPM} (requests per minuto),
+	\item \textbf{TPM} (token per minuto),
+	\item \textbf{RPD} (requests per giorno).
+\end{itemize}
+Per gestire questi limiti è stato implementato un \textbf{rate limiter locale}\\ (\texttt{rate\_limiter.py}), che tiene traccia delle richieste effettuate e dei token consumati nel tempo. 
+Il sistema mantiene finestre mobili per minuto e per giorno, bloccando automaticamente eventuali eccessi tramite eccezioni controllate:
+
+\begin{verbatim}
+	if len(self.win_min) >= self.rpm:
+	raise RuntimeError("Rate limit RPM locale raggiunto.")
+\end{verbatim}
+Questa soluzione ha permesso di garantire la stabilità e l'affidabilità del sistema anche in presenza di più utenti contemporanei, rispettando i vincoli del piano gratuito dell'API.
+
+\subsection{Flusso di elaborazione del messaggio}
+
+L'interazione tra l'utente e il sistema segue una pipeline di elaborazione ben definita, che riflette direttamente i requisiti funzionali (RF1–RF6) e consente la produzione di risposte didattiche coerenti. 
+
+\subsubsection{1. Ricezione del messaggio}
+Il server riceve ogni richiesta tramite l'endpoint \texttt{/message} e distingue tra:
+\begin{itemize}
+	\item \textbf{messaggi standard}, che attivano la pipeline completa di risposta;
+	\item \textbf{comandi speciali} (\texttt{/hint}, \texttt{/stats}, \texttt{/exit}), che seguono percorsi specifici.
+\end{itemize}
+
+\subsubsection{2. Recupero del contesto }
+Lo script \texttt{retrieval.py} utilizza il modello di embedding \textbf{E5} e l'indice \textbf{FAISS} per individuare i \textit{chunk} più pertinenti dai materiali del docente. 
+Il contesto è poi ricomposto in un blocco leggibile tramite la funzione \texttt{build\_context\_block()}, che inserisce i nomi delle fonti ma esclude gli identificatori tecnici. Il numero di token è limitato dal parametro \texttt{MAX\_CONTEXT\_TOKENS}.
+
+\subsubsection{3. Valutazione (Judge)}
+Il messaggio utente e il contesto recuperato vengono passati al modello Gemini con il prompt \texttt{JUDGE\_INSTRUCTIONS}. 
+Il modello deve produrre un output rigorosamente in formato JSON, come mostrato di seguito:
+\begin{verbatim}
+	{
+		"wrongness": 0.0,
+		"explanation": "...",
+		"corrected": "...",
+		"citations": [{"source": "...", "chunk_id": "..."}],
+		"relevance": "pertinente" | "non_pertinente"
+	}
+\end{verbatim}
+
+Questo output viene poi interpretato dal modulo \texttt{response\_gate.py}, che decide l'azione successiva in base al valore di \texttt{wrongness}.
+
+\subsubsection{4. Decisione del Response Gate}
+Il \textit{Response Gate} definisce la strategia di risposta secondo tre modalità principali:
+\begin{itemize}
+	\item \textbf{Reinforce}: la risposta dell'utente è corretta; il sistema conferma e approfondisce brevemente.
+	\item \textbf{Clarify}: la risposta è parzialmente corretta; il sistema fornisce chiarimenti mirati con scaffolding.
+	\item \textbf{Correct}: la risposta è errata; il sistema produce una correzione completa utilizzando sempre la metodologia di scaffolding.
+\end{itemize}
+
+\subsubsection{5. Generazione della risposta }
+Se l'azione scelta è \textit{reinforce}, viene usato il prompt \texttt{ANSWER\_INSTRUCTIONS}, che impone al modello di restituire solo HTML semplice, con eventuali fonti bibliografiche alla fine:
+\begin{verbatim}
+	<p><b> Fonti:</b><br>...</p>
+\end{verbatim}
+
+Nei casi di chiarimento o correzione viene invece utilizzato il prompt \texttt{SCAFFOLD\_INSTRUCTIONS}, che chiede a Gemini di produrre un JSON con tre livelli di supporto progressivo:
+\begin{verbatim}
+	{
+		"level1": "<p>...</p>",
+		"level2": "<p>...</p>",
+		"level3": "<p>...</p>",
+		"sources": ["..."]
+	}
+\end{verbatim}
+
+I livelli vengono poi mostrati all'utente attraverso il comando \texttt{/hint}, che permette di visualizzare gradualmente l'aiuto senza alterare la cronologia della conversazione.
+
+\subsubsection{6. Gestione dei comandi speciali}
+\begin{itemize}
+	\item \texttt{/hint}: recupera i livelli successivi dello scaffolding e li visualizza.
+	\item \texttt{/stats}: genera un riepilogo delle metriche di sessione tramite lo script \texttt{analytics.py}.
+	\item \texttt{/exit}: chiude la conversazione, produce un report HTML finale con \texttt{report\_generator.py} e disattiva l'interfaccia.
+\end{itemize}
+
+\subsubsection{7. Output finale}
+La risposta prodotta (HTML o interpretata dal JSON) viene restituita al frontend (\texttt{homepage.html}), pronta per essere visualizzata. 
+L'output rispetta sempre il vincolo di formattazione in HTML semplice, senza tag di struttura globale.
+
+\subsection{Progettazione dei prompt}
+
+I comportamenti del sistema ALEC sono modellati attraverso i prompt definiti in \texttt{prompts.py}, che rappresentano il cuore della fase di modellazione.
+
+\paragraph{Prompt \texttt{SYSTEM\_CORE}}
+Definisce le regole generali di comunicazione del tutor: formato HTML, tono sintetico e uso controllato delle fonti.
+
+\paragraph{Prompt \texttt{JUDGE\_INSTRUCTIONS}}
+Gestisce la valutazione logica della risposta dell'utente. 
+Permette di distinguere risposte corrette, parziali o errate e di misurare il livello di \textit{wrongness}.
+
+\paragraph{Prompt \texttt{ANSWER\_INSTRUCTIONS}}
+Serve per la modalità di rinforzo positivo: il modello genera una risposta corretta e ben formattata in HTML semplice, citando le fonti consultate.
+
+\paragraph{Prompt \texttt{SCAFFOLD\_INSTRUCTIONS}}
+Guida la costruzione dello \textit{scaffolding} didattico a tre livelli, fornendo un supporto progressivo allo studente. 
+I tre livelli vengono salvati e recuperati tramite il comando \texttt{/hint}.
+
+\paragraph{Prompt \texttt{REPORT\_INSTRUCTIONS}}
+Usato per generare il report finale in HTML, diviso in due sezioni: \textbf{Docente} e \textbf{Studenti}. 
+Riassume l'andamento della sessione, le fonti più usate e i suggerimenti personalizzati di studio.
+
+\subsection{Requisiti funzionali affrontati nella fase di modeling}
+
+Durante la fase di \textbf{Modeling} sono stati implementati e integrati tutti i requisiti funzionali (RF1–RF6), ognuno associato a specifici script e strategie di prompt. 
+L’obiettivo principale di questa fase è stato quello di modellare il comportamento cognitivo del tutor ALEC, trasformando i requisiti progettuali in moduli software concreti e coerenti.
+
+\paragraph{RF-1: Gestione della base di conoscenza e recupero delle fonti}
+
+Il requisito RF1 è stato implementato attraverso lo script \texttt{retrieval.py}, che utilizza il modello di embedding \textbf{E5} e l’indice \textbf{FAISS} per individuare i \textit{chunk} più pertinenti dal materiale docente.  
+Una volta selezionate le porzioni di testo rilevanti, queste vengono trasformate in un blocco contestuale dal prompt definito nella funzione \texttt{build\_context\_block()} del file \texttt{prompts.py}.  
+Questo prompt ha il compito di passare al modello Gemini i contenuti da considerare, mantenendo la tracciabilità delle \textbf{fonti} consultate.  
+In questo modo, ogni risposta generata dal sistema può includere i riferimenti utilizzati, garantendo trasparenza e aderenza ai materiali forniti dal docente.
+
+\paragraph{RF-2: Adattamento dinamico delle risposte e analisi del livello di errore}
+
+Il requisito RF2 viene realizzato tramite lo script \texttt{response\_gate.py}, che gestisce la logica decisionale del sistema sulla base del valore di \texttt{wrongness} prodotto dal modello nella fase di \textit{judging}.  
+La \texttt{wrongness} rappresenta un indice numerico compreso tra 0 e 1 che misura il grado di correttezza della risposta dell’utente: valori prossimi a 0 indicano risposte corrette, mentre valori prossimi a 1 segnalano errori significativi.  
+In base a questo parametro, il sistema decide quale prompt utilizzare:
+\begin{itemize}
+	\item \textbf{ANSWER\_INSTRUCTIONS}: utilizzato quando la risposta è totalmente corretta o quasi corretta (wrongness <0.15) per produrre un feedback positivo e sintetico;
+	\item \textbf{SCAFFOLD\_INSTRUCTIONS}: usato nei casi di errore o incertezza, per generare uno scaffolding didattico progressivo(wrongness > 0.15).
+\end{itemize}
+Questa distinzione consente al tutor di adattarsi dinamicamente alle necessità dello studente, fornendo rinforzi, chiarimenti o correzioni in base alla valutazione del modello.
+
+\paragraph{RF-3: Scaffolding didattico e gestione locale delle risposte}
+
+Per soddisfare il requisito RF3 è stata implementata una classe dedicata nello script \texttt{scaffolding.py}, che consente di mantenere in locale i livelli di aiuto generati dal modello, evitando di inviare nuove query all’API Gemini.  
+Questa soluzione aumenta significativamente l’efficienza complessiva del sistema, poiché riduce il numero di richieste al modello e quindi l’utilizzo di token.  
+Lo \textit{scaffolding} è costruito tramite il prompt \texttt{SCAFFOLD\_INSTRUCTIONS}, che richiede la produzione di un JSON contenente tre livelli di supporto progressivo (\texttt{level1}, \texttt{level2}, \texttt{level3}) e l’elenco delle fonti consultate.  
+L’utente può accedere ai livelli successivi di aiuto tramite il comando \texttt{/hint}, che recupera i dati dalla memoria locale senza riattivare la pipeline di elaborazione principale.  
+
+\paragraph{RF-4: Gestione multi-utente e multi-turno}
+
+Il requisito RF4 riguarda la capacità del sistema di gestire più utenti e conversazioni multi-turno in parallelo.  
+Questo aspetto è stato affrontato nella pipeline principale attraverso lo script \texttt{conversation\_multi.py}, che differenzia i messaggi in base all’identificativo dell’utente e mantiene uno storico separato per ciascuna sessione.  
+Durante la fase di modeling è stata definita la logica di assegnazione delle sessioni e la struttura dati che consente di recuperare il contesto pregresso per ogni interlocutore, permettendo così interazioni coerenti e personalizzate nel tempo.  
+
+\paragraph{RF-5: Analisi delle prestazioni e statistiche di apprendimento}
+
+Il requisito RF5 è implementato tramite lo script \texttt{analytics.py}, che gestisce la raccolta e l’aggiornamento delle statistiche relative all’andamento dello studente e all’efficacia delle risposte del sistema.  
+Le metriche vengono aggiornate automaticamente durante la fase di \textit{judging} del modello, così da valutare ogni intervento in tempo reale.  
+Attraverso il comando \texttt{/stats}, ogni utente può visualizzare un riepilogo delle proprie prestazioni, comprendente la pertinenza delle risposte, la qualità media delle interazioni e le fonti maggiormente consultate.  
+Questo approccio consente allo studente di monitorare il proprio progresso e di orientare meglio lo studio.
+
+\paragraph{RF-6: Chiusura della sessione e generazione del report finale}
+
+Il requisito RF6 è stato pienamente modellato nella pipeline attraverso il comando \texttt{/exit}, che chiude la sessione e genera automaticamente un report finale in formato HTML.  
+Lo script responsabile di questa funzione è \texttt{report\_generator.py}, che salva il file nella cartella \texttt{src/report} e restituisce il link diretto al documento all’interno della chat.  
+La generazione del report avviene mediante un prompt dedicato (\texttt{REPORT\_INSTRUCTIONS}) inviato al modello Gemini, che produce un riepilogo strutturato in due sezioni principali:
+\begin{itemize}
+	\item \textbf{Docente}: riassume l’andamento complessivo della sessione, le fonti più utilizzate e le principali difficoltà riscontrate;
+	\item \textbf{Studenti}: sintetizza per ogni partecipante i punti di forza, le aree di miglioramento e suggerimenti di studio personalizzati.
+\end{itemize}
+Il report viene così reso disponibile sia localmente che direttamente nella conversazione, completando il ciclo di interazione didattica previsto dal sistema.
+
+\subsection{Scelta dei parametri di modellazione}
+
+Durante la progettazione e l'implementazione della fase di modeling sono stati selezionati alcuni parametri chiave per garantire un equilibrio tra efficienza, qualità delle risposte e rispetto dei vincoli tecnici del piano gratuito dell'API Gemini. 
+I principali parametri ottimizzati riguardano:
+\begin{itemize}
+	\item il numero di documenti recuperati dal sistema di \textit{retrieval} (\texttt{TOP\_K});
+	\item il limite massimo di token per ogni contesto inviato al modello (\texttt{MAX\_CONTEXT\_TOKENS});
+	\item le soglie di errore (\texttt{wrongness}) che determinano le transizioni del \textit{Response Gate};
+\end{itemize}
+Tali parametri sono stati calibrati in modo empirico, verificando la qualità delle risposte e i tempi medi di elaborazione. I parametri sono ispezionabili nello script \texttt{variables.py}  
+Il risultato si presenta capace di mantenere una latenza contenuta e di fornire risposte coerenti, aderenti alle fonti e pienamente compatibili con le risorse disponibili nel contesto accademico.
+
+\section{Evaluation}
+
+\subsection{Obiettivi della fase di valutazione}
+
+La fase di \textbf{Evaluation} ha l’obiettivo di verificare che il sistema ALEC, nella configurazione ottenuta durante il \textit{Modeling}, soddisfi i requisiti funzionali e qualitativi definiti in precedenza. 
+In particolare, vengono valutate le prestazioni del modello \textbf{Gemini Flash 2.5} e l’efficacia della pipeline nella produzione di risposte didatticamente coerenti, pertinenti e tempestive. 
+La valutazione non si limita a misure di correttezza tecnica, ma tiene conto anche della qualità dell’interazione e dell’utilità percepita dallo studente nel contesto di peer tutoring.
+
+\subsection{Metodologia di valutazione}
+
+La validazione del sistema è stata condotta attraverso una combinazione di \textit{test automatici} e \textit{verifiche qualitative}.  
+Sono stati definiti diversi criteri di analisi:
+
+\begin{itemize}
+	\item \textbf{Coerenza delle risposte}: verifica che le risposte fornite dal modello siano aderenti al contenuto dei materiali docente recuperati tramite il modulo di \textit{retrieval}.
+	\item \textbf{Correttezza logica e lessicale}: controllo della qualità del testo generato e della coerenza tra domanda, contesto e risposta prodotta.
+	\item \textbf{Adattamento dinamico}: valutazione della capacità del sistema di distinguere correttamente i tre casi di \textit{reinforce}, \textit{clarify} e \textit{correct} in base al valore di \texttt{wrongness}.
+	\item \textbf{Efficienza e tempi di risposta}: analisi della latenza media end-to-end del sistema, considerando i vincoli del piano gratuito (\textit{free tier}) dell’API Gemini.
+	\item \textbf{Efficacia pedagogica}: misurazione qualitativa del supporto fornito tramite scaffolding e feedback, osservando la chiarezza, gradualità e pertinenza dei suggerimenti generati.
+\end{itemize}
+
+\subsection{Valutazione delle funzionalità interattive}
+
+Le funzionalità aggiuntive di ALEC sono state anch’esse oggetto di valutazione:
+
+\begin{itemize}
+	\item \textbf{Comando /hint}: ha mostrato un comportamento stabile, con recupero corretto dei livelli di scaffolding locali senza ulteriori chiamate al modello.
+	\item \textbf{Comando /stats}: ha fornito statistiche aggiornate e coerenti grazie al modulo \texttt{analytics.py}, consentendo agli utenti di monitorare il proprio progresso.
+	\item \textbf{Comando /exit}: ha generato correttamente i report finali in formato HTML, salvati nella cartella \texttt{src/report} e inviati in chat all’utente. I report risultano leggibili, coerenti e ben formattati.
+\end{itemize}
+
+\subsection{Riscontro rispetto ai requisiti funzionali}
+
+I risultati complessivi confermano che tutti i requisiti funzionali (RF1–RF6) sono stati soddisfatti nella fase di modeling e validati durante la valutazione:
+
+\begin{itemize}
+	\item \textbf{RF1}: il sistema recupera correttamente le fonti e le cita nelle risposte;
+	\item \textbf{RF2}: il comportamento adattivo del tutor è coerente con la valutazione del modello;
+	\item \textbf{RF3}: lo scaffolding progressivo rispetta i tre livelli previsti e riduce il numero di query al modello;
+	\item \textbf{RF4}: il sistema gestisce correttamente più utenti e sessioni multi-turno;
+	\item \textbf{RF5}: le statistiche di apprendimento sono raccolte e visualizzabili in tempo reale;
+	\item \textbf{RF6}: la chiusura della sessione e la generazione del report finale avvengono in modo completo e stabile.
+\end{itemize}
+
+\subsection{Considerazioni finali sulla fase di valutazione}
+
+La fase di \textit{Evaluation} ha dimostrato che il sistema ALEC soddisfa pienamente gli obiettivi progettuali di accuratezza, efficienza e valore didattico. 
+Il modello Gemini Flash 2.5, integrato con la pipeline di script sviluppata, ha mostrato un comportamento affidabile e coerente anche all’interno dei limiti imposti dal piano gratuito. 
+I risultati ottenuti confermano una discreta solidità della modellazione e costituiscono la base per il passaggio alla successiva fase di \textbf{Deployment}.
+
+\section{Deployment}
+
+\subsection{Introduzione}
+
+La fase di \textbf{Deployment} ha avuto come obiettivo la realizzazione di un \textbf{MVP (Minimum Viable Prototype)} del sistema ALEC, concepito come una piattaforma di tutoraggio intelligente basata su un modello linguistico integrato con meccanismi di Retrieval-Augmented Generation (RAG). 
+In questa fase non si è mirato alla produzione di un sistema pienamente distribuito o scalabile, ma alla verifica della \textbf{fattibilità tecnica e didattica} del progetto.
+Il prototipo è stato progettato e testato interamente in ambiente \textbf{locale}, utilizzando \texttt{FastAPI} come framework backend e una semplice interfaccia web per la chat. 
+La scelta di un deployment locale è stata dettata sia da vincoli di tempo e risorse del tirocinio, sia dalla necessità di garantire controllo totale sul flusso dei dati e sul comportamento del modello durante la fase di valutazione.
+
+\subsection{Caratteristiche del prototipo}
+
+L'MVP implementa tutte le componenti fondamentali del sistema, già validate nella fase di \textit{Modeling} e testate nella \textit{Evaluation}. 
+In particolare:
+\begin{itemize}
+	\item la pipeline \textbf{Retrieval → Judge → Gate → Answer/Scaffolding} è pienamente operativa e integrata;
+	\item il sistema supporta la gestione \textbf{multi-utente e multi-turno}, con sessioni distinte per ciascun interlocutore;
+	\item sono attivi i comandi funzionali \texttt{/hint}, \texttt{/stats} e \texttt{/exit}, che consentono di accedere rispettivamente allo scaffolding, alle statistiche di sessione e al report finale;
+	\item la generazione delle risposte è affidata al modello \textbf{Gemini Flash 2.5}, utilizzato tramite API nel piano \textit{free tier}, con meccanismi locali di \textit{rate limiting} per rispettare i vincoli di utilizzo.
+\end{itemize}
+Il deployment in locale ha consentito di verificare l’interazione completa tra i moduli, l’efficienza del recupero dei contenuti tramite FAISS e la qualità dei prompt nella generazione dei testi HTML.  
+Tuttavia, non sono ancora presenti componenti di distribuzione o containerizzazione, poiché l’obiettivo primario era dimostrare la \textbf{coerenza del flusso e la correttezza funzionale} del sistema.
+
+\subsection{Limitazioni e miglioramenti futuri}
+
+Essendo un prototipo, ALEC presenta alcune limitazioni strutturali che costituiscono i principali punti di miglioramento per eventuali evoluzioni future:
+\begin{itemize}
+	\item \textbf{Deployment cloud}: attualmente il sistema funziona in locale; la migrazione su un ambiente cloud (ad esempio Google Cloud Run o Azure App Service) permetterebbe maggiore accessibilità e monitoraggio.
+	\item \textbf{Gestione persistente dei dati}: la cronologia delle conversazioni e le statistiche vengono mantenute solo durante la sessione; un database relazionale o documentale (come PostgreSQL o MongoDB) migliorerebbe la tracciabilità e la continuità dell’apprendimento.
+	\item \textbf{Ottimizzazione delle prestazioni}: l’indice FAISS e le chiamate API potrebbero essere ottimizzati per tempi di risposta inferiori e gestione più efficiente dei token.
+	\item \textbf{Espansione del dominio di conoscenza}: l’attuale corpus si basa sui materiali del corso di Fondamenti di Intelligenza Artificiale; in futuro potrebbe essere esteso ad altri moduli didattici o a un’intera piattaforma di peer learning.
+	\item \textbf{Interfaccia utente}: l’interfaccia web è minimale e funzionale, ma può essere evoluta in una dashboard interattiva con grafici, progress tracker e feedback adattivo.
+\end{itemize}
+
+\subsection{Valutazione del deployment}
+
+Nonostante la natura sperimentale, il deployment locale ha dimostrato la \textbf{fattibilità tecnica} e la \textbf{consistenza logica} dell’architettura ALEC.  
+Tutte le fasi della pipeline risultano operative, e i risultati ottenuti nella fase di test confermano la validità dell’approccio RAG integrato con un modello linguistico moderno.
+Il sistema, pur in versione prototipale, è in grado di:
+\begin{itemize}
+	\item fornire risposte pertinenti e coerenti ai materiali di riferimento;
+	\item adattarsi al livello dello studente mediante scaffolding progressivo;
+	\item monitorare e sintetizzare l’attività didattica tramite statistiche e report automatici.
+\end{itemize}
+
+\subsection{Conclusione}
+La fase di \textbf{Deployment} conclude il ciclo di sviluppo del progetto ALEC, sancendo la trasformazione di un insieme di moduli sperimentali in un \textbf{prototipo funzionante e valutabile}.  
+L’obiettivo principale era dimostrare la \textbf{fattibilità tecnica} e la \textbf{validità concettuale} dell’approccio proposto, più che ottenere un sistema completo e pronto alla produzione.  
+In questo senso, il progetto ha raggiunto pienamente il proprio scopo: ha mostrato che un tutor intelligente, basato su tecniche di \textit{Retrieval-Augmented Generation} e integrato con un modello linguistico moderno come \textbf{Gemini Flash 2.5}, può operare efficacemente come strumento di supporto all’apprendimento universitario.\\
+Nonostante la natura prototipale e le limitazioni tecniche del deployment locale, ALEC si è dimostrato un sistema coerente, stabile e didatticamente utile.  
+Le interazioni osservate nei test hanno evidenziato una buona capacità del modello di interpretare il contesto, di fornire risposte mirate e di adattare il livello di dettaglio in base alle difficoltà dello studente.  
+Questo rappresenta un risultato significativo, poiché valida non solo l’architettura software ma anche il concetto pedagogico alla base del progetto: l’idea che un tutor virtuale, se opportunamente progettato, possa facilitare il \textit{peer learning} e stimolare l’autonomia cognitiva.\\
+Il lavoro svolto costituisce dunque un primo passo verso lo sviluppo di un sistema più completo, che in futuro potrà essere esteso e distribuito su larga scala.  
+Le possibili evoluzioni riguardano il miglioramento dell’interfaccia, la persistenza dei dati, l’ottimizzazione delle chiamate API e l’ampliamento del dominio conoscitivo.  
+Tuttavia, l’elemento più importante emerso da questa sperimentazione è la \textbf{conferma della fattibilità del paradigma ALEC}: un ambiente di apprendimento collaborativo basato sull’integrazione di modelli linguistici e conoscenze strutturate, capace di adattarsi al ritmo dello studente e di restituire un feedback progressivo, trasparente e misurabile.\\
+L'intero progetto non rappresenta soltanto un esercizio tecnico, ma un \textbf{proof of concept} del potenziale educativo dell’intelligenza artificiale applicata alla didattica.  
+Il percorso intrapreso ha fornito solide basi per sviluppi futuri e ha dimostrato come anche un deployment locale, se ben progettato, possa offrire risultati significativi nel validare l’efficacia di un sistema complesso come questo.
+
 \end{document}
+
+

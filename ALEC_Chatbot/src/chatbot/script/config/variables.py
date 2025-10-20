@@ -24,7 +24,11 @@ TOP_K = 5
 MAX_CONTEXT_TOKENS = 1400
 HISTORY_MAX_TURNS = 6
 
-# === RATE LIMIT (free tier gemini)
+# === RATE LIMIT (free tier gemini) ===
 RPM_LIMIT = 10
 TPM_LIMIT = 250_000
 RPD_LIMIT = 250
+
+# === Soglie Pedagogiche ===
+CLARIFY_MIN = 0.15
+CORRECT_MIN = 0.40

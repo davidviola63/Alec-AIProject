@@ -1,0 +1,254 @@
+
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(180deg, #fafad3 0%, #f39052 100%);
+  color: #3a2e26;
+  margin: 0;
+  padding: 30px 0;
+}
+
+/* --- Intestazione --- */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  color: #d86b26; /* arancione caldo principale */
+  font-size: 2.2em;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #8c6a4d;
+  font-size: 0.95em;
+}
+
+/* --- Logo ALEC --- */
+.logo {
+  display: block;
+  margin: 0 auto 10px auto; /* centrato con margine sotto */
+  width: auto;
+  height: 75px; /* ≈ 2 cm su schermi standard */
+  max-height: 80px;
+  object-fit: contain; /* mantiene proporzioni */
+  opacity: 0.95;
+  transition: transform 0.2s ease, opacity 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* --- Contenitore principale (chat) --- */
+main {
+  background: #fffaf5; /* colore chiaro indipendente dallo sfondo globale */
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+}
+
+/* --- Box dei comandi utente --- */
+
+.commands-box {
+    border: 1px solid #8a2424;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #fff8f8;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(138, 36, 36, 0.1);
+}
+
+.commands-box h2 {
+    color: #8a2424;
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.commands-box p {
+    font-size: 0.95em;
+    color: #5a2a2a;
+    margin: 0;
+    line-height: 1.6em;
+}
+
+.commands-box code {
+    background-color: #f7eaea;
+    color: #8a2424;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.commands-box .warning {
+    color: #b30000;
+    font-weight: bold;
+}
+
+/* --- piccolo effetto hover sui comandi --- */
+.commands-box code:hover {
+    background-color: #8a2424;
+    color: #fff8f8;
+    cursor: default;
+}
+
+/* --- Area chat --- */
+.log {
+  background: #fffdfb;
+  border-radius: 10px;
+  border: 1px solid #e2c8a4;
+  padding: 12px;
+  height: 340px;
+  overflow-y: auto;
+  margin-bottom: 1.2em;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+/* --- Selettore Utente --- */
+.speaker {
+  background-color: #d86b26;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.2s;
+}
+
+/* --- Messaggi --- */
+.log div {
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  animation: fadeIn 0.2s ease-in;
+  line-height: 1.45;
+}
+
+/* ALEC — tono ambra tenue */
+.alec {
+  background: #fff1e1;
+  border-left: 4px solid #d86b26;
+  color: #703c11;
+}
+
+/* Studente Davide — rosso corallo */
+.davide {
+  background: #ffecec;
+  border-left: 4px solid #c4453a;
+  color: #8a2424;
+}
+
+/* Studente Marcello — blu polvere */
+.marcello {
+  background: #eaf1ff;
+  border-left: 4px solid #3c6cc4;
+  color: #234178;
+}
+
+/* --- Area input --- */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+select {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d6bfa8;
+  background: #fffaf5;
+  font-size: 0.95em;
+  color: #3a2e26;
+  align-self: flex-start;
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid #d6bfa8;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  background: #fffaf5;
+  color: #3a2e26;
+}
+
+textarea:focus {
+  border-color: #d86b26;
+  box-shadow: 0 0 0 2px rgba(216,107,38,0.2);
+  outline: none;
+}
+
+/* --- Pulsante invia --- */
+button {
+  align-self: flex-end;
+  background-color: #d86b26;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #e57d33;
+  transform: scale(1.03);
+  box-shadow: 0 3px 6px rgba(216,107,38,0.25);
+}
+
+button:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+button.disabled,
+button:disabled {
+  background-color: #cbb8a3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  color: #7a6b58;
+  margin-top: 25px;
+  font-size: 0.9em;
+}
+
+/* --- Scrollbar personalizzata --- */
+.log::-webkit-scrollbar {
+  width: 8px;
+}
+
+.log::-webkit-scrollbar-thumb {
+  background-color: #e2c8a4;
+  border-radius: 4px;
+}
+
+.log::-webkit-scrollbar-thumb:hover {
+  background-color: #d3ae84;
+}
+
+/* --- Animazioni --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}

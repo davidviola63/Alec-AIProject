@@ -1,5 +1,5 @@
 from src.chatbot.script.config.prompts import REPORT_INSTRUCTIONS
-from src.chatbot.script.rf1.gemini_client import gemini_text
+from src.chatbot.script.core.gemini_client import gemini_text
 
 
 def generate_final_report(conv, gen_model):

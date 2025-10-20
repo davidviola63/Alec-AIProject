@@ -2,32 +2,45 @@
         <html lang="it">
         <head>
             <meta charset="UTF-8">
+             <img src="../static/logo.png" alt="Logo ALEC" class="logo">
             <title>ALEC - Peer Tutor Simulation</title>
-            <style>
-                body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; }
-                textarea { width: 100%; height: 80px; }
-                .log { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 1em; }
-                .alec { color: darkgreen; }
-                .marcello { color: blue; }
-                .davide { color: darkred; }
-            </style>
+            <link rel="stylesheet" href="../static/style.css">
         </head>
         <body>
-            <h2>Simulazione PeerTutor (due studenti)</h2>
-            <div class="log" id="log"></div>
 
-            <select id="speaker">
-                <option value="Davide">Davide</option>
-                <option value="Marcello">Marcello</option>
-            </select>
-            <textarea id="msg" placeholder="Scrivi un messaggio..."></textarea><br/>
-            <button onclick="send()">Invia</button>
+            <main>
+                    <div class="commands-box">
+                        <h2>Comandi disponibili</h2>
+                        <p>
+                            <code>/hint</code> → Mostra aiuto<br>
+                            <code>/stats</code> → Visualizza statistiche <br>
+                            <code>/exit</code> → Chiudi sessione e genera report
+                            <span class="warning">(attenzione: non reversibile)</span>
+                        </p>
+                    </div>
+                <div class="log" id="log"></div>
 
-           <script>
+                <div class="input-area">
+                    <select class="speaker" id="speaker" >
+                        <option value="Davide">Davide</option>
+                        <option value="Marcello">Marcello</option>
+                    </select>
+                    <textarea id="msg" placeholder="Scrivi un messaggio..."></textarea><br/>
+                    <button onclick="send()" id="sendBtn">Invia</button>
+                </div>
+            </main>
+
+
+            <footer>
+                <p>💬 Progetto universitario — Peer Learning con ALEC</p>
+            </footer>
+
+            <script>
                 async function send() {
                     const speaker = document.getElementById('speaker').value;
                     const message = document.getElementById('msg').value.trim();
                     const log = document.getElementById('log');
+                    const btn = document.getElementById('sendBtn');
                     if (!message) return;
 
                     // Mostra subito il messaggio dell'utente
@@ -39,21 +52,24 @@
                     if (isExit) {
                         // Blocca subito UI
                         document.getElementById("msg").disabled = true;
-                        const btn = document.querySelector("button[onclick='send()']");
                         btn.disabled = true;
                         btn.innerText = "Sessione chiusa 🔒";
-                        btn.style.backgroundColor = "#999";
-                        btn.style.cursor = "not-allowed";
+                        btn.classList.add('disabled');
                         log.innerHTML += `<div><i>⏳ Generazione del report in corso...</i></div>`;
                     }
+
+                    const controller = new AbortController();
+                    const timeout = setTimeout(() => controller.abort(), 50000); // ⏱️ 50 secondi
 
                     try {
                         const resp = await fetch('/message', {
                             method: 'POST',
                             headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({speaker, message})
+                            body: JSON.stringify({speaker, message}),
+                            signal: controller.signal
                         });
 
+                        clearTimeout(timeout); // ✅ risposta arrivata, cancella timeout
                         const data = await resp.json();
 
                         // Mostra la risposta di ALEC
@@ -66,30 +82,24 @@
                         // --- Gestione flag session_closed dal server ---
                         if (data.session_closed === true && !isExit) {
                             document.getElementById("msg").disabled = true;
-                            const btn = document.querySelector("button[onclick='send()']");
                             btn.disabled = true;
                             btn.innerText = "Sessione chiusa 🔒";
-                            btn.style.backgroundColor = "#999";
-                            btn.style.cursor = "not-allowed";
+                            btn.classList.add('disabled');
                             log.innerHTML += `<div><i>🔒 Sessione terminata.</i></div>`;
                         }
 
                     } catch (err) {
-                        // In caso di errore di rete, riattiva il bottone se non era un /exit
                         log.innerHTML += `<div><i>Errore di rete:</i> ${err}</div>`;
                         if (!isExit) {
                             document.getElementById("msg").disabled = false;
-                            const btn = document.querySelector("button[onclick='send()']");
                             btn.disabled = false;
                             btn.innerText = "Invia";
-                            btn.style.backgroundColor = "";
-                            btn.style.cursor = "pointer";
+                            btn.classList.remove('disabled');
                         }
                     }
 
-                    // Scorri in basso
                     log.scrollTop = log.scrollHeight;
                 }
-           </script>
+            </script>
         </body>
 </html>
