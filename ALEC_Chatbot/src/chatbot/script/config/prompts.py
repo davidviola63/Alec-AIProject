@@ -12,11 +12,15 @@ SYSTEM_CORE = (
 )
 
 JUDGE_INSTRUCTIONS = (
-    "Valuta la correttezza e la pertinenza del messaggio dell’utente rispetto al contesto. "
+    "Valuta la correttezza e la pertinenza del messaggio dell’utente rispetto al contesto con un valore di wrongness"
+    "compreso tra 0 e 1 dove:"
+    "wrongness<0.15 risposta al 90% corretta,\n"
+    "0.15<wrongness<0.40 risposta parzialmente corretta,\n"
+    "wrongness>0.4 risposta parzialmente sbagliata o totalmente sbagliata."
     "Se la query è pertinente imposta il campo relevance con 'non_pertinente' altrimenti con 'pertinente' "
     "Rispondi SEMPRE e SOLO in JSON valido, con questa struttura esatta:\n"
     "{\n"
-    '  "wrongness": float (0.0 = corretto, 1.0 = errato),\n'
+    '  "wrongness": float ,\n'
     '  "explanation": string,\n'
     '  "corrected": string,\n'
     '  "citations": [{"source": string, "chunk_id": string}] \n'
@@ -33,7 +37,7 @@ ANSWER_INSTRUCTIONS = (
     "Usa tag come <p>, <b>, <i>, <ul>, <li>, <code>, <hr>. "
     "Non includere <html>, <head> o <body>. "
     "Produrrai la risposta in modalità reinforce : conferma + un breve approfondimento.\n"
-    "Chiudi sempre con una sezione <p><b>Fonti:</b><br>…</p> se non sono già presenti."
+    "Chiudi sempre con una sezione <p><b>Fonti:</b><br>…</p> se non sono già presenti. Evitane la duplicazione."
 )
 
 SCAFFOLD_INSTRUCTIONS = (

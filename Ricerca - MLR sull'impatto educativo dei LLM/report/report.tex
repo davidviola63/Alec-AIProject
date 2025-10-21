@@ -1,0 +1,463 @@
+\documentclass[a4paper,9pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[italian]{babel}
+\usepackage{tabularx}
+
+
+\title{Studio dei Large Language Models (LLM) in ambito educativo\\
+\large Multivocal Literature Review su come i LLM influenzano le attività educative}
+\author{Davide Viola}
+
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\newpage 
+		
+	\section{Protocollo MLR}
+	
+	Il presente capitolo descrive il protocollo della Multivocal Literature Review (MLR) dedicata all’impatto dei Large Language Models (LLM) in ambito educativo. 
+	Il protocollo definisce in modo chiaro e trasparente le motivazioni, gli obiettivile modalità operative e gli strumenti adottati per condurre la revisione. 
+	L’obiettivo è garantire rigore metodologico, riproducibilità e coerenza in tutte le fasi della ricerca, dalla selezione delle fonti fino alla sintesi dei risultati. 
+	Il protocollo rappresenta dunque la base di riferimento per l’intero studio e viene strutturato in diverse sezioni così da rendere tracciabile ogni scelta metodologica.
+	
+	
+	\subsection{Scopo e confini (PICOC)}
+	\begin{description}
+		\item[Population:] { Verranno considerati studenti, docenti e tutor di istituti scolastici e accademici a livello internazionale.}	
+		\item[Intervention:] {Tutto sarà incentrato sull'uso dei LLM per tutoraggio personalizzato, feedback, generazione contenuti didattici, supporto alla valutazione e supporto al problem solving.}	
+		\item[Comparison:] {Verranno esaminate le differenza rispetto all'apprendimento e/o svolgimento di attività senza LLM come approcci tradizionali o con altri stumenti digitali} 	
+		\item[Outcomes:] {In merito all'apprendimento si osserva il relativo miglioramento esaminando come il processo di utilizzo possa spronare: motivazione, engagement, carico cognitivo, autonomia.
+		Per i docenti analizziamo la riduzione del carico di lavoro, la qualità dei feedback e i cambiamenti nella progettazione dei piani operativi influenzati dall'uso dei LLM.}	
+		\item[Context:] {Verranno considerate tutte le modalità didattiche nei contesti scolastici, accademici e in laboratorio }
+	\end{description}
+	
+	\subsection{Team e Ruoli }
+	\textbf{Lead reviewer:} \emph{Davide Viola}\newline
+	La revisione sarà condotta principalmente da un singolo autore, che ricoprirà il ruolo di \emph{lead reviewer} e si occuperà di tutte le fasi della MLR: dallo sviluppo del protocollo, alla ricerca delle fonti, allo screening, all’estrazione dei dati, fino alla sintesi e al reporting finale.\newline
+	Per garantire maggiore rigore metodologico, alcune attività saranno sottoposte a \emph{second pass}, ovvero a una seconda valutazione condotta a distanza di tempo dal medesimo autore, al fine di ridurre bias soggettivi. Inoltre, quando possibile, saranno coinvolti colleghi o un docente supervisore per una revisione a campione delle decisioni più critiche, come l’applicazione dei criteri di inclusione e la valutazione della qualità delle fonti.\newline
+	In questo modo si assicura un livello adeguato di controllo incrociato e di validità dei risultati, pur in assenza di un team di revisori numeroso.
+
+	
+	\subsection{Governance e strumenti}
+	
+	Per garantire ordine e tracciabilità, il lavoro sarà organizzato con una struttura semplice ma chiara.
+	
+	\paragraph{Struttura di base.} 
+	Il progetto sarà suddiviso in due cartelle principali:\\  
+	\texttt{screening\_and\_extraction/} per le tabelle di tracciamento delle fonti e di estrazione dei dati e \texttt{report/} per il documento finale.
+	
+	\paragraph{Codifica delle fonti.}
+	Le fonti della letteratura formale saranno identificate con il prefisso \texttt{F-XX}, mentre quelle di letteratura grigia con il prefisso \texttt{GL-XX}. 
+	Questa codifica semplice consente di collegare facilmente ciascun documento alle fasi di analisi.
+	
+	\paragraph{Strumenti.} 
+	La stesura del protocollo e del report sarà realizzata in \LaTeX\ tramite TeXstudio, mentre l’estrazione dei dati sarà fatta in un foglio di calcolo (Excel o LibreOffice). 
+	
+	\paragraph{Tracciabilità.}
+	Questa MLR utilizza esclusivamente fonti pubblicamente accessibili, senza raccolta di dati personali. 
+	Per ogni fonte saranno registrati i dati bibliografici essenziali, l’URL o DOI e la data di accesso. 
+	Nei fogli di estrazione verrà sempre indicato il punto del documento da cui proviene l’informazione, così da rendere il processo trasparente e verificabile.
+	
+	\section{Pianificazione della MLR}
+	
+	\subsection{Stabilire il bisogno di una MLR}
+	
+	Il tema dell’impatto dei Large Language Models (LLM) in ambito educativo è recente e in rapida evoluzione. 
+	La sola letteratura scientifica formale risulta ancora limitata, con studi pubblicati prevalentemente a partire dal 2023 e spesso di natura esplorativa e, pur garantendo rigore metodologico, non è sufficiente a rappresentare la varietà di esperienze e applicazioni in atto.\newline
+	La \emph{grey literature} (GL) riveste quindi un ruolo centrale in questo studio: pur presentando un livello di rigore metodologico inferiore, essa consente di esplorare rapidamente campi applicativi e soluzioni emergenti, spesso con revisioni e report di più immediata comprensione. 
+	Inoltre, la GL è più facilmente accessibile rispetto agli articoli sottoposti a peer review, e offre una prospettiva pratica che risponde meglio alle esigenze di studenti, docenti e istituzioni.\newline
+	Per queste ragioni si ritiene opportuno condurre una \emph{Multivocal Literature Review} (MLR), che combini fonti scientifiche formali e fonti di grey literature, così da fornire una visione più completa e aggiornata sull’uso dei LLM in educazione.
+	
+	\subsection{ Definizione degli obiettivi e delle Research Questions}
+	
+	\paragraph{Obiettivo generale.}
+	L’obiettivo di questa MLR è valutare l’impatto dei Large Language Models (LLM) in ambito educativo, indagando le trasformazioni in atto nelle pratiche di insegnamento e apprendimento, le conseguenze per studenti e docenti e le strategie istituzionali per una loro integrazione consapevole.
+	
+	\paragraph{Domande di ricerca (RQ).}
+	\begin{itemize}
+		\item \textbf{RQ1:} In che modo l’uso dei LLM  può trasformare le pratiche di apprendimento e insegnamento e quali strategie stanno adottando le istituzioni per integrare o regolamentare il loro utilizzo nei contesti formativi?
+		\item \textbf{RQ2:} Qual è l’impatto dell’uso dei LLM sullo sviluppo delle performance scolastiche e dell’autonomia critica e creativa degli studenti, e in che misura tale utilizzo può generare forme di dipendenza cognitiva da strumenti automatizzati?
+
+
+	\end{itemize}
+		
+	\subsection{ Schema Goal–Question–Metric (GQM)}
+
+	\begin{tabularx}{\linewidth}{|m{2cm}|m{5cm}|m{4cm}|}
+		\hline
+		\textbf{Goal} & \textbf{Research Question (RQ)} & \textbf{Metriche / Evidenze da raccogliere} \\
+		\hline
+		Valutare come i LLM stiano trasformando le pratiche educative &
+		\textbf{RQ1:} In che modo l’uso dei LLM trasformerà le pratiche di apprendimento e insegnamento e quali strategie stanno adottando le istituzioni per integrare o regolamentare il loro utilizzo nei contesti formativi? &
+		-- Casi d’uso documentati \newline
+		-- Cambiamenti metodologici \newline
+		-- Tipologie di attività supportate dagli LLM \newline
+		-- Strategie di integrazione \\
+		\hline
+		Analizzare l’impatto complessivo dei LLM sullo sviluppo degli studenti &
+		\textbf{RQ2:} Qual è l’impatto dell’uso dei LLM sullo sviluppo delle performance scolastiche e dell’autonomia critica e creativa degli studenti, e in che misura tale utilizzo può generare forme di dipendenza cognitiva da strumenti automatizzati? &
+		-- Evidenze su pensiero critico \newline
+		-- Sviluppo di competenze creative \newline
+		-- Performance accademiche \newline
+		-- Rischi di dipendenza ed eccessivo affidamento \newline
+		-- Opinioni di studenti e docenti \\
+		\hline
+		
+	\end{tabularx}
+		
+
+	
+	\section{Ricerca delle fonti}
+	
+	La ricerca delle fonti si concentrerà su un numero non eccessivo di contributi,
+	bilanciando letteratura scientifica formale e fonti di grey literature. 
+	Le ricerche verranno condotte in modo sistematico ma proporzionato alla dimensione dell'analisi, così da garantire rigore metodologico e al contempo fattibilità.
+	
+	\subsection{Letteratura scientifica formale}
+	
+	La letteratura scientifica è stata ricercata principalmente attraverso \textbf{Scopus}, database multidisciplinare tra i più completi e accreditati a livello internazionale, che garantisce l’accesso a riviste peer-reviewed, atti di conferenze e pubblicazioni scientifiche di qualità. L’utilizzo di Scopus consente inoltre di tracciare citazioni, metriche e impatto delle pubblicazioni, rafforzando la trasparenza del processo di selezione.\\
+	Le query sono state costruite con l’uso di operatori booleani (AND, OR) e keyword mirate, combinate secondo pattern ricorrenti. In particolare, le stringhe seguono una struttura di base in cui si accoppiano i termini relativi ai LLM (\emph{"ChatGPT" OR "LLM" OR "Large Language Model"}) con concetti educativi specifici (es. \emph{"student"}, \emph{"personalized learning"}, \emph{"self-efficacy"}).\\ Inoltre è doveroso aggiungere che le query di seguito elencate sono frutto di un processo di raffinamento svolto durante la fase di ricerca. Il raffinamento ha portato ad ottenere un quantitativo sempre più limitato e specifico di risultati fino ad ottenerne un numero adeguato al processo di selezione.\\
+	Le query eseguite su Scopus, sul campo "Article title", sono state:
+	
+	\begin{itemize}
+		\item (``ChatGPT'' OR ``LLM'' OR ``LLMs'' OR ``Large Language Model'') AND (``teachers' use'' OR ``teachers' competency'' OR ``teaching simulation'')
+		\item (``ChatGPT'' OR ``LLM'' OR ``Large Language Model'' OR ``AI'') AND ``AI-powered learning''
+		\item (``ChatGPT'' OR ``LLM'' OR ``Large Language Model'' OR ``AI'') AND ``self-efficacy'' AND ``dependence''
+		\item (``ChatGPT'' OR ``LLM'' OR ``Large Language Model'') AND (``student learning'' OR ``personalized learning'')
+		\item (``ChatGPT'' OR ``LLM'' OR ``Large Language Model'') AND ``student'' AND (``mental effort'' OR ``engagement'')
+	\end{itemize}
+	
+	I risultati sono stati filtrati in base a:
+	\begin{itemize}
+		\item rilevanza rispetto alle RQ;
+		\item data di pubblicazione (con priorità agli studi dal 2023 in poi).
+		\item numero di citazioni non eccessivo(per garantire l'originalità dell'analisi)
+	\end{itemize}
+	
+	\subsection{Grey Literature}
+	
+	La grey literature è stata reperita principalmente tramite motori di ricerca (Google), con l’obiettivo di includere report, linee guida e documenti istituzionali non presenti nei database accademici. Le query sono state progettate per essere mirate ma al tempo stesso ampie, combinando il focus sui LLM con temi pratici, educativi o di policy. La struttura segue un pattern semplice:\\ \emph{concetto centrale (LLM, ChatGPT)} + \emph{contesto applicativo (education, tutoring, cognitive load)}.  
+	
+	Esempi di query utilizzate su Google:
+	\begin{itemize}
+		\item \emph{Google: ``Government policy on LLM in education''}
+		\item \emph{Google: ``ChatGPT guide in education''}
+		\item \emph{Google: ``LLMs and cognitive debt in education''}
+		\item \emph{Google: ``LLMs as tutor in education''}
+	\end{itemize}
+	Un ulteriore canale di raccolta è stato rappresentato dall’attività di divulgazione accademica di \textbf{Enrico Mensa} (Enkk), ricercatore presso l’Università di Torino e streamer specializzato in AI. Attraverso i suoi video divulgativi, è stato possibile entrare in contatto con articoli, white paper e materiali non ancora diffusi su larga scala, che hanno contribuito ad arricchire la sezione di grey literature con spunti aggiornati e pertinenti.
+
+	\section{Selezione delle fonti}
+	
+	Dopo la fase di ricerca, i risultati ottenuti verranno sottoposti a un processo di selezione per garantire che solo le fonti rilevanti e di qualità siano incluse nella MLR.
+	La selezione sarà condotta esclusivamente in positivo e le fonti scelte saranno esaminabili nel file "LTT- Literature Tracking Table" suddiviso tra \emph{formal literature} e \emph{grey literature}, 
+	il quale è situato nella cartella \texttt{screening\_and\_extraction/}. 
+	Per ciascuna fonte viene riportato un ID, il riferimento bibliografico e la motivazione dell’inclusione.
+	
+	
+	\subsection{Criteri di inclusione}
+	
+	Saranno inclusi i contributi che soddisfano i seguenti criteri:
+	\begin{itemize}
+		\item pubblicazione a partire dal 2023, in considerazione della recente diffusione dei LLM;
+		\item attinenza diretta con il contesto educativo (scuola, università o formazione continua);
+		\item focus esplicito sui Large Language Models o strumenti derivati a partire dalla loro integrazione;
+		\item disponibilità del testo completo con totale accessibilità allo stesso ed ai riferimenti;
+		\item pubblicazione in lingua inglese o italiana.
+	\end{itemize}
+	
+	\subsection{Criteri di esclusione}
+	
+	Saranno escluse dall’analisi le fonti che presentano una o più delle seguenti caratteristiche:
+	\begin{itemize}
+		\item pubblicazioni antecedenti al 2023 
+		\item contributi non direttamente pertinenti al contesto formativo (ad esempio applicazioni dei LLM in ambito sanitario, aziendale o puramente tecnico senza collegamento con l’apprendimento);
+		\item lavori che trattano in modo generico l’intelligenza artificiale senza riferimento specifico ai Large Language Models o a strumenti basati su di essi;
+		\item documenti di cui non sia disponibile il testo completo o di cui non sia esplicitata la fonte dei dati raccolti;
+		\item pubblicazioni in lingue diverse dall’inglese e dall’italiano;
+		\item studi duplicati o versioni multiple della stessa ricerca, in tal caso verrà considerata solo la versione che rispetta meglio i criteri di selezione (vedi p.6, pp.3.1);
+
+	\end{itemize}
+	
+	\subsection{Procedura di selezione delle fonti}
+	
+	La selezione delle fonti si è svolta in due fasi. In un primo momento sono stati letti i titoli e, quando necessario, gli abstract/introduzioni per una valutazione preliminare di pertinenza rispetto alle domande di ricerca. Le fonti ritenute rilevanti sono state poi analizzate integralmente, con il supporto di ChatGPT-5 per la riflessione critica.
+	Ogni contributo incluso è stato registrato in un foglio di tracciamento, con ID (F-XX o GL-XX), riferimento bibliografico e una breve motivazione della scelta, conservato nella cartella \texttt{screening\_and\_extraction/} per garantire trasparenza e replicabilità.\\
+	Per la letteratura scientifica formale, la ricerca è stata condotta tramite le query individuate su Scopus. Per ciascuna query sono stati annotati i risultati complessivi, il numero di fonti escluse dopo la valutazione preliminare e quelle incluse dopo l’analisi completa, come riportato nella tabella di riepilogo.\\
+	
+		\begin{tabular}{|m{4.5cm}|m{2cm}|m{3cm}|m{2cm}|}
+			\hline
+			\textbf{Query Scopus} & \textbf{\# totali} & \textbf{\# post-screening} & \textbf{\# inclusi} \tabularnewline
+			\hline
+			(``ChatGPT'' OR ``LLM'' OR ``Large Language Model'') AND (``teachers' use'' OR ``teachers' competency'' OR ``teaching simulation'') & \centering \Large  \textbf{6}  &  \centering \Large \textbf{4}  & \centering \Large \textbf{3}  \tabularnewline
+			\hline
+			(``ChatGPT'' OR ``LLM'' OR ``LLMs'' OR ``Large Language Model'' OR ``AI'') AND ``AI-powered learning'' & \centering \Large \textbf{25}  & \centering \Large \textbf{8}  & \centering \Large \textbf{1}  \tabularnewline
+			\hline
+			(``ChatGPT'' OR ``LLM'' OR ``Large Language Model'' OR ``AI'') AND ``self-efficacy'' AND ``dependence'' & \centering \Large \textbf{3}  & \centering \Large \textbf{2}  & \centering \Large \textbf{2} \tabularnewline
+			\hline
+			(``ChatGPT'' OR ``LLM'' OR ``Large Language Model'') AND (``student learning'' OR ``personalized learning'') & \centering \Large \textbf{68}  & \centering \Large \textbf{16}  & \centering \Large \textbf{2}  \tabularnewline
+			\hline
+			(``ChatGPT'' OR ``LLM'' OR ``Large Language Model'') AND ``student'' AND (``mental effort'' OR ``engagement'') & \centering \Large \textbf{39} & \centering \Large \textbf{12}  & \centering \Large \textbf{2}  \tabularnewline
+			\hline
+		\end{tabular}
+
+	
+\section{Valutazione della qualità delle fonti}
+
+La valutazione della qualità ha lo scopo di garantire che le fonti incluse nella MLR, sia di letteratura scientifica formale che di grey literature, siano affidabili e utili per rispondere alle domande di ricerca. In questa sezione vengono definiti i criteri di valutazione e le modalità con cui verranno applicati.
+
+\subsection{Criteri di valutazione per la letteratura scientifica formale}
+
+Per gli articoli scientifici saranno adottati i seguenti criteri di valutazione:
+\begin{itemize}
+	\item \textbf{Peer review}: pubblicati in riviste o conferenze sottoposte a revisione;
+	\item \textbf{Chiarezza metodologica}: descrizione trasparente di approccio, campione e strumenti;
+	\item \textbf{Impatto}: misura dell'incisività della ricerca nello studio affrontato; 
+	\item \textbf{Rilevanza}: attinenza diretta alle RQ e pubblicazione dal 2023 in poi.
+\end{itemize}
+
+\subsection{Criteri di valutazione per la Grey Literature}
+
+Per le fonti di grey literature, data la loro eterogeneità, verranno considerati criteri di valutazione più flessibili:
+\begin{itemize}
+	\item \textbf{Affidabilità della fonte}: provenienza da enti istituzionali, docenti, organizzazioni educative o esperti riconosciuti;
+	\item \textbf{Trasparenza e chiarezza}: completezza e comprensibilità delle informazioni fornite;
+	\item \textbf{Impatto/diffusione}: rilevanza del documento (es. citazioni, popolarità online, diffusione a livello istituzionale).
+\end{itemize}
+
+\subsection{Sistema di valutazione}
+
+Le fonti saranno valutate sulla base dei criteri indicati nelle sottosezioni precedenti e classificate secondo una scala sintetica a tre livelli:
+\begin{itemize}
+	\item \textbf{Qualità alta (HQ)} – rispetta tutti i criteri principali;
+	\item \textbf{Qualità media (MQ)} – presenta alcuni limiti ma fornisce comunque dati utili;
+	\item \textbf{Qualità bassa (LQ)} – utilizzata solo se offre prospettive uniche o testimonianze non reperibili altrove.
+\end{itemize}
+La classificazione sarà esaminabile all'interno della tabella "LTT- Literature Tracking Table" in \texttt{screening\_and\_extraction/} alla voce "Qualità".
+
+\subsection{Esempi applicativi di valutazione}
+
+Per rendere più chiaro il sistema di classificazione, si riportano esempi tratti dalla letteratura scientifica formale e dalla grey literature inclusa nella MLR.
+
+\subsubsection{Formal Literature}
+\begin{itemize}
+	\item \textbf{Fonte F-09 (Qualità alta – HQ).}  
+	Il paper fornisce evidenze quantitative sull’impatto di percorsi di apprendimento personalizzati supportati da AI, mostrando miglioramenti significativi in performance, tempi di studio ed engagement rispetto alla didattica tradizionale. La pubblicazione è sottoposta a \emph{peer review}, presenta una metodologia chiara e trasparente (campione, strumenti, analisi) ed è direttamente rilevante per le domande di ricerca offrendo argomenti di forte evidenza per il tema affrontato. Per questi motivi, la fonte rispetta pienamente i criteri di valutazione stabiliti e viene classificata come \textbf{HQ}.
+	
+	\item \textbf{Fonte F-02 (Qualità media – MQ).}  
+	Il paper presenta un esperimento sull’uso dei LLM per lo sviluppo professionale dei docenti in contesti di \emph{blended learning}, illustrando come tali strumenti possano rafforzare le competenze di instructional design. La fonte è sottoposta a \emph{peer review} e fornisce evidenze pratiche utili, ma mostra alcuni limiti legati alla generalizzabilità dei risultati, all’ampiezza del campione e alla quantità di dati offerti. Sebbene risulti coerente e rilevante rispetto alle RQ, questi aspetti ne riducono la solidità complessiva, portando a una classificazione come \textbf{MQ}.
+	
+\end{itemize}
+
+\subsubsection{Grey Literature}
+\begin{itemize}
+	\item \textbf{Fonte GL-02 (Qualità alta – HQ).}  
+La fonte documenta un evento in cui docenti e studenti hanno sperimentato l’uso dell’IA generativa nella didattica. Il documento descrive pratiche innovative che valorizzano l’IA come supporto allo studio e stimolo al pensiero critico. La provenienza da un’istituzione accademica di prestigio (MIT), la chiarezza nell’esposizione e la rilevanza diretta rispetto alle domande di ricerca ne confermano l’affidabilità e l’impatto. Per tali motivi, la fonte viene classificata come \textbf{HQ}.
+
+	\item \textbf{Fonte GL-04 (Qualità bassa – LQ).}  
+La fonte riporta la testimonianza diretta di una studentessa delle scuole superiori sull’impatto percepito dell’IA nell’educazione. Il contributo mette in luce criticità soggettive e fornisce spunti utili per stimolare future ricerche empiriche. Tuttavia, presenta limiti significativi in termini di affidabilità metodologica, generalizzabilità e rigore, trattandosi di un’opinione personale. In base ai criteri stabiliti, viene classificata come \textbf{LQ}.
+
+\end{itemize}
+
+	\section{Estrazione dei dati}
+	
+	Dopo la selezione e la valutazione della qualità delle fonti, la fase successiva consiste nell’estrazione delle informazioni necessarie per rispondere alle Research Questions (RQ).
+	L’obiettivo principale è quello di raccogliere in maniera ordinata e tracciabile le evidenze più rilevanti, che possono essere di natura quantitativa (dati numerici, metriche, percentuali) oppure qualitativa (concetti chiave, testimonianze, citazioni testuali).
+	
+	\subsection{Struttura e procedura di estrazione}
+	
+	L’estrazione sarà organizzata attraverso due scheda strutturate denominate "FLDET- Formal Literature's Data Extracting Table" e "GLDET- Grey Literature's Data Extracting Table", comune a tutte le fonti. Ogni scheda avrà delle pagine rinominate con l'identificativo della fonte cui la tabella farà riferimento.  
+	Per ciascun contributo verranno annotati i seguenti campi:
+	\begin{itemize}
+		\item \textbf{RQ collegata}: numero della RQ a cui la fonte contribuisce;
+		\item \textbf{Dati estratti}: evidenze, risultati, affermazioni principali;
+		\item \textbf{Riferimento}: pagina, sezione, paragrafo; (Solo per la Formal Literature)
+		\item \textbf{Note contestuali}: eventuali osservazioni.
+	\end{itemize}
+	La procedura di estrazione si svolgerà dando una prima lettura della fonte inclusa, successivamente si passa all'individuazione dei passaggi rilevanti rispetto alle RQ ed infine si trascriveranno i dati nella scheda dedicata con successiva ulteriore revisione.\newline
+	I registri di estrazione saranno mantenuti in formato Excel, così da garantire facilità di aggiornamento e consultazione.
+	Ogni evidenza sarà accompagnata da un riferimento preciso (pagina, paragrafo) per assicurare tracciabilità e trasparenza. Le note contestuali serviranno come aiuto per utilizzare al meglio i dati nella fase successiva.
+	
+	\subsection{Creazione delle tabelle di sintesi}
+	
+	Dopo la fase di Data Extraction, si è scelto di introdurre un ulteriore passaggio intermedio: 
+	la costruzione di tabelle di sintesi per ciascuna Research Question (RQ). 
+	Tale procedura permette di raccogliere in modo ordinato tutte le evidenze individuate, 
+	associandole chiaramente alla fonte di provenienza (scientifica o di grey literature) 
+	e al relativo contenuto estratto.
+	Ogni tabella è articolata in tre colonne principali: la prima riporta il riferimento 
+	della fonte (utilizzando l’ID assegnato, come \texttt{F-XX} o \texttt{GL-XX}), 
+	la seconda sintetizza il dato o l’evidenza rilevante per la RQ, mentre la terza 
+	colloca l’informazione all’interno di una categoria tematica, utile per la successiva fase di analisi.\\
+	Questo approccio consente di avere una visione sinottica dei dati raccolti, 
+	facilitando la comparazione tra fonti e l’individuazione di pattern ricorrenti, 
+	divergenze o lacune. Inoltre, le tabelle costituiscono un supporto operativo 
+	per la stesura del capitolo di analisi, in quanto offrono una base strutturata 
+	su cui sviluppare la discussione e la sintesi finale.
+	
+	\section{Analisi ed elaborazione delle evidenze}
+	
+	Il presente capitolo si prepone l'obiettivo di analizzare e discutere in maniera sistematica le evidenze raccolte durante il processo di \emph{data extraction}. Dopo la fase di individuazione, selezione e sintesi dei dati, è ora necessario procedere a una loro rielaborazione critica, con l’obiettivo di rispondere alle \emph{research question} che hanno guidato l’intera revisione. In questo senso, il capitolo rappresenta la parte centrale della MLR, poiché consente di trasformare i risultati eterogenei emersi dalla letteratura in un quadro interpretativo organico e coerente. Questo si articola in due sezioni principali: nella prima (7.3) viene analizzato il modo in cui i LLM stanno trasformando le pratiche educative e l’organizzazione della didattica; nella seconda (7.4) l’attenzione si concentra sull’impatto diretto sugli studenti, in termini di prestazioni, sviluppo cognitivo e creativo, nonché rischi di dipendenza. Queste due sezioni saranno precedute da una breve panoramica generale sui LLM definendone il funzionamento brevemenete e caratteristiche principali(7.1), successivamente motiveremo la scelta delle Research Question(7.2) al fine di comprendere cosa ha mosso la ricerca e lo studio intrapresi durante il processo di sviluppo della MLR. Infine, la sezione conclusiva (7.5) riassumerà i risultati emersi, offrendo una risposta sintetica e critica alle \emph{research question}, e individuando i principali nodi problematici e le direzioni future di indagine.
+	
+	\subsection{Definizione e caratteristiche dei Large Language Models}
+	
+I \textbf{Large Language Models} rappresentano una delle più recenti e significative innovazioni nel campo dell’intelligenza artificiale. Essi sono modelli di linguaggio addestrati su vastissime quantità di testi e progettati per comprendere, generare e manipolare il linguaggio naturale con un livello di coerenza e fluidità sempre più vicino a quello umano. Alla base del loro funzionamento vi sono architetture di tipo \emph{transformer}, in grado di identificare relazioni complesse tra parole e frasi, e di produrre testi che appaiono coerenti e contestualizzati.\\
+I LLM si distinguono per alcune caratteristiche fondamentali come la capacità di \emph{generalizzare} conoscenze apprese, adattandole a contesti e discipline differenti oppure la possibilità di interagire con gli utenti in modo dinamico e dialogico. Nonostante questi punti di forza, va ricordato che i modelli non possiedono una comprensione autentica dei contenuti, ma operano attraverso correlazioni statistiche tra sequenze linguistiche. Ciò comporta rischi legati a errori, imprecisioni e al fenomeno delle cosiddette \emph{allucinazioni}, ossia risposte plausibili ma prive di fondamento nei dati reali.\\
+Un aspetto rilevante per contestualizzare i LLM è la loro rapidissima diffusione a livello globale. A partire dal lancio di sistemi accessibili al grande pubblico, come ChatGPT, si è registrato un boom di utilizzo senza precedenti: milioni di utenti hanno iniziato a sperimentare quotidianamente tali strumenti per scopi personali, professionali e accademici. Questa crescita ha contribuito a portare i modelli linguistici al centro del dibattito pubblico, attirando l’attenzione non solo degli esperti di intelligenza artificiale, ma anche di istituzioni, aziende e comunità educative. Il successo dei LLM risiede anche nella loro interfaccia accessibile: bastano pochi comandi in linguaggio naturale per ottenere risposte complesse, rendendo la tecnologia alla portata di un pubblico vastissimo. Al tempo stesso, questa semplicità solleva interrogativi sui rischi di un uso acritico e sulle implicazioni sociali e culturali derivanti dall’affidamento crescente a strumenti automatizzati.\\
+Alla luce di queste premesse generali, diventa fondamentale indagare come tali tecnologie stiano influenzando l’educazione. Le sezioni successive analizzeranno in particolare l’impatto dei LLM sullo sviluppo delle performance scolastiche, sull’autonomia critica e creativa degli studenti, nonché i potenziali rischi di dipendenza cognitiva, ponendo le basi per rispondere alle \emph{research question} della presente analisi.
+
+\subsection{Introduzione alle Research Question}
+
+Le evidenze raccolte nella fase di \emph{data extraction} hanno mostrato come i LLM abbiano un impatto profondo e multidimensionale nel settore educativo. Tuttavia, la letteratura disponibile sottolinea come tale impatto non sia univoco, ma presenti sfaccettature che spaziano dall’innovazione didattica al rischio di un utilizzo passivo e acritico. Per orientare in maniera sistematica l’analisi, sono state formulate due \emph{Research Question} principali.
+
+\begin{itemize}
+	\item \textbf{RQ1:} In che modo l’uso degli LLM può trasformare le pratiche di apprendimento e insegnamento e quali strategie stanno adottando le istituzioni per integrare o regolamentare il loro utilizzo nei contesti formativi?
+	
+	Questa prima domanda si concentra sulla dimensione istituzionale e didattica. L’obiettivo è capire come le pratiche di insegnamento e apprendimento vengano ridefinite attraverso l’impiego dei LLM, quali cambiamenti metodologici e quali strategie vengano adottate da scuole e università per accompagnare e regolamentare tale trasformazione. In questa prospettiva, i LLM non sono considerati solo strumenti tecnici, ma veri e propri catalizzatori di innovazione pedagogica.
+	
+	\item \textbf{RQ2:} Qual è l’impatto dell’uso dei LLM sullo sviluppo delle performance scolastiche e dell’autonomia critica e creativa degli studenti, e in che misura tale utilizzo può generare forme di dipendenza cognitiva da strumenti automatizzati?
+	
+	La seconda domanda focalizza invece l’attenzione sugli studenti, ponendo al centro i processi cognitivi, motivazionali e creativi. Essa intende valutare se l’uso dei LLM porti effettivamente a un miglioramento delle performance accademiche e allo sviluppo di pensiero critico e creativo, oppure se rischi di favorire comportamenti di dipendenza cognitiva, in cui l’affidamento eccessivo agli strumenti automatizzati riduce l’autonomia e la capacità di elaborazione personale.
+\end{itemize}
+Queste due domande, complementari tra loro, guideranno le analisi dei sottocapitoli successivi, consentendo di interpretare in maniera più articolata l’impatto dei LLM nell’educazione e di individuare tanto i benefici quanto le criticità emergenti.
+
+\subsection{Analisi della RQ1}
+
+\subsubsection{{Attualità dell'integrazione dei LLM}} 
+L'adozione dei LLM nell'ambito dell'educazione scolastica e accademica è stato osservato su articoli scientifici e ricerche, i quali studi, la grande maggioranza, sono stati svolti in aula con prevalenza nel contesto universitario, come osservato dalla ricerca \textbf{[F-01]} . Solo una quota limitata riguarda scuole K-12, mentre gli studi in laboratorio o in contesti non specificati rappresentano una minoranza. Inoltre, emerge che circa l’80\% degli studi si concentra sull’uso diretto della versione standard di ChatGPT, piuttosto che sulla sua integrazione in applicazioni educative più complesse \textbf{[F-01]}. Questo dato evidenzia come l’utilizzo dei LLM in educazione sia ancora in una fase iniziale, caratterizzata da sperimentazioni basiche piuttosto che da implementazioni strutturate. In realtà, come vedremo più avanti nel paragrafo, non poche sono le soluzioni e le metodologie innovative che si stanno sperimentando per fare in modo di integrare i LLM alla didattica nel migliore dei modi. \\
+Molte ancora sono le perplessità sull'utilizzo di questo strumento: dalle percezioni dei docenti osservate nello studio dell'Università di Delaware \textbf{[F-08]} vengono evidenziate la mancanza di linee guida chiare per integrare efficacemente l’IA nella didattica, insieme alla necessità di una maggiore alfabetizzazione digitale per docenti e studenti. Restano inoltre preoccupazioni legate ai bias dei modelli, alle imprecisioni delle risposte e al rischio di ridurre le interazioni umane. Sebbene i LLM si rivelino utili per generare esempi e problemi rapidamente, alcuni contenuti risultano troppo semplici, troppo complessi o errati (soprattutto nei calcoli matematici), confermando la necessità di un controllo critico da parte degli insegnanti. I dati riportati da un’analisi condotta da Anthropic, una delle principali aziende del settore AI, mostrano che gli educatori utilizzano i LLM soprattutto per la costruzione di piani di apprendimento (57\%), mentre l’impiego nelle attività di valutazione rimane marginale (7\%). Allo stesso tempo, emerge un ripensamento degli \emph{assignment}, con una crescente tendenza a progettare compiti che non possano essere facilmente risolti dall’IA, incoraggiando così un approccio di \emph{augmentation}, in cui la tecnologia affianca e potenzia il lavoro umano, piuttosto che sostituirlo \textbf{[GL-06]}. Questo aspetto evidenzia come, nonostante le difficoltà metodologiche e l’assenza di linee guida chiare e condivise, molti docenti stiano cercando di promuovere un rinnovamento tecnologico capace di colmare il divario generato dal rapido sviluppo dell’IA, ormai centrale nelle nostre vite. Tuttavia, l’adozione dei LLM avanza molto più velocemente tra gli studenti che tra gli insegnanti: un disallineamento che rischia di rallentare l’integrazione effettiva dell’IA nella didattica, poiché i docenti faticano a integrare nuove pratiche educative \textbf{[F-04]}. Per ulteriormente motivare il cambio metodologico rispetto all’approccio tradizionale, lo studio \textbf{[F-06]} mostra come la didattica classica, pur risultando efficace nel garantire una comprensione immediata dei contenuti, presenti limiti significativi nella ritenzione a lungo termine e nella capacità di adattarsi a stili di apprendimento diversificati. In questa prospettiva, lo studio \textbf{[F-08]} evidenzia il potenziale degli strumenti basati su IA, come LLM, che possono supportare i docenti nella preparazione delle lezioni, nella progettazione di percorsi personalizzati e nella creazione di materiali didattici, con vantaggi concreti in termini di risparmio di tempo e qualità dei contenuti. \\
+Un esempio particolarmente significativo è riportato nell’articolo \textbf{[GL-03]}, relativo al distretto scolastico di New York. Dopo una fase iniziale caratterizzata dal divieto di utilizzo di ChatGPT, il distretto ha scelto di revocare tale decisione e di istituire un \emph{AI Policy Lab}, con l’obiettivo di promuovere un impiego consapevole e responsabile dell’IA nei processi di insegnamento e apprendimento. Questo laboratorio, concepito come hub nazionale e avviato con la partecipazione di circa 15 distretti scolastici, rappresenta un caso emblematico di come sia possibile abbracciare l’innovazione tecnologica attraverso un deciso cambio di rotta.
+L’introduzione dei modelli di intelligenza artificiale generativa nei contesti educativi non si limita a rappresentare un semplice strumento di supporto, ma si configura come una vera e propria forza innovativa, capace di migliorare l’esperienza di apprendimento, favorire l’inclusione, sviluppare competenze trasversali e stimolare nuove forme di progettazione didattica \textbf{[F-05]}. A partire da ciò verranno presentate le principali metodologie di integrazione emerse dagli studi analizzati, nelle quali il ruolo del docente rimane centrale come mediatore tra lo strumento tecnologico e lo studente.
+
+\subsubsection{Blended Learning}
+Il \textit{blended learning} \textbf{[F-02]} rappresenta un approccio didattico che combina la didattica tradizionale in presenza con quella digitale, integrando strumenti online e attività collaborative. L’obiettivo principale è sfruttare i punti di forza di entrambe le modalità per rendere l’esperienza di apprendimento più flessibile, interattiva e personalizzata. La ricerca sull’uso dei LLM all’interno di programmi di formazione per insegnanti è ancora limitata. Tuttavia, alcune sperimentazioni hanno mostrato che l’integrazione tra modelli generativi e percorsi blended può sostenere lo sviluppo delle competenze didattiche dei docenti. In particolare, questa combinazione ha dimostrato di migliorare la progettazione di corsi e la capacità di integrare strategie innovative nelle lezioni. Inoltre viene notato che  che il blended learning apporta diversi benefici sia agli studenti che agli insegnanti: amplia l’accesso alle risorse, favorisce la comunicazione e l’interazione, stimola collaborazione e riflessione, e incoraggia creatività e partecipazione attiva. L’aggiunta dei LLM sembra potenziare ulteriormente questi effetti, fornendo supporto personalizzato nella generazione di materiali, idee per attività e feedback immediati. D'altronde, come mostrato dallo studio \textbf{[GL-09]}, i piani didattici originati dai docenti e successivamente arricchiti dai LLM mostrano un valore pratico molto più elevato, poiché radicati nelle esigenze reali della classe; al contrario, quelli interamente generati dall’IA tendono a rimanere più artificiali e meno aderenti al contesto.\\
+
+\subsubsection{Peer Learning}
+
+Il \textit{peer learning} è una modalità di apprendimento collaborativo in cui gli studenti lavorano insieme condividendo conoscenze, spiegazioni ed esperienze, assumendo in maniera alternata i ruoli di “insegnante” e “studente”. Questo approccio si fonda sull’idea che l’interazione tra pari favorisca non solo l’acquisizione di contenuti, ma anche lo sviluppo di competenze trasversali come il pensiero critico, la capacità di spiegare concetti complessi e l’empatia.\\
+Le evidenze raccolte \textbf{[F-04]} mostrano che l’integrazione di LLM nei contesti di \textit{peer learning} può incrementare in modo significativo l’engagement emotivo e cognitivo degli studenti. In particolare, l’uso di LLM consente di arricchire le discussioni attraverso spiegazioni alternative e suggerimenti personalizzati al livello di conoscenza del gruppo. Questo non solo aumenta la motivazione e la fiducia degli studenti nelle proprie capacità, ma rende anche l’esperienza più soddisfacente rispetto a modalità di studio individuali o a gruppi tradizionali. L’efficacia del \textit{peer learning} supportato da LLM risiede soprattutto nella sua capacità di stimolare una partecipazione attiva e un senso di corresponsabilità nel processo di apprendimento. Il modello, in questo contesto, agisce come facilitatore, capace di offrire un supporto aggiuntivo senza sostituire il ruolo fondamentale degli studenti come protagonisti dell’interazione formativa. In questo modo, la tecnologia non diventa una scorciatoia, ma un catalizzatore di dinamiche collaborative più ricche e produttive.
+
+\subsubsection{Modello delle 5Es}
+
+Il modello delle 5Es (\textit{Engagement, Exploration, Explanation, Elaboration, Evaluation}) rappresenta un approccio strutturato all’apprendimento che guida gli studenti attraverso cinque fasi progressive, pensate per stimolare motivazione, comprensione e applicazione attiva delle conoscenze. L’integrazione di LLM all’interno di questo framework ha mostrato risultati particolarmente promettenti.\\ Le evidenze dello studio \textbf{[F-06]} indicano che la sequenza chiara e coerente delle cinque fasi, supportata dall’assistenza dell’IA, ha reso l’esperienza di apprendimento più completa e graduale. Il LLM ha agito come un vero e proprio “co-docente virtuale”, capace di adattarsi alle esigenze individuali, offrendo spiegazioni alternative, feedback immediati e suggerimenti personalizzati. Questo ha favorito un maggiore senso di partecipazione attiva, responsabilità e autonomia negli studenti, rafforzando il loro coinvolgimento sia cognitivo che emotivo. Tuttavia, sono emerse anche alcune criticità. Durante la fase di \textit{Evaluation}, ad esempio, il modello ha talvolta fornito valutazioni imprecise o saltato passaggi, rendendo necessaria la supervisione dell’insegnante. La presenza del docente si conferma dunque imprescindibile, sia per correggere eventuali errori sia per garantire la corretta applicazione del modello.
+
+\subsubsection{Adaptive Learning, Big Data e Intelligenza Emotiva}
+Modelli più autonomi stanno venendo brevettati per garantire performance migliori lì dove il docente o tutor può peccare. Un'approccio innovativo all’integrazione dei LLM nella didattica è rappresentato dall’\textit{adaptive learning} \textbf{[F-09]}, in cui il sistema modifica in tempo reale i contenuti e il livello di difficoltà delle lezioni in base alle performance dello studente. Attraverso quiz, attività personalizzate e interazione con il LLM, l’algoritmo elabora raccomandazioni per i passaggi successivi, adattando il percorso di apprendimento al ritmo e alle esigenze individuali.  Nota importante dello studio è la crucialità del corretto utilizzo dei \textit{big data}. L’analisi di grandi quantità di informazioni sulle performance consente di identificare precocemente studenti a rischio di difficoltà o con potenzialità inespresse, favorendo interventi tempestivi e mirati. In questo modo, le decisioni educative diventano sempre più \textit{data-driven}, migliorando l’efficacia complessiva del processo formativo. Le prospettive di sviluppo non si limitano agli aspetti cognitivi, una direzione emergente riguarda l’integrazione dell’\textit{intelligenza emotiva} \textbf{[GL-10]} nei LLM. Collegando i modelli a sensori o a sistemi multimodali (analisi del tono della voce, espressioni facciali, parametri fisiologici come battito cardiaco o livelli di stress), l’IA può adattare le proprie risposte allo stato emotivo dello studente, creando un ambiente di apprendimento più empatico e inclusivo.
+
+\subsubsection{Intelligent Tutoring Systems (ITS)}
+
+Un approccio di crescente rilevanza è rappresentato dagli \textit{Intelligent Tutoring Systems} (ITS) \textbf{[F-09]}, sistemi che si comportano come veri e propri tutor virtuali. Queste tecnologie sono progettate per identificare le lacune di conoscenza degli studenti, fornire feedback mirati, proporre attività pratiche, monitorare i progressi e suggerire interventi personalizzati. L’obiettivo non è semplicemente quello di facilitare il completamento dei compiti, ma di promuovere un apprendimento profondo e duraturo.\\
+In questa prospettiva, un esempio significativo è rappresentato dalla \textit{Study Mode} di ChatGPT \textbf{[GL-07]}, sviluppato da OpenAI. Questa modalità introduce un’interazione guidata che integra suggerimenti, esercizi di riflessione e verifiche della comprensione. Le risposte vengono organizzate in forma di \textit{scaffolding}, ovvero strutturate in sezioni chiare e progressive, così da ridurre il rischio di sovraccarico cognitivo, soprattutto in presenza di contenuti complessi. Un aspetto centrale è la \textit{personalizzazione}: il sistema calibra le risposte in base al livello dello studente, alle sue competenze pregresse e, grazie alla memoria conversazionale, anche alle interazioni precedenti. \\
+Gli ITS, quindi, rappresentano un'importante metodologia verso un’educazione più personalizzata e performante, capace di unire automazione e sostegno individuale, pur richiedendo ancora un ruolo attivo del docente nella supervisione e nell’orientamento critico dell’apprendimento.
+
+\subsubsection{Strategie istituzionali per l’integrazione dei LLM}
+
+Una delle sfide più ardue sul cammino dell'integrazione dei LLM nell'educazione e negli ambienti ad essa dedicati è quella di definire delle linee guida comuni, semplici, efficaci e sicure, facendo sì di poter sfruttare appieno il potenziale di questo strumento. Al giorno d'oggi l'utilizzo di quest'utlimi non è ancora regolamentato; oltre mille accademici e leader hanno chiesto una pausa nello sviluppo dei sistemi più potenti per analizzarne i rischi e definire protocolli etici e di sicurezza, in linea con la Raccomandazione UNESCO \textbf{[GL-08]}. Ciò evidenzia un forte sviluppo del settore tecnologico ma una lenta assimilazione da parte delle istituzioni di questi strumenti. Il settore educativo ha necessità di individuare fondamenta solide su questo ambito.\\
+La ricerca \textbf{[GL-10]} ha individuato una plausibile soluzione concentrando l'attenzione su: uso consapevole, supporto al pensiero critico e implicazioni sul futuro. In breve, l'IA e l'utilizzo degli LLM devono essere considerati uno strumento di supporto alla comprensione e alla costruzione di strategie, non una scorciatoia per ottenere risposte immediate, e in questo processo il ruolo degli insegnanti si mantiene centrale. Allo stesso tempo, le risposte dei modelli non sono sempre accurate e gli studenti devono imparare a criticarle, revisionarle e correggerle. Chiave saranno le implicazioni sul futuro, poiché l'utilizzo di questi strumenti sarà una competenza fondamentale nel mondo del lavoro e richiederà non solo abilità tecniche, ma anche la capacità di pensare in modo adattivo e creativo.\\
+Per quanto riguarda il personale accademico , le fonti \textbf{[GL-08]} e \textbf{[F-05]} suggeriscono una serie di pratiche concrete per favorire l’integrazione consapevole degli LLM nei contesti educativi. Tra queste, la creazione di spazi di discussione collettiva tra docenti, studenti e staff, l’elaborazione di linee guida d’uso collegate agli obiettivi formativi, la revisione delle modalità di valutazione e l’aggiornamento delle policy di integrità accademica. Centrale è anche la formazione sul prompting, inteso come capacità di porre domande efficaci per sfruttare al meglio le potenzialità dei LLM. Inoltre, gli insegnanti sono chiamati a promuovere una collaborazione attiva, a guidare gli studenti nella formulazione di quesiti mirati e a incoraggiare la riflessione critica sugli output generati. Un ulteriore elemento chiave è la promozione del peer support e del mentoring tra insegnanti, che consente la condivisione di buone pratiche e l’adozione graduale di strategie comuni.\\ 
+Dal lato istituzionale, quanto emerge dalle fonti \textbf{[F-08]} e \textbf{[GL-10]} sottolinea l’esigenza di rafforzare le capacità interne delle istituzioni per garantire un’integrazione efficace dell'IA nella didattica. Questo implica l’introduzione di nuovi corsi e programmi specifici sull’intelligenza artificiale, l’etica digitale e le competenze tecnologiche di base, oltre all’aggiornamento dei piani di apprendimento esistenti con moduli dedicati. Le istituzioni devono inoltre investire nella formazione dei docenti e dei ricercatori, così da permettere loro di utilizzare l’IA in modo complementare e non sostitutivo. La spinta integrativa a livello istituzionale non è affatto marginale, come dimostra chiaramente il documento governativo inglese \textbf{[GL-01]}, che offre un quadro articolato sull’uso dei LLM in ambito scolastico. Un aspetto importante è la presenza di enti regolatori deputati al controllo del suo utilizzo. L'ente Ofsted si occupa di verificare che le scuole adottino l’IA in modo sicuro, trasparente e corretto, prevenendo rischi legati a bias o alla protezione dei dati, mentre l'ente Ofqual vigila sull’impiego dell’IA negli esami, garantendo equità, sicurezza e trasparenza. Oltre agli aspetti normativi, il governo del Regno Unito sta sostenendo in modo concreto lo sviluppo di strumenti educativi basati su IA. Un esempio significativo è “Aila”, l’assistente sviluppato da Oak National Academy con l’obiettivo di ridurre il carico di lavoro dei docenti, a cui si affianca il progetto “Content Store pilot”, finanziato con 3 milioni di sterline e volto a creare un archivio di contenuti e dati per la progettazione di futuri strumenti didattici. Quanto detto finora deve fungere da esempio per governi e istituzioni, che non dovrebbero trascurare un'opportunità tanto importante ed incisiva per la mera paura di ciò che non si comprende appieno.
+
+\subsection{Analisi della RQ2}
+\subsubsection{Effetti sulle performance accademiche e sul pensiero critico e creativo}
+
+Per promuovere lo studio e l’adozione dei LLM all’interno delle istituzioni è necessario analizzare con attenzione sia i benefici sia i potenziali rischi che essi comportano per lo sviluppo didattico e personale degli studenti. Se è vero che l'uso di LLM stimola l’engagement in tre dimensioni: comportamentale, cognitiva ed emotiva \textbf{[F-04]}, restano comunque i rischi di gravare sulla capacità di ragionamento profondo e sulla creatività.\\
+In questo contesto, la \emph{Cognitive Load Theory} offre una chiave di lettura utile. Secondo questo modello, il carico cognitivo si articola in diverse componenti. L’uso dei LLM può ridurre il cosiddetto carico estraneo (ECL), cioè quello sforzo mentale inutile che deriva dalla necessità di filtrare informazioni ridondanti o irrilevanti. Tuttavia, affinché l’apprendimento sia realmente efficace, è fondamentale stimolare il carico pertinente (GCL), ovvero lo sforzo produttivo che permette allo studente di elaborare criticamente le informazioni, integrarle con le conoscenze pregresse e trasformarle in nuove competenze. In altre parole, se i LLM da un lato alleggeriscono l’accesso ai contenuti, dall’altro devono essere accompagnati da strategie che favoriscano un’elaborazione attiva e creativa, evitando il rischio che lo studente si limiti a recepire passivamente le risposte fornite \textbf{[F-03]}.\\
+Nonostante i rischi evidenziati, i LLM mostrano anche un potenziale significativo nel supportare i processi di apprendimento. Offrendo spiegazioni chiare e strategie pratiche, essi consentono agli studenti di superare più agevolmente gli ostacoli che incontrano nello studio, trasformando concetti astratti in applicazioni concrete. Questo contribuisce a rafforzare la motivazione, la fiducia in sé stessi e il senso di coinvolgimento nelle attività didattiche. Un ulteriore aspetto rilevante riguarda la capacità dei LLM di stimolare la \textit{co-creatività}. Non si limitano infatti a fornire risposte, ma diventano veri e propri collaboratori che affiancano lo studente nella costruzione di idee e progetti. In particolare, gli studenti più avanzati hanno la possibilità di andare oltre i contenuti standard delle lezioni, sviluppando percorsi personali, originali e maggiormente autonomi. In questo modo, l’uso dei LLM introduce un forte elemento di personalizzazione, che rende l’apprendimento più flessibile e vicino agli interessi individuali \textbf{[GL-10]}.\\
+In completa assonanza alla Cognitive Load Theory ,dai dati dell’esperimento presentato nella ricerca \textbf{[F-03]}, emerge che l’uso dei LLM nelle attività di indagine scientifica produce un duplice effetto: da un lato riduce lo sforzo cognitivo richiesto agli studenti, dall’altro limita la profondità e la complessità del ragionamento. In particolare, chi ha utilizzato motori di ricerca ha elaborato giustificazioni più pertinenti e articolate rispetto a chi si è affidato ai LLM, i quali, pur rendendo il compito più semplice, hanno generato argomentazioni meno ricche e meno strutturate. Un quadro simile è confermato dalla ricerca \textbf{[GL-09]}, che avverte come l’IA, sebbene garantisca efficienza e supporto, rischi di ridurre la profondità cognitiva e la capacità di trattenere i contenuti portando alla produzione di testi più scorrevoli ma con un apprendimento meno solido e una minore identificazione personale nei risultati.\\
+In contrapposizione, la ricerca sperimentale \textbf{[F-09]} mostra invece i benefici concreti dei sistemi adattivi basati su IA: le performance degli studenti sono aumentate in media dal 55\% all’80\%, rispetto al 54\%–68\% dei metodi tradizionali, con una riduzione del tempo di studio del 25\% e un incremento dell’engagement del 15\%, grazie alla personalizzazione dei contenuti. Risultati coerenti emergono anche dalle ricerche \textbf{[F-01]} e \textbf{[F-04]}, che evidenziano come l’uso di LLM integrati correttamente rafforzi il pensiero di ordine superiore critico, computazionale e riflessivo ed al tempo stesso migliori le performance accademiche, il pensiero critico e le capacità decisionali e di autoregolazione.\\
+Dalla letteratura analizzata si è appreso che, in modo piuttosto concorde, l’uso dei LLM contribuisce a un aumento delle performance accademiche, ma i risultati sullo sviluppo del pensiero critico restano meno chiari e spesso contrastanti. Interessante a questo proposito è lo studio del MIT, che documenta esperienze didattiche in cui i docenti hanno ripensato obiettivi e compiti proprio per stimolare la riflessione critica con l’aiuto dell’IA. In un corso, ad esempio, gli studenti hanno analizzato e criticato lettere motivazionali generate da ChatGPT come se fossero selezionatori aziendali; in un altro, hanno confrontato le proprie frasi con quelle prodotte dall’IA in lingua giapponese, sviluppando una comprensione più profonda delle strutture grammaticali. In questi casi l’IA ha svolto un ruolo di scaffolding, offrendo feedback personalizzati e adattandosi al livello degli studenti, senza sostituirsi al processo critico ma rafforzando competenze già acquisite. Rimane tuttavia fondamentale ricordare che l’utilizzo dei LLM richiede competenze adeguate di gestione e supervisione, poiché tali strumenti mostrano ancora limiti significativi. Un esempio concreto emerge dall’articolo \textbf{[GL-04]}, che evidenzia come i modelli siano in grado di risolvere con efficacia problemi matematici di difficoltà bassa o intermedia, ma falliscano sistematicamente di fronte a quesiti di livello più avanzato. Questa fragilità mette in luce come, sebbene utili in compiti di base o intermedi, i LLM non possano ancora essere considerati affidabili per attività che richiedono un ragionamento complesso e strutturato.
+
+\subsubsection{Correlazione tra motivazione,self-efficacy e dipendenza cognitiva}
+
+Un aspetto sul quale la letteratura sembra convergere riguarda il potenziale dei LLM nel rafforzare la dimensione affettivo-motivazionale e il coinvolgimento degli studenti. Diversi studi hanno infatti evidenziato un incremento della motivazione e del piacere nello studio \textbf{[F-01]}, mentre approcci di apprendimento personalizzato mediati dall’IA hanno mostrato di favorire forme più intense di engagement, sia sul piano emotivo sia su quello cognitivo \textbf{[F-04]}. In questa prospettiva, percorsi strutturati come il modello 5Es integrato con i LLM sono stati valutati in modo particolarmente positivo dagli studenti, grazie al supporto personalizzato, ai feedback immediati e all’interazione dialogica che rendono l’apprendimento più chiaro, coerente e piacevole \textbf{[F-06]}.\\
+Per quanto riguarda la competenza percepita, diversi studi evidenziano come l’interazione con l’IA generativa contribuisca a rafforzare la self-efficacy degli studenti, migliorando la loro efficienza, la motivazione e la fiducia in contesti tecnici, creativi e artistici, oltre a stimolare forme di pensiero di ordine superiore \textbf{[F-05]}. Questa crescita, tuttavia, non è priva di rischi: l’aumento della fiducia nelle proprie capacità può tradursi in una dipendenza crescente dalla tecnologia, con la tendenza ad affidarsi all’IA in maniera eccessiva. Secondo la teoria della technological dependency, l’uso frequente dell’IA può innescare un ciclo ricorrente: dall’aumento iniziale della fiducia e dell’efficienza si passa a un rafforzamento della self-efficacy, che a sua volta alimenta la percezione dell’IA come strumento indispensabile, fino a sfociare in forme di dipendenza. In questo senso, i meccanismi che potenziano motivazione ed efficienza rischiano, nel lungo periodo, di ridurre l’autonomia critica e creativa, rendendo i LLM percepiti come necessari per tali processi.\\
+I dati relativi agli studenti universitari \textbf{[F-05]} confermano questa dinamica: molti percepiscono l’IA come strumento che rende il lavoro più efficiente e gestibile, ma allo stesso tempo mostrano livelli moderati di dipendenza, con la tendenza a ricorrere regolarmente a questi strumenti anche quando non strettamente necessario. La ricerca \textbf{[F-07]} ha messo in luce il ruolo cruciale dello stress accademico e delle aspettative di performance. Da un lato, un’elevata self-efficacy contribuisce a ridurre lo stress e a migliorare i risultati; dall’altro, l’uso frequente dei LLM rischia di rafforzare forme di dipendenza, anche negli studenti che già possiedono un buon livello di fiducia nelle proprie capacità. La ricerca \textbf{[F-05]} ha identificato tre meccanismi principali che alimentano questa dinamica: il \textit{feedback immediato}, che accresce la fiducia ma abitua a ricorrere costantemente all’IA, indebolendo l’iniziativa autonoma; il \textit{cognitive offloading}, cioè la delega eccessiva di compiti al modello, che può facilitare il ragionamento complesso ma al tempo stesso erodere le abilità di base e le strategie cognitive personali; e infine l’\textit{affidabilità percepita}, ovvero la convinzione nella precisione del modello, che può ridurre la propensione alla verifica critica delle risposte. \\
+Gli effetti negativi emergono in modo tangibile in diversi contesti. La ricerca \textbf{[GL-09]}, basata su un esperimento che ha coinvolto gruppi di studenti incaricati di redigere elaborati, alcuni con il supporto degli LLM e altri senza, ha mostrato risultati significativi: mentre gli utilizzatori di LLM hanno prodotto testi più scorrevoli ma con minore sforzo critico e un ridotto senso di proprietà, i gruppi senza IA hanno riportato livelli più elevati di soddisfazione e attivazione cognitiva. A questi dati si affiancano le osservazioni di \textbf{[GL-04]}, secondo cui l’uso quotidiano degli LLM ha progressivamente normalizzato il ricorso a scorciatoie, generando una dipendenza culturale che riduce responsabilità e motivazione a cercare soluzioni originali e coerenti con la propria prospettiva, mentre i tentativi scolastici di contenerne l’uso si rivelano spesso poco efficaci.
+Alla luce di queste criticità, la letteratura propone alcune strategie di mitigazione capaci di bilanciare i benefici degli LLM con la necessità di preservare l’autonomia cognitiva degli studenti. Un approccio efficace è rappresentato dall’uso scaffolded dell’IA, cioè introdotta solo dopo che le basi dell’apprendimento sono state consolidate, con un supporto graduale e mirato a rafforzare competenze già acquisite, piuttosto che a sostituirle \textbf{[GL-02]}. Questa modalità consente di valorizzare l’innovazione didattica mantenendo attivo il ruolo dello studente. In parallelo, la ricerca sottolinea l’importanza di monitorare costantemente indicatori di benessere, come la self-efficacy e i livelli di stress, e di progettare attività che stimolino spiegazione, confronto critico delle fonti, riflessione metacognitiva e creatività. In questo modo è possibile mantenere elevato il carico pertinente, necessario per un apprendimento profondo, e al tempo stesso limitare le forme di cognitive offloading non produttivo che rischiano di alimentare dipendenza e disimpegno \textbf{[GL-06]; [F-05]; [F-07]}.\\
+Le fonti delineano quindi un quadro complesso e condizionato: da un lato, l’impiego dei LLM rafforza motivazione, engagement e self-efficacy, risultando apprezzato dagli studenti per la capacità di rendere l’apprendimento più stimolante e personalizzato; dall’altro, un uso passivo, eccessivo o privo di guida rischia di favorire dipendenza e di ridurre l’autonomia critica e creativa. La chiave interpretativa, emersa in più contributi, risiede nel design pedagogico e nella guida insostituibile del docente. L’integrazione dei LLM deve essere orientata a un modello di augmentation piuttosto che di sostituzione: strumenti capaci di ampliare e arricchire l’esperienza educativa, ma inseriti all’interno di pratiche strutturate che mantengano vivo il controllo critico, la creatività e il senso di proprietà del lavoro svolto \textbf{[GL-02]}.
+
+\section{Conclusioni}
+
+L’analisi condotta sulle due Research Question ha messo in evidenza come l’introduzione dei Large Language Models nei contesti educativi rappresenti una trasformazione significativa, ma al tempo stesso complessa. Da un lato, le evidenze relative alla RQ1 mostrano che i LLM hanno già iniziato a modificare le pratiche di insegnamento e apprendimento: supportano i docenti nella progettazione di lezioni, favoriscono la personalizzazione dei percorsi formativi e stimolano nuove metodologie didattiche come il blended learning, il peer learning o gli intelligent tutoring systems.Nonostante questi progressi, il quadro complessivo appare ancora frammentato: mancano linee guida condivise, permangono divari di adozione tra studenti e docenti, e l’assimilazione istituzionale procede con lentezza. Per questo motivo, emerge la necessità di un lavoro più sistematico, orientato alla regolamentazione, alla formazione e alla costruzione di un approccio comune.\\
+Sul fronte della RQ2, il quadro che emerge è ambivalente. Da un lato, i LLM offrono un potenziale tangibile nel rafforzare motivazione, engagement e self-efficacy, con effetti positivi anche sulle performance accademiche. Dall’altro, gli studi mettono in guardia dai rischi connessi a un uso non critico: riduzione della profondità cognitiva, indebolimento dell’autonomia critica e creativa, fino a forme di dipendenza tecnologica e culturale. La letteratura converge dunque su un punto essenziale: l’integrazione dei LLM deve essere guidata da un utilizzo consapevole e progressivo, in cui il ruolo del docente rimane imprescindibile per bilanciare benefici e rischi, orientando gli studenti verso pratiche che stimolino pensiero critico, creatività e senso di responsabilità nel processo di apprendimento.\\
+Nel complesso, le ricerche disponibili offrono risultati incoraggianti ma parziali. La maggior parte degli studi si concentra su periodi di breve durata e contesti circoscritti, mentre rimane aperta la questione cruciale degli effetti a lungo termine. È infatti necessario comprendere se i benefici in termini di motivazione e performance si mantengano stabili nel tempo, e se i rischi legati a dipendenza e riduzione dell’autonomia possano amplificarsi o, al contrario, ridursi con un uso maturo e regolamentato. Per questi motivi, le prospettive future dovranno orientarsi verso ricerche longitudinali, capaci di monitorare l’impatto dei LLM su periodi estesi di apprendimento, includendo variabili legate non solo alle performance scolastiche, ma anche allo sviluppo critico, creativo ed etico degli studenti. Solo così sarà possibile delineare un quadro più completo e stabile, in grado di guidare scelte pedagogiche e istituzionali realmente consapevoli.
+\newpage
+
+\begin{thebibliography}{99}
+	
+	% --- Formal Literature ---
+	
+	\bibitem[F-01]{F-01}
+	\textit{Does ChatGPT enhance student learning? A systematic review and meta-analysis of experimental studies}. Elsevier,2024, https://www.sciencedirect.com/science/article/pii/S0360131524002380.
+	
+	\bibitem[F-02]{F-02}
+    \textit{Empowering teachers' professional development with LLMs: An empirical study of developing teachers' competency for instructional design in blended learning}. Elsevier, 2025, https://www.sciencedirect.com/science/article/pii/S0360131524002380.
+	
+	\bibitem[F-03]{F-03}
+	\textit{Cognitive ease at a cost: LLMs reduce mental effort but compromise depth in student scientific inquiry}. Elsevier, 2024, https://www.sciencedirect.com/science/article/pii/S0747563224002541.
+	
+	\bibitem[F-04]{F-04}
+	\textit{How ChatGPT impacts student engagement from a systematic review and meta-analysis study}. Elsevier,2025, https://www.sciencedirect.com/science/article/pii/S2666920X25000013.
+	
+	\bibitem[F-05]{F-05}
+	\textit{The paradox of self-efficacy and technological dependence: Unraveling generative AI's impact on university students' task completion}. Elsevier, 2024, https://www.sciencedirect.com/science/article/abs/pii/S109675162400040X.
+	
+	\bibitem[F-06]{F-06}
+	\textit{Investigating the Effectiveness of ChatGPT for Providing Personalized Learning Experience: A Case Study}. The Science and Information Organization, 2023, http://dx.doi.org/10.14569/IJACSA.2023.01411122.
+	
+	\bibitem[F-07]{F-07}
+	\textit{The mediating role of academic stress, critical thinking and performance expectations in the influence of academic self-efficacy on AI dependence: Case study in college students}.Elsevier, 2025, https://www.sciencedirect.com/science/article/pii/S2666920X25000219.
+	
+	\bibitem[F-08]{F-08}
+	\textit{“I just think it is the way of the future”: Teachers' use of ChatGPT to develop motivationally-supportive math lessons}. Elsevier, 2025, https://www.sciencedirect.com/science/article/pii/S2666920X25000074.
+	
+	\bibitem[F-09]{F-09}
+	\textit{"AI-Powered Learning Pathways: Personalized Learning and Dynamic Assessments"}. The Science and Information Organization, 2025, http://dx.doi.org/10.14569/IJACSA.2025.0160145.
+	
+	\bibitem[F-10]{F-10}
+	\textit{Exploring the potential of LLM to enhance teaching plans through teaching simulation}. Nature,2025, https://www.nature.com/articles/s41539-025-00300-x.
+	
+	
+	% --- Grey Literature ---
+	
+	\bibitem[GL-01]{GL-01}
+	\textit{Generative artificial intelligence (AI) in education}. UK Government, 2025. https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education/generative-artificial-intelligence-ai-in-education?utm-source=chatgpt.com.
+	
+	\bibitem[GL-02]{GL-02}
+	\textit{MIT faculty, instructors, students experiment with generative AI in teaching and learning}. MIT, 2024. https://news.mit.edu/2024/mit-faculty-instructors-students-experiment-generative-ai-teaching-learning-0429.
+	
+	\bibitem[GL-03]{GL-03}
+	\textit{180 Degree Turn: NYC District Goes From Banning ChatGPT to Exploring AI’s Potential}. Education Week, 2023. https://www.edweek.org/technology/180-degree-turn-nyc-schools-goes-from-banning-chatgpt-to-exploring-ais-potential/2023/10?utm-source=chatgpt.com.
+	
+	\bibitem[GL-04]{GL-04}
+	\textit{I’m a High Schooler. AI Is Demolishing My Education.}. The Atlantic, 2025. https://www.theatlantic.com/technology/archive/2025/09/high-school-student-ai-education/684088/.
+	
+	\bibitem[GL-05]{GL-05}
+	\textit{LLMs have not yet solved the hardest problems on high school math contests}. Epoch.ai, 2025. https://epoch.ai/data-insights/math-competitions.
+	
+	\bibitem[GL-06]{GL-06}
+	\textit{Anthropic Education Report: How educators use Claude}. Anthropic, 2025. https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude.
+	
+	\bibitem[GL-07]{GL-07}
+	\textit{Introducing study mode}. OpenAI, 2025.https://openai.com/index/chatgpt-study-mode/.
+	
+	\bibitem[GL-08]{GL-08}
+	\textit{ChatGPT and artificial intelligence in higher education: quick start guide}. Unesco, 2023. https://unesdoc.unesco.org/ark:/48223/pf0000385146.
+	
+	\bibitem[GL-09]{GL-09}
+	\textit{Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task}. Cornell University, 2025, https://arxiv.org/abs/2506.08872.
+	
+	\bibitem[GL-10]{GL-10}
+	\textit{Beyond Answers: How LLMs Can Pursue Strategic Thinking in Education}. Cornell University, 2025, https://arxiv.org/abs/2506.08872.
+	
+\end{thebibliography}
+
+
+			
+\end{document}
