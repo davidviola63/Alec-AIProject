@@ -1,13 +1,10 @@
 
----
-
-```markdown
 # 🤖 ALEC — AI Learning for Education and Cooperation
 
 **ALEC** è un prototipo di *peer-learning tutor* basato su tecniche di **Retrieval-Augmented Generation (RAG)** e integrato con il modello **Gemini Flash 2.5**.  
-Il progetto è stato realizzato come MVP per il corso universitario di *Fondamenti di Intelligenza Artificiale*, con l’obiettivo di verificare la fattibilità di un sistema di tutoring intelligente, trasparente e multi-utente per l'attività di peer-learning.
+Il progetto è stato realizzato come MVP per il corso universitario di *Fondamenti di Intelligenza Artificiale*, con l’obiettivo di verificare la fattibilità di un sistema di tutoring intelligente, trasparente e multi-utente per l'attività di peer-learning. L'intero processo di sviluppo è documentato nel documento CRISP-DM presente nella cartella "CRISP-DM Document". Il progetto nasce dall'idea di offrire uno strumento efficace alla didattica dopo aver steso la Multivocal Literature Review incentrata sull'impatto educativo dei LLM, anch'essa presente nella cartella "Ricerca - MLR sull'impatto educativo del LLM".
 
----
+
 ## ⚙️ Installazione e configurazione del MVP
 
 ### 1. Clonare il repository
@@ -46,7 +43,6 @@ Per ottenere la chiave:
 * accedi con un account Google
 * copia la chiave API e incollala nel file `.env`
 
----
 
 ## 🚀 Avvio del chatbot
 
@@ -65,7 +61,7 @@ In alternativa, puoi avviare manualmente il server FastAPI:
 uvicorn src.chatbot.start_alec:app --host 0.0.0.0 --port 8080 --reload
 ```
 
----
+
 
 ## 🌐 Accesso dal browser
 
@@ -82,7 +78,6 @@ Da lì puoi interagire con il tutor utilizzando anche i comandi principali:
 * `/stats` → Visualizza le statistiche personali e di sessione
 * `/exit` → Chiude la sessione e genera il report finale (non reversibile)
 
----
 
 ## 📊 Stato del progetto
 
@@ -92,13 +87,10 @@ Da lì puoi interagire con il tutor utilizzando anche i comandi principali:
 * **Frontend:** HTML/CSS/JS minimale
 * **Obiettivo:** Validare la fattibilità di implementare un tutor intelligente in una sessione di peer-learning offrendo uno stimolo didattico e personalizzato all'utente. Verificare la possibilità di implementare un modello che possa generare risposte mediante tecnologia RAG.
 
----
-
 ## 🧠 Autore
 
 **Davide Viola**
 Progetto sviluppato per il tirocinio universitario in Informatica — *Fondamenti di Intelligenza Artificiale*
 Università degli Studi di Salerno
 
----
 
