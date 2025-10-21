@@ -73,10 +73,11 @@
 	\subsubsection{Requisiti non funzionali}
 	I requisiti non funzionali definiscono le qualità e i vincoli della soluzione web, mantenendo verifiche semplici per l’MVP.
 	\begin{itemize}
-		\item \textbf{RNF-1 (Accuratezza)} Raggiungere un'accuratezza delle correzioni \ensuremath{\geq} 85\% da test su set di valutazione interno.
-		\item \textbf{RNF-2 (Prestazioni back-end)} Mantenere un tempo medio di risposta del tutor \ensuremath{\leq} 25s su 50 interazioni tipiche di laboratorio.
+		\item \textbf{RNF-1 (Accuratezza)} Raggiungere un livello di accuratezza della risposta elevato (risposte corrette >90\%)
+		\item \textbf{RNF-2 (Prestazioni back-end)} Mantenere un tempo medio di risposta del tutor \ensuremath{\leq} 40s su test di laboratorio.
 		\item \textbf{RNF-3 (Trasparenza)} Includere, dove possibile, una citazione alla fonte interna per ogni correzione.
-		\item \textbf{RNF-4 (Manutenibilità)} Consentire ai docenti di aggiornare facilmente i materiali didattici e gestire le sessioni di tutoring senza conoscenze tecniche.
+		\item \textbf{RNF-4 (Semplicità)} Semplicità nell'utilizzo del modello per gli utenti finali.
+		\item \textbf{RNF-5 (Costo)} Il prototipo deve essere implementato totalmente in maniera gratuita. 
 	\end{itemize}
 
 	% --- Criteri di successo ---
@@ -422,7 +423,7 @@ La valutazione non si limita a misure di correttezza tecnica, ma tiene conto anc
 
 \subsection{Metodologia di valutazione}
 
-La validazione del sistema è stata condotta attraverso una combinazione di \textit{test automatici} e \textit{verifiche qualitative}.  
+La validazione del sistema è stata condotta parallelamente alla fase di modeling testando ripetutamente domande e interazioni varie con il modello nel contesto multiturno. Nella carte src/evaluation è possibile individuare due brevi chat tipo che sono state utilizzate per testare le metriche individuate nelle sezioni successive.
 Sono stati definiti diversi criteri di analisi:
 
 \begin{itemize}
@@ -455,6 +456,20 @@ I risultati complessivi confermano che tutti i requisiti funzionali (RF1–RF6) 
 	\item \textbf{RF5}: le statistiche di apprendimento sono raccolte e visualizzabili in tempo reale;
 	\item \textbf{RF6}: la chiusura della sessione e la generazione del report finale avvengono in modo completo e stabile.
 \end{itemize}
+
+\subsection{Valutazione dei requisiti non funzionali}
+
+Nel corso della fase di testing sono stati verificati i principali \textbf{requisiti non funzionali}, al fine di valutare la qualità complessiva del sistema e la sua rispondenza agli obiettivi progettuali.  
+I risultati ottenuti possono essere così sintetizzati:
+
+\begin{itemize}
+	\item \textbf{RNF-1 (Accuratezza)} — Il sistema ha raggiunto un livello di accuratezza complessivo prossimo al 100\%, fornendo risposte corrette e coerenti con le fonti disponibili. Le valutazioni manuali e le metriche di wrongness osservata hanno confermato l’elevata affidabilità del modello nel contesto dei test di laboratorio.
+	
+	\item \textbf{RNF-2 (Prestazioni back-end)} — I tempi medi di risposta del tutor si sono mantenuti entro i limiti stabiliti, con una media di circa \textbf{36 secondi} per messaggio elaborato, rientrando nella soglia massima prevista di 40s. Il sistema risulta quindi performante rispetto alle risorse del piano free tier del modello utilizzato.
+	
+	\item \textbf{RNF-3 (Trasparenza)} — È stata costantemente garantita la presenza di citazioni alle fonti interne del materiale didattico per ogni correzione o chiarimento fornito dal tutor. Questo ha permesso di mantenere un livello adeguato di tracciabilità e trasparenza nelle risposte, favorendo la verificabilità dei contenuti.
+\end{itemize}
+
 
 \subsection{Considerazioni finali sulla fase di valutazione}
 

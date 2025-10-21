@@ -1,0 +1,48 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Protocollo MLR}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Scopo e confini (PICOC)}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Team e Ruoli }{3}{}%
+\contentsline {subsection}{\numberline {1.3}Governance e strumenti}{4}{}%
+\contentsline {paragraph}{Struttura di base.}{4}{}%
+\contentsline {paragraph}{Codifica delle fonti.}{4}{}%
+\contentsline {paragraph}{Strumenti.}{4}{}%
+\contentsline {paragraph}{Tracciabilità.}{4}{}%
+\contentsline {section}{\numberline {2}Pianificazione della MLR}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Stabilire il bisogno di una MLR}{4}{}%
+\contentsline {subsection}{\numberline {2.2} Definizione degli obiettivi e delle Research Questions}{4}{}%
+\contentsline {paragraph}{Obiettivo generale.}{4}{}%
+\contentsline {paragraph}{Domande di ricerca (RQ).}{5}{}%
+\contentsline {subsection}{\numberline {2.3} Schema Goal–Question–Metric (GQM)}{5}{}%
+\contentsline {section}{\numberline {3}Ricerca delle fonti}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Letteratura scientifica formale}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Grey Literature}{6}{}%
+\contentsline {section}{\numberline {4}Selezione delle fonti}{7}{}%
+\contentsline {subsection}{\numberline {4.1}Criteri di inclusione}{7}{}%
+\contentsline {subsection}{\numberline {4.2}Criteri di esclusione}{7}{}%
+\contentsline {subsection}{\numberline {4.3}Procedura di selezione delle fonti}{8}{}%
+\contentsline {section}{\numberline {5}Valutazione della qualità delle fonti}{8}{}%
+\contentsline {subsection}{\numberline {5.1}Criteri di valutazione per la letteratura scientifica formale}{8}{}%
+\contentsline {subsection}{\numberline {5.2}Criteri di valutazione per la Grey Literature}{9}{}%
+\contentsline {subsection}{\numberline {5.3}Sistema di valutazione}{9}{}%
+\contentsline {subsection}{\numberline {5.4}Esempi applicativi di valutazione}{9}{}%
+\contentsline {subsubsection}{\numberline {5.4.1}Formal Literature}{9}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}Grey Literature}{10}{}%
+\contentsline {section}{\numberline {6}Estrazione dei dati}{10}{}%
+\contentsline {subsection}{\numberline {6.1}Struttura e procedura di estrazione}{10}{}%
+\contentsline {subsection}{\numberline {6.2}Creazione delle tabelle di sintesi}{11}{}%
+\contentsline {section}{\numberline {7}Analisi ed elaborazione delle evidenze}{11}{}%
+\contentsline {subsection}{\numberline {7.1}Definizione e caratteristiche dei Large Language Models}{12}{}%
+\contentsline {subsection}{\numberline {7.2}Introduzione alle Research Question}{12}{}%
+\contentsline {subsection}{\numberline {7.3}Analisi della RQ1}{13}{}%
+\contentsline {subsubsection}{\numberline {7.3.1}{Attualità dell'integrazione dei LLM}}{13}{}%
+\contentsline {subsubsection}{\numberline {7.3.2}Blended Learning}{14}{}%
+\contentsline {subsubsection}{\numberline {7.3.3}Peer Learning}{15}{}%
+\contentsline {subsubsection}{\numberline {7.3.4}Modello delle 5Es}{15}{}%
+\contentsline {subsubsection}{\numberline {7.3.5}Adaptive Learning, Big Data e Intelligenza Emotiva}{16}{}%
+\contentsline {subsubsection}{\numberline {7.3.6}Intelligent Tutoring Systems (ITS)}{16}{}%
+\contentsline {subsubsection}{\numberline {7.3.7}Strategie istituzionali per l’integrazione dei LLM}{17}{}%
+\contentsline {subsection}{\numberline {7.4}Analisi della RQ2}{18}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}Effetti sulle performance accademiche e sul pensiero critico e creativo}{18}{}%
+\contentsline {subsubsection}{\numberline {7.4.2}Correlazione tra motivazione,self-efficacy e dipendenza cognitiva}{19}{}%
+\contentsline {section}{\numberline {8}Conclusioni}{21}{}%
